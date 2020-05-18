@@ -1,0 +1,31 @@
+{"resources": 
+    [
+        [
+            {"id": "default", "name": "default", "units": "kg", "desc": ""},
+            {"id": "time", "name": "Time", "units": "seconds", "desc": "Time"},
+            {"id": "tiberium", "name": "Tiberium"},
+            {"id": "blue_tiberium", "name": "Blue Tiberium", "category": "tiberium"},
+            {"id": "green_tiberium", "name": "Green Tiberium", "category": "tiberium"},
+            {"id": "red_tiberium", "name": "Red Tiberium", "category": "tiberium"},
+            {"id": "white_tiberium", "name": "White Tiberium", "category": "tiberium"},
+            {"id": "golden_tiberium", "name": "Golden Tiberium", "category": "tiberium"},
+            {"id": "money", "name": "Credits", "units": "Cr", "desc":"Standard Futuristic Unit of Money"}
+        ],[
+            {"id": "heat", "name": "Heat", "tags": "agriculture, environmental", "units":"W"},
+            {"id": "clear_water", "name": "Water", "units": "L", "desc": "Potable Water"},
+            {"id": "biowaste", "name": "Biowaste", "units": "L"},
+            {"id": "methane", "name":"Methane"},
+            {"id": "food", "name": "Food", "desc":"Basic, Generic Food", "chains": ["food"]},
+            {"id": "spare_parts", "name": "Spare Parts", "tags": "maintenance, item"}
+        ],[
+            {"id": "ferrite", "name":"Ferrite Ore", "chains": ["Steel"]},
+            {"id": "iron_ingot", "name":"Iron Ingots", "chains": ["Steel"]},
+            {"id": "steel_ingot", "name":"Steel Ingots", "chains": ["Steel"]},
+            {"id": "timber", "name":"Timber", "chains":["timber"] },
+            {"id": "tools", "name":"Power Tools", "desc": "Handheld Power Tools: required for all basic construction"},
+            {"id": "biomass", "name":"Biomass"}
+        ]
+    ]
+}
+
+

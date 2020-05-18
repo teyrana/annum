@@ -1,0 +1,15 @@
+"processes": [
+    // Tier 0 resources: Producable and consumable without any technology
+    {"id":"prc_power_solar", "name":"Generate Power (Solar)", "descr":"",},
+
+    // Tech_Tier_1
+    {"id": "rsc_elec", "name": "Electricity", "tags": " tech1, industrial"},
+    {"id": "rsc_t1_spare_parts", "name": "Spare Parts", "tags": " tech1, maintenance, item",
+    {"id": "rsc_combustion_exhaust", "name": "smoke", "tags": " tech1, waste, gas",},
+
+
+    // Other processes:
+    Processing seawater into trace elements: salts, trace metals, basically everything
+    
+
+
