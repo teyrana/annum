@@ -1,0 +1,413 @@
+<!-- ====== ====== ====== ====== Tier 1 Buildings ====== ====== ====== ====== -->
+<!--    Note: storage defaults to 100 * possible production wherever a structure/unit actually produces anything        -->
+<module id="template_module" name="Template Module" vol=1000 descr="template entry, to define default values">
+	<!-- Note: size=vol in cubic meters. 0 means variable size -->
+	<tags="template"/>
+	<price>
+		<input="time"   qty=60 />
+		<input="energy" qty=250 />
+		<input="metal"  qty=50 />
+	</price>
+</module>
+
+
+<module id="" name="" size=2000 descr="" >
+</module>
+<module id="" name="" size=2000 descr="" >
+</module>
+<module id="" name="" size=2000 descr="" >
+</module>
+<module id="" name="" size=2000 descr="" >
+</module>
+<module id="" name="" size=2000 descr="" >
+</module>
+<module id="" name="" size=2000 descr="" >
+</module>
+<module id="" name="" size=2000 descr="" >
+</module>
+<module id="" name="" size=2000 descr="" >
+</module>
+<module id="" name="" size=2000 descr="" >
+</module>
+<module id="" name="" size=2000 descr="" >
+</module>
+<module id="" name="" size=2000 descr="" >
+</module>
+
+<module id="t0_empty_storage" name="Empty Storage" size=0 descr="empty Space, suitable for storing hardy items" >
+	<tags="tech0"/>
+	<price>
+		<input="time"   qty=0 />
+	</price>
+</module>
+
+<!-- ====== ====== ====== ====== Tier 1 Buildings ====== ====== ====== ====== -->
+				
+<module tier=1 id="worker_dorm_sm_t1" name="Makeshift Housing" hp=1000 armor=0.2>
+	<production="t1_chain_population"/>
+</module>
+
+<module id="t1_ice_melter" name="Volatiles Furnace" size=2000 descr="Furnace to convert frozen ices into useful gasses" >
+	<tags="tech1, raw_materials"/>
+	<production="volatiles"/>
+</module>
+
+<module tier=1 id="exped_fab_shop_t1" hp=1000 armor=0.2>
+	<production="basic_tools"/>
+</module>
+
+<module tier=1 id="exped_food_factory_t1" hp=1000 armor=0.2>
+	<production="algae_factory"/>
+</module>
+			
+<module id="t1_chemical_reactor" name="Crude Chemical Reactor"  size=2000 descr="Generic Chemical Production" >
+	<tags="tech1, industrial"/>
+	<production="category:chemicals"/>
+</module>
+		
+<module id="t1_o2_generator" name="O2 Generator" size=2000 descr="" >
+</module>
+<module id="t1_co2_scrubber" name="CO2 Scrubber" size=2000 descr="" >
+</module>
+		
+<!-- ====== ====== ====== ====== Tier 2 Buildings ====== ====== ====== ====== -->
+<module id="t2_cheap_apartments" name="Cheap Apartments" size=2000 descr="" >
+</module>
+<module id="t2_rough_dormitory" name="Rough Dormitory" size=2000 descr="" >
+</module>
+
+<module id="t2_engine_workshop" name="Engine Workshop" size=2000 descr="working with internal combustion engines" >
+	<tags="tech2, manufacture"/>
+	<production="piston_engine"/>
+</module>
+
+<module id="t3_turbine_workshop" name="Turbine Workshop" size=2000 descr="Manufactures Turbines, Jets" >
+	<tags="tech3, manufacture"/>
+	<production="turbine, jet_engine"/>
+</module>
+
+<module id="t3_battery_workshop" name="Battery Cell Workshop" size=2000 descr="manufacture reactors, batteries, and feul cells" >
+	<tags="tech3, manufacture"/>
+	<production="batteries, reactors, feul_cells"/>
+</module>
+
+<module id="t2_welding_shop" name="Welding Shop" size=2000 descr="enables ground vehicle chassis manufacture" >
+	<tags="tech2, manufacture"/>
+	<production="ground_vehicle_chassis"/>
+</module>
+
+<module id="t2_forging_press" name="Forging Press" size=2000 descr="chassis prereq" >
+	<tags="tech2, manufacture"/>
+	<production="ground_vehicle_chassis"/>
+</module>
+
+<module id="t3_precision_frame_press" name="Precision Frame Press" size=2000 descr="?" >
+	<production="?"/>
+</module>
+
+<module id="t4_kiln" name="Composites Kiln" size=2000 descr="Composites Manufacture" >
+	<production="category:composites"/>
+</module>
+
+<module id="t2_assembly_garage" name="Assembly Garage" size=2000 descr="for ground vehicle assembly" >
+	<production=""/>
+</module>
+<module id="t3_assembly_dock" name="Assembly Dock" size=2000 descr="boat construction" >
+	<production=""/>
+</module>
+
+<module id="t3_assembly_bay" name="Assembly Bay" size=2000 descr="assembly of air, ground, space vehicles" >
+	<production=""/>
+</module>
+
+<module id="t1_agriculture_lab" name="Agriculture Lab" size=2000 descr="" >
+</module>
+<module id="t2_comp_lab" name="Computation Lab" size=2000 descr="" >
+</module>
+<module id="t3_proto_lab" name="Rapid Prototyping Lab" size=2000 descr="" >
+</module>
+<module id="t2_chemistry_lab" name="Chemistry Lab" size=2000 descr="" >
+</module>
+<module id="t2_metal_lab" name="Metals Lab" size=2000 descr="" >
+</module>
+<module id="t2_ceramic_lab" name="Ceramics Lab" size=2000 descr="" >
+</module>
+<module id="t2_polymer_lab" name="Polymer Lab" size=2000 descr="" >
+</module>
+<module id="t3_optics_lab" name="Optics Lab" size=2000 descr="" >
+</module>
+<module id="t3_elec_lab" name="Electronics Lab" size=2000 descr="" >
+</module>
+<module id="t4_spin_lab" name="Spintronics Lab" size=2000 descr="" >
+</module>
+<module id="t4_quantum_lab" name="Quantum Materials Lab" size=2000 descr="aka Nanomaterials: CNTS, MEMS, quantum dots" >
+</module>
+<module id="t4_genetic_lab" name="Genetics Lab" size=2000 descr="" >
+</module>
+<module id="t4_medical_lab" name="Medical Lab" size=2000 descr="" >
+</module>
+<module id="t3_physics_lab" name="High-Energy Physics Lab" size=2000 descr="" >
+</module>
+<module id="t2_combustion_lab" name="Combustion Lab" size=2000 descr="engine, turbine, jet, explosives research" >
+</module>
+<module id="t3_magnet_lab" name="Magnetics Lab" size=2000 descr="" >
+	<production=""/>
+</module>
+
+<!-- ====== ====== ====== ====== Tier 3 Buildings ====== ====== ====== ====== -->
+<module id="t3_medium_apartments" name="" size=2000 descr="" >
+</module>
+<module id="t4_penthouse" name="Penthouse" size=2000 descr="" >
+</module>
+
+<module id="t1_emergency_clinic" name="Emergency Clinic" size=2000 descr="" >
+</module>
+<module id="t3_autoclinic" name="Autoclinic" size=2000 descr="" >
+</module>
+<module id="t2_Hospital" name="Hospital" size=2000 descr="also includes research, higher capacity, higher quality" >
+</module>
+<module id="t1_cantina" name="Cantina" size=2000 descr="" >
+</module>
+
+<module id="t2_cafeteria" name="Cafeteria" size=2000 descr="" >
+</module>
+<module id="t2_shopping_mall" name="" size=2000 descr="" >
+</module>
+<module id="t2_entertainment_district" name="Entertainment District" size=2000 descr="" >
+</module>
+<module id="t2_red_light_district" name="Red Light District" size=2000 descr="" >
+</module>
+<module id="t2_restaurants" name="Restaurant Neighborhood" size=2000 descr="" >
+</module>
+<module id="t2_athletic" name="Athletic Facility" size=2000 descr="" >
+</module>
+<module id="t2_recr_drug_clinic" name="Recreational Drug Clinic" size=2000 descr="" >
+</module>
+
+<module id="t1_basic_farm" name="Simple Farm" size=2000 descr="" >
+</module>
+<module id="t2_hydroponic_farm" name="Hydroponic Farm" size=2000 descr="" >
+	<requires="air, gravity, light">
+</module>
+<module id="t2_hydro_farm" name="Aquatic Farm" size=2000 descr="" >
+</module>
+<module id="t3_ensemble_farm" name="Ensemble Farm" size=2000 descr="" >
+</module>
+
+<module id="t1_hydrocarbon_turbine" name="Feul Combustion Turbine" size=2000 descr="" >
+	<requires="air" />
+	<production="biomass_power_combustion"/>
+	<production="timber_power_combustion"/>
+	<production="coal_power_combustion"/>
+	<price>
+		<input="time" qty=10 />
+		<input="energy" qty=250 />
+		<input="metal"  qty=50 />
+	</price>
+</module>
+
+<module id="t1_solar_power_1MW" name="Solar Power Installation" size=2000 descr="" >
+	<requires="light" />
+	<production="solar_power_gen_1MW"/>
+	<price>
+		<input="time" qty=60 />
+		<input="energy" qty=250 />
+		<input="metal"  qty=50 />
+	</price>
+</module>
+
+<module id="t1_wind_turbine_1MW" name="Wind Turbine" size=2000 descr="" >
+	<requires="air" />
+	<production=""/>
+</module>
+
+<module  id="t1_water_turbine_small" name="Water Turbine" size=2000 descr="" >
+	<requires="water"/>
+	<production="water_power_generation_small"/>
+</module>
+
+<module id="t3_fission_power_plant" name="Thorium Power Plant" size=2000 descr="" >
+	<production="fission_power_gen"/>
+</module>
+
+<module id="t4_fusion_power_plant" name="Fusion Power Plant" size=8000 descr="" >
+	<production="fusion_power_gen"/>
+</module>
+
+<module id="t1_battery" name="Battery Bank Storage" size=2000 descr="" >
+</module>
+<module id="t2_battery" name="Flywheel Energy Storage" size=2000 descr="" >
+</module>
+<module id="t3_battery" name="Nanowire Energy Storage" size=2000 descr="" >
+</module>
+<module id="t4_battery" name="Singularity Power Storage" size=2000 descr="" >
+</module>
+
+<module id="t2_uhf_comm_relay" name="UHF Communications Relay" size=2000 descr="" >
+</module>
+<module id="t2_ka_com_relay" name="K-Band Communications Relay" size=2000 descr="" >
+</module>
+<module id="t3_laser_comm_relay" name="Laser Communications Relay" size=2000 descr="" >
+</module>
+
+
+
+<module id="t3_small_radar_array" name="Tactical Radar" size=2000 descr="" >
+</module>
+<module id="t3_large_radar_array" name="Strategic Radar" size=2000 descr="" >
+</module>
+<module id="t4_optical_tracker" name="Optical Tracking Sensor" size=2000 descr="" >
+</module>
+
+<module id="t1_freight_loader" name="Freight Loader" size=2000 descr="" >
+</module>
+<module id="t2_autoloader" name="Automatic Container Loader" size=2000 descr="" >
+</module>
+
+<module id="t1_drill_cart" name="Drill Cart" size=2000 descr="mining equipment." >
+	<tags="tech1, raw_materials, mining"/>
+	<production="category:mining"/>
+</module>
+
+<module id="t1_boreworm" name="Mining Bore Worm" size=2000 descr="automated mining equipment." >
+	<tags="tech1, raw_materials, mining"/>
+	<production="category:mining"/>
+</module>
+
+<module id="t1_rock_crusher" name="Rock Crusher"  size=2000 descr="" >
+	<tags="tech1, raw_materials"/>
+	<production="category:ore"/>
+</module>
+
+<module id="t2_vacuum_smelter" name="Vacuum Smelter" size=2000 descr="Modern, Robust metel smelter" >
+	<tags="tech1, industrial"/>
+	<production="category:metal_smelter"/>
+</module>
+
+<module id="t3oxygen_smelter" name="Oxygen Smelter" size=2000 descr="More efficient metal smelter">
+	<tags="tech3, industrial"/>
+	<production="category:metal_smelting"/>
+</module>
+
+<module id="t4_vortex_smelter" name="Vortex Smelter"  size=2000 descr="Advanced Metal Smelter" >
+	<tags="tech4, industrial"/>
+	<production="category:metal_smelting"/>
+</module>
+
+<module id="t4_alloy_furnace" name="Alloy Furnace"  size=2000 descr="Alloy Metal Smelter" >
+	<tags="tech4, industrial"/>
+	<production="category:metal_smelting"/>
+</module>
+
+<module id="t3_chemical_reactor" name="Precision Rock Crusher" size=2000 descr="" >
+	<tags="tech1, industrial"/>
+	<production="category:chemicals,precision_chemicals"/>
+</module>
+
+<module id="t2_density_refiner" name="Density Refiner" size=2000 descr="" >
+	<tags="tech1, industrial"/>
+	<production="category:?"/>
+</module>
+
+<module id="t2_recycle_smelter" name="Electric Arc Furnace" size=2000 descr="" >
+	<tags="tech1, industrial"/>
+	<production="category:metal_recycle"/>
+</module>
+
+<module id="t2_continuous_caster" name="Continuous Caster" size=2000 descr="produce metal items (ingot)" >
+	<tags="tech2, industrial"/>
+	<production="category:metal_ingot"/>
+</module>
+
+<module id="t2_rolling_forge" name="Rolling Forge" size=2000 descr="produce metal items (plates/pipes/beams)" >
+	<tags="tech2, industrial"/>
+	<production="category:metal_ingot"/>
+</module>
+
+<module id="t2_continuous_caster" name="Continuous Caster" size=2000 descr="" >
+	<tags="tech2, industrial"/>
+	<production="category:metal_ingot"/>
+</module>
+
+<module id="t1_tool_shop" name="Tool Stamping Shop" size=2000 descr="Tool Manufacture" >
+	<tags="tech1, industrial"/>
+	<production="category:tools"/>
+</module>
+
+<module id="t3_tool_shop" name="Tool Forming Shop" size=2000 descr="Upgrade. Tool Manufacture" >
+	<tags="tech3, industrial"/>
+	<production="category:tools"/>
+</module>
+
+<module id="t3_silicon_oven" name="Silicon Kiln"  size=2000 descr="create Silicon Wafers" >
+	<tags="tech3, industrial"/>
+	<production="silicon_wafer"/>
+</module>
+
+
+<module id="t3_microchip_production" name="Semiconductor Fabrication Line"  size=2000 descr="Microchip production" >
+	<tags="tech3, industrial"/>
+	<production="silicon_wafer"/>
+</module>
+
+
+<module id="t3_solder_line" name="Surface Mount Solder Line"  size=2000 descr="create Silicon Wafers" >
+	<tags="tech3, industrial"/>
+	<production="silicon_wafer"/>
+</module>
+
+<module id="t3_optronics_production" name="Optronics Factory"  size=2000 descr="create optronics components" >
+	<tags="tech3, industrial"/>
+	<production="silicon_wafer"/>
+</module>
+
+<module id="t4_optical_fiber_spinner" name="Optical Fiber Spinner"  size=2000 descr="create fiber optic cable" >
+	<tags="tech4, industrial"/>
+	<production="fiber_optic_cable"/>
+</module>
+
+
+<module id="t4_electro_optics_shop" name="Electro-Optics Shop"  size=2000 descr="produce optical sensors (camera, telescope, IR, UV)" >
+	<tags="tech4, industrial"/>
+	<production="optics"/>
+</module>
+
+<module id="t4_magnetic_forge" name="Magnetics Forge" size=2000 descr="produces magnet"/>
+	<tags="tech4, industrial"/>
+	<production="magnets"/>
+</module>
+
+<module id="t2_explosives_manufacture" name="Explosives mixing shop" size=2000 descr="produces (solid) explosives"/>
+	<tags="tech2, ammo"/>
+	<production="propellant,high_explosive"/>
+</module>
+
+<module id="t2_projectile_manufacture" name="Projectile Casting Shopping" size=2000 descr="produces projectile ammunition"/>
+	<tags="tech2, ammo"/>
+	<production="bullets, shells"/>
+</module>
+
+<module id="t2_weapons_assembly" name="Weapons Assembly Line" size=2000 descr="produces weapons"/>
+	<tags="tech2, ammo"/>
+	<production="category:weapons"/>
+</module>
+
+<module id="t1_weaving_mill" name="Weaving Mill" size=2000 descr="turns fiber into cloth"/>
+	<tags="tech1, ammo"/>
+	<production="category:weapons"/>
+</module>
+
+<module id="t1_clothing_shop" name="Clothing Factory" size=2000 descr="turns cloth into clothing."/>
+	<tags="tech1, ammo"/>
+	<production="category:weapons"/>
+</module>
+
+<module id="t1_synthetic_fiber_factory" name="Synthetic Fiber Reactor" size=2000 descr="Creates synthetic fibers (nylon, gore-tex)"/>
+	<tags="tech1, ammo"/>
+	<production="category:weapons"/>
+</module>
+
+<module id="t1_weaving_mill" name="Weaving Mill" size=2000 descr="turns fiber into cloth"/>
+	<tags="tech1, ammo"/>
+	<production="category:weapons"/>
+</module>

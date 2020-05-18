@@ -1,0 +1,270 @@
+"structures":[
+// "comment": "Note: storage defaults to 100 * possible production wherever a structure/unit actually produces anything"
+{
+    "tier": 1,
+    "id": "template_t1",
+    "hp": 1000,
+    "armor": 0.2,
+    "price":{
+        "time": 60,
+        "energy":250,
+        "metal":50,
+    }
+},{
+    "tier": 1,
+    "id": "block_plant_t1",
+    "name": "Construction Block Factory",
+    "production": {
+        "power": -5,
+        "blocks_t1": 0.2
+    },
+    "storage": {
+        "blocks_t1": 50
+    }
+},{
+    "tier":1,
+    "id": "thermodynamic_turbine"
+    "name": "Feul Turbine",
+    
+    "production_chains":[
+    {
+        "geothermal":-1,
+        "power":50
+    },{
+        "air": -1,
+        "biomass": -4.0,
+        "power": 50.0,
+    },{
+        "air": -1,
+        "timber": -2.0,
+        "power": 50.0,
+    },{
+        "air": -1,
+        "coal": -1.0,
+        "power": 50.0
+    }
+    ],
+    "price": {
+    "time": 10,
+    "energy": 250,
+    "metal": 50,
+    }
+},{
+    "tier": 1,
+    "id": "solar_gen_t1_2x2",
+    "name": "Solar Power Generator",
+    "production_chains": [
+    {
+        "requires":"sun_light",
+        "power": "10.0",
+        }
+    ],
+    "price":{
+    "time": 60,
+    "energy": 250,
+    "metal": 50,
+    }
+},{
+    "tier":1,
+    "id": "wind_turbine",
+    "name": "Wind Turbine",
+    "production_chains":[
+    {
+        "wind": -1,
+        "power": 10.0,
+    }
+    ],
+},{
+    "tier":1,
+    "id": "water_turbine",
+    "name": "Hydro Generator",
+    "requires": "water",
+    "production_chains":[
+    {
+        "water": -1,
+        "power": 10.0,
+    }
+    ],
+},{
+    "tier":1,
+    "id": "prefab_small_t1_2x2",
+    "name":="Prefab Structure",
+    "module_volume": 2000,
+    "module_type": "bulk",
+},{
+    "tier":1,
+    "id": "farm_t1_4x4",
+    "name": "Small Farm Field",
+    "module_volume": 16000,
+    "module_type": "grow",
+    "price":{
+        "time": 0,
+        "energy": 0,
+        "metal": 0,
+    }
+},{
+    "tier":1,
+    "id": "farm_t1_8x8",
+    "name": "Large Farm Field",
+    "module_volume": 64000,
+    "module_type": "grow",
+    "price":{
+        "time": 0,
+        "energy": 0,
+        "metal": 0,
+    }
+},{	
+    
+    
+    // ====== ====== ====== ====== Tier 2 ====== ====== ====== ======
+},{
+    "tier":1,
+    "id": "Apt_Block_t2",
+    "production_chains": [
+        {
+            "rsc_power", -1.0
+            "food_placeholder_t2": -0.01,
+            "food_placeholder_t2": -0.01,
+            "pop_mech_t2": +0.1
+        },{
+            "rsc_power", -1.0
+            "food_placeholder_t2": -0.01,
+            "food_placeholder_t2": -0.01,
+            "pop_technician_mech_t2": +0.1
+    },
+    "storage":{
+        "shared": t,
+        "allowed": [
+            "pop_mechanic_t2",
+            "pop_technician_t2",
+        ]
+    },
+    ]
+},{
+    "tier":2,
+    "id": "solar_gen_t2_4x4",
+        <production>
+        <input="light" rate="0">
+        <output="electricity" rate=120.0> </production></structure>
+
+},{			
+    "tier":2,
+    "id": "Chemical Battery",
+},{
+    "tier": 2 
+    "id": "Flywheel Battery",
+
+},{
+    "tier": 2,
+    "id": "Airborne Wind Turbine",
+
+},{
+    "tier": 2,
+    "id": "Concentrated Solar Power Plant"
+},{
+    "id": "Sea Water Evaporation Ponds",
+    //<!-- resource harvesting -->
+},{
+    "id": "Processing Pond",
+    "name": "Waste Processing Pond",
+
+},{
+    "id": "algae_mod" >
+    "name": "algae Module"
+    "production_chains":[
+        {
+            "algae": +1,
+            "biomass": +1,
+            "any agricultural product": +1,
+        },
+    ]
+},{
+    "id": "dome_small_2x2" >
+    "module_volume": 4000
+    "lit": t, 
+    "env": t,
+},{
+    "id": "dome_4x4" >
+    "module_volume": 16000
+    "lit": t, 
+    "env": t,
+},{
+    "id": "prefab_small_2x4" >
+    "module_volume": 8000
+    "lit": t, 
+    "env": t,
+    
+},{
+    "id": "embanked_cover_small" >
+    "module_volume": 2000
+    "lit": t, 
+    "env": t,
+},{	
+    "id": "dome_small" >
+    "module_volume": 2000
+    "lit": t, 
+    "env": t,
+},{
+    "id": "bunker_small",
+    "module_volume": 2000,
+    "lit": t,
+    "env": t,
+}
+
+
+    // ====== ====== ====== ====== Tier 3 ====== ====== ====== ====== 
+
+
+    
+    
+Buildings:
+    Geo Domes:
+    Agriculture (12x12, 6x6)
+    Warehoux4, 6x6, 8x8)(icon)
+Research Labs (4x4, 6x6, 8x8)(icon)
+Bunkers:
+turrets (2x2)
+[Pillbox  (4x4)]
+[fortresses (6x6)]
+Exposed machinery:
+Power (Solar PV) (NxN)
+Mining Pit (NxN)
+Mining Vehicles?
+    Harvesters: (like Dune/Tiberium?)
+Mobile Rotary Excavator: Metals/Minerals/Nuclear Fuel
+Vapor Collecion Dome: Ice Mining
+Industrial material processing (6x6)
+(same building design, chooseable supply chains?)
+Sheltered machinery (Buried Quonset Huts?)
+Fusion/Fission Reactor
+Chemical Refinery (oil, ... ? )
+Smelter
+Generic Shop (see addons below:)
+Electronics Fab
+Metalworks
+Composite Shop
+Explosives Shop
+Chem Lab
+Photonics Lab
+Nuclear Lab
+Factory
+May have addons: Generic Shops (above)
+Logistics
+Sea Port (Harbor)
+Space Port
+Airport
+staging
+Covered Port (buried port)
+Pavement/Road
+Tunnel
+Covered Tunnel
+Winds (transport node) (4x4)
+(icon)
+Underground:
+Dorms  (4 owed Tunnel
+
+    Add deep-sea structures (pressure vessels)
+        Vent harvesting
+        Aquafarms-kelp, fish, etc
+        Blue houses- absorb blue light better, therefore are yellow-green
+        -->

@@ -1,0 +1,62 @@
+{"key": "refine_tiberium", "name": "Refine Blue Tiberium", "tag": "tiberium" }
+{"key": "refine_blue_tiberium", "name": "Refine Blue Tiberium", "tag": "tiberium", "req":"refine_tiberium"}
+{"key": "refine_green_tiberium", "name": "Refine Green Tiberium", "tag": "tiberium", "req":"refine_tiberium"}
+{"key": "refine_red_tiberium", "name": "Refine Red Tiberium", "tag": "tiberium", "req":"refine_tiberium"}
+{"key": "refine_white_tiberium", "name": "Refine White Tiberium", "tag": "tiberium", "req":"refine_tiberium"}
+{"key": "refine_yellow_tiberium", "name": "Refine Yellow Tiberium", "tag": "tiberium", "req":"refine_tiberium"}
+
+{"key": "smelt_gold", "name":"Smelt Gold"}
+{"key": "smelt_aluminum", "name":"Smelt Aluminum"}
+{"key": "smelt_iron", "name":"Smelt Iron", "tag":"steel"}
+{"key": "cast_iron", "name":"Cast Iron", "tag":"steel", "req":"smelt_iron"}
+{"key": "smelt_alloy_steal", "name":"Smelt Carbon Steel", "tag":"steel", "req":"smelt_carbon_steel"}
+{"key": "smelt_carbon_steal", "name":"Smelt Carbon Steel", "tag":"steel", "req":"cast_iron"}
+{"key": "smelt_stainless_steal", "name":"Smelt Stainless Steel", "tag":"steel", "req":"smelt_carbon_steel"}
+{"key": "smelt_tool_steal", "name":"Smelt Tool Steel", "tag":"steel", "req":"smelt_carbon_steel"}
+
+{"key": "smelt_silicon", "name":"Silicon Wafer Fabriation"}
+{"key": "smelt_germanium", "name":"Germanium Wafer Fabrication", "req":"smelt_silicon"}
+
+{"key":"fabricate_agricultural_plastics", "name":"Generate Agricultural Plastics"}
+{"key":"fabricate_hydrocarbon_plastics", "name":"Generate Fossil Fuel Plastics"}
+
+{"key":"make_basic_hand_tools", "tag":"tools"}
+{"key":"make_power_tools", "tag":"tools"}
+{"key":"make_heavy_tools", "tag":"tools"}
+{"key":"make_automated_tools", "tag":"tools"}
+{"key":"make_robotic_tools", "tag":"tools"}
+
+{"key":"steam_engine", "name":"Steam Engines", "req":"cast_iron"}
+{"key":"piston_combustion_engines", "name":"Piston Engine Prototype", "req": "cast_iron,steam_engine"}
+{"key":"turbine_engine", "name":"Turbine Engine Prototype", "req": "cast_iron,steam_engine"}
+{"key":"electric_generator", "name":"Electrical Generator Prototype", "req":"cast_iron"}
+{"key":"electric_motor", "name":"Electric Motor Prototype", "req":"cast_iron"}
+{"key":"build_batteries", "name":"Build Batteries"}
+
+{"key":"grow_vegetables", "name":"Grow Vegetables", "tag":"food"}
+{"key":"grow_grain", "name":"Grow Grain", "tag":"food"}
+{"key":"grow_chickens", "name":"Raise Chickens", "tag":"food"}
+{"key":"grow_cows", "name":"Raise Cows", "tag":"food"}
+{"key":"grow_goats", "name":"Raise Goats", "tag":"food"}
+{"key":"grow_pigs", "name":"Raise Pigs", "tag":"food"}
+{"key":"grow_sheep", "name":"Raise Sheep", "tag":"food,clothing"}
+
+{"key":"cook_bread", "name":"Bake Bread", "tag":"food"}
+{"key":"cook_cheese", "name":"Make Cheese", "tag":"food"}
+
+{"key":"butcher_chickens", "name":"Raise Chickens", "tag":"food"}
+{"key":"butcher_cows", "name":"Raise Cows", "tag":"food"}
+{"key":"butcher_goats", "name":"Raise Goats", "tag":"food"}
+{"key":"butcher_pigs", "name":"Raise Pigs", "tag":"food"}
+{"key":"butcher_sheep", "name":"Raise Sheep", "tag":"food,clothing"}
+
+
+{"key":"optimize_sheep_farm_1", "name":"Organize the sheep_raising process", "tag":"food,clothing"}
+{"key":"optimize_sheep_farm_2", "name":"Organize the sheep_raising process", "tag":"food,clothing"}
+{"key":"optimize_sheep_farm_3", "name":"Organize the sheep_raising process", "tag":"food,clothing"}
+{"key":"optimize_sheep_farm_4", "name":"Organize the sheep_raising process", "tag":"food,clothing"}
+
+{"key":"breed_sheep_1", "name":"Breed Sheep to yield more meat and wool", "tag":"food,clothing"}
+{"key":"breed_sheep_2", "name":"Breed Sheep to yield more meat and wool", "tag":"food,clothing"}
+{"key":"breed_sheep_3", "name":"Breed Sheep to yield more meat and wool", "tag":"food,clothing"}
+{"key":"breed_sheep_4", "name":"Breed Sheep to yield more meat and wool", "tag":"food,clothing"}

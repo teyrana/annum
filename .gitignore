@@ -1,5 +1,23 @@
+
+# Used by dotenv library to load environment variables.
+.env
+
+
+*.log
+*~
+
+
+# Ignore the SQLite database directory
+db
+
+# node / npm
 coverage/
 node_modules/
 npm-debug.log
 .nyc_output
 dist
+
+# temporary output files, from code
+=======
+output.
+
