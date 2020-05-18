@@ -1,0 +1,36 @@
+[
+    {
+        "trigger": "auto",
+        "id": "generic_power", 
+        "name": "Power Generator",
+        "output": {"power": 10},
+        "category": ["power"],
+        "desc": "Generic Power Generator -- Generates up x power, automatically"
+    },{
+        "trigger": "auto",
+        "id": "solar_power",
+        "name": "Solar Panels",
+        "output": {"power": 10},
+        "category": ["power"]
+    },{
+        "trigger": "auto",
+        "id": "wind_power_turbine", 
+        "name":"Wind Turbine",
+        "output": {"power": 10},
+        "category": ["power"]
+    },{
+        "trigger": "auto",
+        "id": "gas_power_turbine", 
+        "name": "Gas Generator",
+        "parent": "generic_power",
+        "output": {"power": 10},
+        "category": ["power"]
+    },{
+        "trigger": "auto",
+        "id": "forge_spare_parts", 
+        "name": "Forge Spare Parts", 
+        "output": {"spare-parts": 1},
+        "category": ["parts"]
+    }
+]
+

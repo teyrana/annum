@@ -1,0 +1,58 @@
+[
+    {
+        "id": "bulk_storage",
+        "name": "Bulk Storage",
+        "category": ["storage"]
+    },{ "id": "shelf_storage",
+        "name": "Warehouse",
+        "category": ["storage"]
+    },{ "id": "fluid_storage",
+        "name": "Fluid Storage",
+        "category": ["storage"],
+        "cost": {"steel": 1}
+    },{ "id": "Yard Storage",
+        "name": "Yard Storage",
+        "category": ["storage"]
+    },{ "id": "dormitory",
+        "name": "Dormitory",
+        "category": ["population"]
+    },{ "id": "generic_chemical_refinery",
+        "name": "Generic Chemical Reactor",
+        "category": "chemicals"
+    },{ "id": "engine_workshop",
+        "name": "Engine Workshop",
+        "category": ["vehicle"],
+        "cost": {"steel": 2,
+                 "hand_tools": 2}
+    },{ "id": "turbine_workshop",
+        "name": "Engine Workshop",
+        "category": ["vehicle", "aircraft"],
+        "cost": {"steel": 2,
+                 "tools": 4,
+                 "electronic_tools": 4}
+    },{ "id": "battery_workshop",
+        "name": "Battery Cell Workshop",
+        "desc": "manufacture reactors, batteries, and feul cells",
+        "category": ["vehicle", "infrastructer"]
+    },{ "id":"welding_workshop",
+        "name": "Welding Workshop",
+        "desc": "Enables working of heavy rough machinery and vehicles"
+    },{
+        "id": "forging_press",
+        "name": "Forging Press",
+        "desc": "chassis prereq",
+        "category": "vehicle"
+    },{
+        "id": "precision_frame_press",
+        "name": "Precision Frame Press",
+        "tech": 5
+    },{ "id": "kiln",
+        "name": "Ceramics Kiln",
+        "desc": "Composites Manufacture",
+        "tech": 8,
+        "category": ["aircraft", "vehicle"]
+    },{ "id": "assembly_bay",
+        "name": "Assembly Bay",
+        "desc": "for ground vehicle assembly"
+    }
+]   

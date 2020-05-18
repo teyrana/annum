@@ -1,0 +1,206 @@
+"resources": [
+    "tiers": [
+        [
+            // Tier 0: Implicit Hard Coded resources
+            {"id": "resource_template", "name": "Template Default", "units": "kg", "desc": "", "tier":0},
+            {"id": "time", "name": "Time", "units": "seconds", "desc": "Time", "tier":0},
+            {"id": "blue_tiberium", "name": "Blue Tiberium", "tier":0},
+            {"id": "green_tiberium", "name": "Green Tiberium", "tier": 0},
+            {"id": "red_tiberium", "name": "Red Tiberium", "tier":0},
+            {"id": "yellow_tiberium", "name": "Yellow Tiberium", "tier":0},
+            {"id": "money", "name": "Credits", "units": "Cr", "tier":0, "desc":"Standard Futuristic Unit of Money",},
+        ],[
+            // Tier 1: Basic Resources - May be consumed with technology
+            {"id": "heat", "name": "Heat", "tags": "agriculture, environmental", "units":"W"},
+            {"id": "clear_water", "name": "Potable Water", "Units": "L", "tier":1},
+            
+            {"id": "biowaste", "name": "Biowaste", "tier":1},  // aka Animal Excrement
+            
+            // {"id": "methane", "name":"Methane", "tier":1},
+            
+            // basic, generic food
+            {"id":"food", "name": "Food", "tier":1, "chains": ["food"]},
+            
+            {"id":"spare_parts", "name": "Spare Parts", "tier":1, "tags": "maintenance, item"},
+        ],[
+            // Tier 2: Start to generate some complicated Resources, here:
+            {"id":"ferrite", "name":"Iron Ore", "tier": 2, "chains": ["Steel"]}
+            {"id":"ferrite", "name":"Iron Ore", "tier": 2, "chains": ["Steel"]}
+            {"id":"ferrite", "name":"Iron Ore", "tier": 2, "chains": ["Steel"]}
+            
+            {"id":"timber", "name":"Timber", "tier": 2, },
+            
+            {"id":"tools", "name":"Power Tools", "desc":"Handheld Power Tools: required for all basic construction"},
+            
+            {"id":"biomass", "name":"Biomass", "tags":"water, fluid, agriculture, industrial",},
+            
+        ],[
+            {"id":"break"}, // special id -- stop processing after this point
+        ],[
+            {"id":"rsc_algae", "name":"Algae Food", "desc":"Uninspiring, But Nutritious.", tag="food,grown",},
+            {"id":"rsc_stone_blocks_t1", "name":"Stone Blocks", "desc":"Any of a number of simple structural blocks",},
+            {"id":"crushed_stone", "name":"Crushed Stone",},
+            
+    {"id": "rsc_combustion_exhaust", "name": "smoke", "tags": " tech1, waste, gas",},
+    {"id": "rsc_flyash", "name": "Fly Ash",  "desc": "contains SiO2, CaO, Al2O3, Fe2O3, et al",},
+    {"id": "rsc_ash", "name": "Potash",  "desc": "Contains Potassium Carbonate (KCO3), used as fertilizer", "tags": " tech1, waste, solid"},
+
+    // output the constituents, not the opaque, weird term
+    // {"id": "rsc_orangewater", "name": "Waste Water (Industrial)", "tags": " tech1, industrial, waste, fluid" },
+
+    {"id":"rsc_mechanic_t2",  "name":"Mechanic", "tag":"labor",},
+    {"id":"farmer_t2",  "name":"Farmer", "tag":"labor",},
+    {"id":"soldier_t3", "name":"Soldier", "tag":"labor",},
+    {"id":"manager_t3", "name":"Manager", "tag":"labor",},
+	
+    {"id":"grain_t2", "name":"Corn", "tag":"food,grown",},
+    {"id":"meat_t2", "name":"Goat", "tag":"food,grown",},
+    {"id":"veg_t2", "name":"Potato", "tag":"food,grown",},
+    {"id":"fruit_t2", "name":"Fruit", "tag":"food,grown",},
+    {"id":"hemp", "name":"Hemp Fibers", "tag":"grown",},
+
+    {"id":"coal", "name":"Coal",},
+    {"id":"silica", "name":"Silica  (Si02)",},
+    {"id":"limestone", "name":"Limestone", "desc":"Calcium Oxide (CaO)",},
+    {"id":"iron_ore", "name":"Magnetite", "desc":"Iron Ore (Fe3O4)",},
+    {"id":"copper_ore", "name":"Cuprite",},
+    {"id":"precious_ore",},
+    {"id":"al_ore", "name":"Bauxite", "desc":"Aluminum Ore",},
+    {"id":"ti_ore", "name":"Ilmenite", "desc":"Titanium Ore",},
+    {"id":"rare_earth_ore", "name":"Rare-Earth Ore",},
+    {"id":"uranic_ore" "name":"Uranium Ore",},
+    {"id":"copper", "name":"Refined Copper", "name":"Refined Copper Ore, Suitable for manufacturing",},
+    {"id":"gold" "name":"Gold",},
+    {"id":"glass",},
+    {"id":"steel",},
+    {"id":"concrete",},
+    {"id":"paper","name":"Paper",},
+    {"id":"life_support_equipment",},
+    {"id":"generator","name":"Generator"},
+    {"id":"battery","name":"Batteries"},
+    {"id":"chemical_reactor",},
+	
+    {"id":"rsc_explosive", "name":"Explosives",},
+    {"id":"gun_small_armament", "name":"Small Arms",},
+    {"id":"gun_medium_armament", "name":"Mounted Gun",},
+    {"id":"ammo_gun_small_t2" "name":"Bullets",},
+    {"id":"ammo_gun_medium_t2" "name":"Shells",},
+	
+    {"id":"frame_ground_buggy",},
+    {"id":"frame_ground_truck",},
+	
+    {"id":"", "name":"", "tag":""},
+    {"id":"spices"},
+    {"id":"dairy"},
+    
+    {"id":"engineer_t3" "name":"Engineer" "tag":"labor",},
+    {"id":"officer_t3" "name":"Military Officer" "tag":"labor",},
+	
+    {"id":"antibiotics",},
+    {"id":"silk",},
+    {"id":"jewelry",},
+			
+    // Industrial Metal
+    {"id":"rsc_aluminum", "name":"Refined Aluminum ",},
+    {"id":"rsc_titanium", "name":"Refined Titanium",},
+
+    {"id":"rsc_lithium",},
+    {"id":"molybdenum",},
+    {"id":"zinc",},
+    {"id":"luxury_foods" ,},
+    {"id":"silicon_wafers" ,},
+    {"id":"electronics" ,},
+    {"id":"optics" ,},
+    {"id":"industrial_machinery" "name":"Industrial Machines" ,},
+    {"id":"radio" ,},
+	
+    // Industrial Chemicals
+    {"id":"plastics" ,},
+    {"id":"gasoline" "name":"Kerosene (JP-8)" ,},
+    {"id":"prop_airframe_t3" ,},
+    {"id":"ammo_gun_small_t2" "name":"Shells" ,},
+    {"id":"missiles" ,},
+    {"id":"frame_ground_tank" ,},
+    {"id":"frame_naval_patrol" ,},
+    
+    {"id":"lab_instruments" ,},
+    {"id":"" ,},
+	
+// Tier 4 Information Stage
+    {"id": "rsc_exp_algo", "name":"Expert software",},
+    {"id": "rsc_t4_chem_eng", "name":"Chemical Engineer",},
+    {"id":"rsc_t4_aero_engineer", "name":"Aeronautical Engineer", "tag":""},
+    {"id":"rsc_naval_eng", "name":"Naval Engineer", "tag":""},
+    {"id":"rsc_ind_eng", "name":"Industrial Engineer", "tag":""},
+    {"id":"rsc_t4_physicist", "name":"Physicist", "tag":""},
+    {"id":"rsc_t4_doctor", "name":"Doctor", "tag":""},
+    {"id":"rsc_t4_exec", "name":"Executive", "tag":""},
+
+    {"id":"rsc_composites", "name":"", "tag":""},
+		*Composites (CF) <biomass>
+    {"id":"rsc_drone_chassis", "name":"Drone Chassis", "tag":""},
+		>Drones (air, water, ground)
+    {"id":"rsc_med_railguns", "name":"Medium Railguns", "tag":""},
+    {"id":"rsc_hvy_railguns", "name":"Heavy Railguns", "tag":""},
+
+        {"id":"", "name":"", "tag":""},
+        {"id":"", "name":"", "tag":""},
+		>Lasers
+        {"id":"", "name":"", "tag":""},
+		>Spacecraft
+        {"id":"", "name":"", "tag":""},
+		>Nuclear Power (structure, vehicle)
+	{"id":"academic_t3" "name":"Academic" "tag":"labor" ,},
+	{"id":"coffee" ,},
+	
+	{"id":"diamond" ,},
+	{"id":"uranium_ore" "name":"Uranium Ore" ,},
+	{"id":"microprocessors" ,},
+	{"id":"carbon_fiber" "name":"Carbon Fiber" ,},
+	{"id":"drone_airframe_t4" ,},
+	{"id":"frame_air_cargo_t4" ,},
+	{"id":"rail_gun_magnets" ,},
+	{"id":"high_power_components" ,},
+	{"id":"heavy_industrial_forge" ,},
+	
+	{"id":"frame_naval_cruiser" ,},
+	{"id":"frame_naval_capitol" ,},
+	{"id":"frame_naval_submarine" ,},
+
+// Tier 5, Robotics Age
+//		Fully-automated robotics
+//		Fusion
+//		Artificial Intelligent Software
+//		Transgenic
+//			xgen animals
+//			xgen crops
+//			xgen luxuries
+//			xgen bacteria reactors
+	
+	{"id":"beer" ,},
+	{"id":"liquor" ,},
+	{"id":"wine" ,},
+
+	{"id":"xgen_enzymes" ,},
+	{"id":"xgen_antibiotics" ,},
+	{"id":"xgen_immunity_drugs" ,},
+	{"id":"xgen_coral" ,},
+	
+	{"id":"neuroimplants" "name":"" ,},
+	{"id":"mechsuit" "name":"" ,},
+	{"id":"service_robot" ,},
+	
+	{"id":"photonics" "name":"Photonic Curcuits", },
+	{"id":"rsc_CNT", "name":"Carbon Nano-Tubes",},
+	{"id":"superconductor" ,},
+	{"id":"supercapacitors" ,},
+	
+
+
+
+         ]
+     ]
+ ]
+
+
+

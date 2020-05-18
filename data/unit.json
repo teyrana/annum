@@ -1,0 +1,14 @@
+[   {
+        "id": "refugee",
+        "name": "Refugee",
+        "health": 25
+    },{
+        "id": "recruit",
+        "name": "Recruit",
+        "health": 100
+    },{
+        "id": "draftee",
+        "name": "Draftee",
+        "health": 100
+    }
+]

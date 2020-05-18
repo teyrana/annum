@@ -1,0 +1,61 @@
+[   { 
+        "id": "money", "name": "Credits", "units": "Cr"
+    },{
+        "id": "time",
+        "name": "Time",
+        "units": "seconds"
+    },{
+        "id": "electricity",
+        "name": "Power",
+        "units": "MW"
+    },{
+        "id": "unskilled_labor", 
+        "name": "Unskilled Labor", 
+        "units": "hours"
+    },{
+        "id": "tiberium", 
+        "name": "Tiberium"
+    },{
+        "id": "blue_tiberium", "name": "Blue Tiberium", "category": "tiberium"
+    },{
+        "id": "green_tiberium", "name": "Green Tiberium", "category": "tiberium"
+    },{
+        "id": "red_tiberium", "name": "Red Tiberium", "category": "tiberium"
+    },{
+        "id": "white_tiberium", "name": "White Tiberium", "category": "tiberium"
+    },{
+        "id": "golden_tiberium", "name": "Golden Tiberium", "category": "tiberium"
+    },{
+        "id": "heat", "name": "Heat", "tags": "agriculture, environmental", "units":"W"
+    },{
+        "id": "clear_water", "name": "Water", "units": "L", "desc": "Potable Water"
+    },{
+        "id": "biowaste", "name": "Biowaste", "units": "L"
+    },{
+        "id": "methane", "name":"Methane"
+    },{
+        "id": "food", "name": "Food", 
+        "desc":"Basic, Generic Food", 
+        "category": ["food"]
+    },{
+        "id": "spare_parts", "name": "Spare Parts", 
+        "category": ["maintenance"]
+    },{
+        "id": "ferrite", "name":"Ferrite Ore", 
+        "category": ["Steel"]
+    },{
+        "id": "iron_ingot", "name":"Iron Ingots", 
+        "category": ["Steel"]
+    },{
+        "id": "steel_ingot", "name":"Steel Ingots", 
+        "category": ["Steel"]
+    },{
+        "id": "timber", "name":"Timber"
+    },{
+        "id": "tools", 
+        "name":"Power Tools", 
+        "desc": "Handheld Power Tools: required for all basic construction"
+    },{
+        "id": "biomass", "name":"Biomass"
+    }
+]

@@ -1,0 +1,81 @@
+[{
+    "tech": 0,
+    "id": "foxhole",
+    "name": "Foxhole",
+    "garrison": 1
+},{
+    "tech": 1,
+    "id": "improvised_bunker",
+    "name": "Improvised Bunker",
+    "garrison": 1
+},{
+    "tech": 1,
+    "id": "brick_factory",
+    "name": "Brick Factory",
+    "included": { "brick_kiln": 1 },
+    "storage": {"bricks": 50}
+},{
+    "tech": 1,
+    "id": "solar_generator",
+    "name": "Solar Plant",
+    "category": ["power"],
+    "included": {"solar_generator": 1},
+    "storage": { "power": 10 }
+},{
+    "tech":1,
+    "id": "wind_turbine",
+    "name": "Wind Turbine",
+    "category":["power"],
+    "cost": {
+        "time": 10,
+        "aluminum": 250
+    },
+    "storage": {"power": 10 }
+},{
+    "tech": 1,
+    "footprint": [1,1],
+    "id": "prefab_shell_1x1",
+    "name": "Prefab Shed",
+    "cost":{
+        "time": 1,
+        "labor": 2,
+        "steel": 1
+    }
+},{
+    "tech": 1,
+    "footprint": [2,2],
+    "id": "prefab_shell_2x2",
+    "name": "Prefab Structure",
+    "cost":{
+        "time": 2,
+        "labor": 4,
+        "steel": 2
+    }
+},{
+    "tech":1,
+    "footprint": [3,3],
+    "id": "prefab_factory_3x3",
+    "name": "Small Farm Field",
+    "cost":{
+        "time": 3,
+        "labor": 6,
+        "steel": 3
+    }
+},{
+    "tech":1,
+    "footprint": [4,4],
+    "id": "prefab_factory_4x4",
+    "name": "Small Farm Field",
+    "cost":{
+        "time": 4,
+        "labor": 8,
+        "steel": 4
+    }
+},{
+    "tech":1,
+    "id": "dry_storage_zone",
+    "name": "Storage Zone",
+    "footprint": [1,1]
+}]
+    
+    

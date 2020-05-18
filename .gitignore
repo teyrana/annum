@@ -1,0 +1,58 @@
+# Git Ignore File.
+
+# use glob syntax.
+syntax: glob
+
+# annum development files
+*.log
+import.txt
+export.txt
+data/mesh/transfer.obj
+*.bin
+*.URL
+*.bak
+commit.txt
+*~
+
+
+# ===== ===== Python ===== =====
+*__pycache__*
+*.pyc
+
+# ===== ===== Revision Control Files ===== =====
+
+# Mac OSX
+*.DS_Store
+
+
+# Used by dotenv library to load environment variables.
+.env
+
+
+## Documentation cache and generated files:
+/doc/
+
+## Environment normalization:
+/vendor/bundle
+/lib/bundler/man/
+
+# for a library or gem, you might want to ignore these files since the code is
+# intended to run in multiple environments; otherwise, check them in:
+
+
+# Ignore the default SQLite database.
+/db/*.sqlite
+/db/*.sqlite3
+/db/*.sqlite3-journal
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Ignore Byebug command history file.
+.byebug_history
+
+# node / npm
+node_modules/*
