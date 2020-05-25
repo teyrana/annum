@@ -1,9 +1,7 @@
-from .process import Process
-from .resource import Resource
-from .module import Module
-from .structure import Structure
-from .unit import Unit
+from .entry import *
+_all_entry = ["Module", "Process", "Resource", "Structure", "Unit"]
 
-from .data_entry_directory import DataEntryDirectory
+from .directory import *
+_all_directory = ["DataEntryDirectory", "ModuleDirectory", "ProcessDirectory", "ResourceDirectory", "StructureDirectory", "UnitDirectory"]
 
-__all__ = ["Module", "Process", "Resource", "Structure", "Unit"]
+__all__ = _all_entry + _all_directory

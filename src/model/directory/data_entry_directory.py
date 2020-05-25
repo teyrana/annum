@@ -14,13 +14,17 @@ class DataEntryDirectory:
     This handles generic overhead tasks common to all data entry nodes
     """
 
-    
+    def __contains__(self, key: str):
+        return key in self._directory
+
+    def __getitem__(self, key: str):
+        return self._directory[key]
 
     def __init__(self, entryTemplate ):
         self._template = entryTemplate
 
         source_path = os.path.dirname(os.path.realpath(__file__))
-        data_dir = "../../data/"
+        data_dir = "../../../data/"
         filename = entryTemplate.__class__.__name__.lower() + '.json'
         self._data_path = os.path.abspath(os.path.join(source_path, data_dir, filename))
 

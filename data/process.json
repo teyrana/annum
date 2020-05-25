@@ -28,8 +28,9 @@
     },{
         "trigger": "auto",
         "id": "forge_spare_parts", 
-        "name": "Forge Spare Parts", 
-        "output": {"spare-parts": 1},
+        "name": "Forge Spare Parts",
+        "input": {"power": 1, "steel-ingots": 1},
+        "output": {"spare-parts": 50},
         "category": ["parts"]
     }
 ]

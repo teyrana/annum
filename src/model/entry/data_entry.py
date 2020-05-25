@@ -14,9 +14,6 @@ class DataEntry:
     This handles generic overhead tasks common to all data entry nodes
     """
 
-    source_path = os.path.dirname(os.path.realpath(__file__))
-    source_filename = os.path.abspath(source_path + "../../../data/process.json")
-
     def __init__(self, source = None):
         if source is None:
             self._load_defaults()
@@ -32,6 +29,10 @@ class DataEntry:
     @property
     def id(self) -> str:
         return self._id
+
+    @property
+    def name(self) -> str:
+        return self._name
 
     def load(self, doc: dict):
         if doc is None:

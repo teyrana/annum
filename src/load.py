@@ -1,19 +1,17 @@
 #!/usr/bin/python3
 
-
-from model import Module, Process, Resource, Structure, Unit
-from model import DataEntryDirectory
+from model.directory import *
 
 
 if __name__ == "__main__":
 
     print(">> Loading data files...")
 
-    process_directory = DataEntryDirectory(Process())
-    resource_directory = DataEntryDirectory(Resource())
-    module_directory = DataEntryDirectory(Module())
-    structure_directory = DataEntryDirectory(Structure())
-    unit_directory = DataEntryDirectory(Unit())
+    process_directory = ProcessDirectory()
+    resource_directory = ResourceDirectory()
+    module_directory = ModuleDirectory()
+    structure_directory = StructureDirectory()
+    unit_directory = UnitDirectory()
     
     
     process_directory.load()
@@ -23,10 +21,12 @@ if __name__ == "__main__":
     unit_directory.load()
 
 
-    print("==============")
-    process_directory.validate()
+    # In order of increasing complexity
     print("==============")
     resource_directory.validate()
+    print("==============")
+    process_directory.validate(resource_directory)
+
     print("==============")
     module_directory.validate()
     print("==============")

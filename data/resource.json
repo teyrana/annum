@@ -5,8 +5,9 @@
         "name": "Time",
         "units": "seconds"
     },{
-        "id": "electricity",
+        "id": "power",
         "name": "Power",
+        "desc": "Electrical Power.  Aka: 'power' ",
         "units": "MW"
     },{
         "id": "unskilled_labor", 
@@ -14,23 +15,41 @@
         "units": "hours"
     },{
         "id": "tiberium", 
-        "name": "Tiberium"
+        "name": "Tiberium",
+        "desc": "Overarching parent resource for Tiberium"
     },{
-        "id": "blue_tiberium", "name": "Blue Tiberium", "category": "tiberium"
+        "id": "blue_tiberium", 
+        "name": "Blue Tiberium", 
+        "parent": "tiberium",
+        "category": "tiberium"
     },{
-        "id": "green_tiberium", "name": "Green Tiberium", "category": "tiberium"
+        "id": "green_tiberium",
+        "name": "Green Tiberium",
+        "parent": "tiberium",
+        "category": "tiberium"
     },{
-        "id": "red_tiberium", "name": "Red Tiberium", "category": "tiberium"
+        "id": "red_tiberium",
+        "name": "Red Tiberium",
+        "parent": "tiberium",
+        "category": "tiberium"
     },{
-        "id": "white_tiberium", "name": "White Tiberium", "category": "tiberium"
+        "id": "white_tiberium",
+        "name": "White Tiberium",
+        "parent": "tiberium",
+        "category": "tiberium"
     },{
-        "id": "golden_tiberium", "name": "Golden Tiberium", "category": "tiberium"
+        "id": "golden_tiberium",
+        "name": "Golden Tiberium",
+        "parent": "tiberium",
+        "category": "tiberium"
     },{
-        "id": "heat", "name": "Heat", "tags": "agriculture, environmental", "units":"W"
+        "id": "heat",
+        "name": "Heat",
+        "desc":  "(aka Thermal Power, Waste Heat)",
+        "tags": "agriculture, environmental",
+        "units":"W"
     },{
         "id": "clear_water", "name": "Water", "units": "L", "desc": "Potable Water"
-    },{
-        "id": "biowaste", "name": "Biowaste", "units": "L"
     },{
         "id": "methane", "name":"Methane"
     },{
@@ -38,16 +57,19 @@
         "desc":"Basic, Generic Food", 
         "category": ["food"]
     },{
-        "id": "spare_parts", "name": "Spare Parts", 
+        "id": "spare-parts", "name": "Spare Parts", 
         "category": ["maintenance"]
     },{
-        "id": "ferrite", "name":"Ferrite Ore", 
+        "id": "ferrite",
+        "name":"Ferrite Ore", 
         "category": ["Steel"]
     },{
-        "id": "iron_ingot", "name":"Iron Ingots", 
+        "id": "iron-ingots",
+        "name":"Iron Ingots",
         "category": ["Steel"]
     },{
-        "id": "steel_ingot", "name":"Steel Ingots", 
+        "id": "steel-ingots",
+        "name":"Steel Ingots", 
         "category": ["Steel"]
     },{
         "id": "timber", "name":"Timber"
