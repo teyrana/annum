@@ -26,13 +26,15 @@ if __name__ == "__main__":
     resource_directory.validate()
     print("==============")
     process_directory.validate(resource_directory)
+    print("==============")
+    module_directory.validate(process_directory, resource_directory)
+    module_directory.to_yaml(True)
+    print("==============")
 
-    print("==============")
-    module_directory.validate()
-    print("==============")
-    structure_directory.validate()
-    print("==============")
-    unit_directory.validate()
+
+    # structure_directory.validate()
+    # print("==============")
+    # unit_directory.validate()
 
     # print("==============")
     # print(f"Loading {process_directory.__class__.__name__} Entries:")

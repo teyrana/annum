@@ -35,6 +35,14 @@ class Module(DataEntry):
             
             return False
 
+    @property
+    def cost(self):
+        return self._cost
+
+    @property
+    def processes(self):
+        return self._processes
+
     def copy(self, other):
         super().copy(other)
         
