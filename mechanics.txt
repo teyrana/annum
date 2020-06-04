@@ -1,8 +1,15 @@
 Logistics:
-    Each <supply node> creates a network.
-        Within that network, supply trips are free.
-        Supply quantities are individual to each... node?
-    roads are required to connect each node
+    Each building is a <supply node>
+        Supply Nodes may be grouped into a <supply pool>
+
+    Each <supply pool> has 1 or more buildings in it
+        Supply quantities are tracked per supply pool
+        buildings are automatically added to a supply pool if nearby
+        Within a <supply pool>, buildings may pull supplies freely
+    Vehicles do not belong to a supply pool
+        light resources are automatically replenish by the crew
+        heavy resources require specialized equipment / building
+
 
 Trade Route:
     Each stop/node has an load quantity (LQT) 'N'
@@ -20,7 +27,7 @@ Simcity-Like Zoning
    "Fluid fields"
        Allocation:
            by single tile basis
-           fields may be 'painted' in
+           fields may be 'painted'
            auto-laydown
 
        utitilization
@@ -43,21 +50,12 @@ automated construction
 	fighter screen
 	ammo
 		missiles
-		shells
-	
+		bullets
+        shells
 
 
-planetary complex: 
-  maintenance cost
-    ammo cost
-    movement
-    base maint.
-  automated construction
-    scouts
-    ammo (missiles/shells/bullets)
-    drones
-    laser "ammo"
-building yard components
+
+Construction Yard
   gantry / framing
   work shed (module)
   overhead crane (H frame)

@@ -1,21 +1,33 @@
 [   { 
-        "id": "money", "name": "Credits", "units": "Cr"
+        "id": "special",
+        "name": "Special Resource Type",
+        "storage": "other",
+        "units": "Cr"
+    },{
+        "id": "money",
+        "name": "Credits",
+        "storage": "other",
+        "units": "Cr"
     },{
         "id": "time",
         "name": "Time",
+        "storage": "other",
         "units": "seconds"
     },{
         "id": "power",
         "name": "Power",
         "desc": "Electrical Power.  Aka: 'power' ",
+        "storage": "other",
         "units": "MW"
     },{
         "id": "unskilled_labor", 
         "name": "Unskilled Labor", 
-        "units": "hours"
+        "storage": "person",
+        "units": "People"
     },{
         "id": "tiberium", 
         "name": "Tiberium",
+        "storage": "hazmat",
         "desc": "Overarching parent resource for Tiberium"
     },{
         "id": "blue_tiberium", 
@@ -47,21 +59,33 @@
         "name": "Heat",
         "desc":  "(aka Thermal Power, Waste Heat)",
         "tags": "agriculture, environmental",
+        "storage": "other",
         "units":"W"
     },{
-        "id": "clear_water", "name": "Water", "units": "L", "desc": "Potable Water"
+        "desc": "Water",
+        "id": "water",
+        "name": "Water",
+        "storage": "liquid",
+        "units": "L"
     },{
-        "id": "methane", "name":"Methane"
+        "id": "methane",
+        "name":"Methane",
+        "storage": "gas"
     },{
-        "id": "food", "name": "Food", 
+        "id": "food",
+        "name": "Food", 
         "desc":"Basic, Generic Food", 
+        "storage": "food",
         "category": ["food"]
     },{
-        "id": "spare-parts", "name": "Spare Parts", 
-        "category": ["maintenance"]
+        "id": "spare-parts",
+        "name": "Spare Parts",
+        "category": ["maintenance"],
+        "storage": "bulk"
     },{
         "id": "ferrite",
-        "name":"Ferrite Ore", 
+        "name":"Ferrite Ore",
+        "storage": "bulk",
         "category": ["Steel"]
     },{
         "id": "iron-ingots",
@@ -69,15 +93,22 @@
         "category": ["Steel"]
     },{
         "id": "steel-ingots",
-        "name":"Steel Ingots", 
+        "name":"Steel Ingots",
         "category": ["Steel"]
     },{
-        "id": "timber", "name":"Timber"
+        "id": "timber",
+        "name":"Timber"
     },{
-        "id": "tools", 
+        "id": "hand-tools",
+        "name":"Handheld Tools", 
+        "desc": "Handheld Tools: required for all basic construction"
+    },{
+        "id": "power-tools",
         "name":"Power Tools", 
-        "desc": "Handheld Power Tools: required for all basic construction"
+        "desc": "More Efficient Tools: does everything tools can do, but faster"
     },{
-        "id": "biomass", "name":"Biomass"
+        "id": "biomass",
+        "name":"Biomass",
+        "storage": "bulk"
     }
 ]
