@@ -22,16 +22,50 @@
         "trigger": "auto",
         "id": "gas_power_turbine", 
         "name": "Gas Generator",
-        "parent": "generic_power",
         "output": {"power": 10},
         "category": ["power"]
     },{
         "trigger": "auto",
         "id": "forge_spare_parts", 
         "name": "Forge Spare Parts",
-        "input": {"power": 1, "steel-ingots": 1},
+        "input": {"power": 1, "steel": 1},
         "output": {"spare-parts": 50},
         "category": ["parts"]
+    },{
+        "trigger": "auto",
+        "id": "refine-blue-tiberium", 
+        "name": "Refine Blue Tiberium", 
+        "input": "blue-tiberium",
+        "output": {"aluminum": 0.80, "zinc": 0.05, "manganese": 0.05},
+        "category": "tiberium"
+    },{
+        "trigger": "auto",
+        "id": "refine-green-tiberium", 
+        "name": "Refine Green Tiberium", 
+        "input": "green-tiberium",
+        "output": {"copper": 0.60, "silicon": 0.40},
+        "category": "tiberium"
+    },{
+        "trigger": "auto",
+        "id": "refine-red-tiberium",
+        "name": "Refine Red Tiberium",
+        "input": "red-tiberium",
+        "output": {"iron": 0.80, "nickel": 0.20},
+        "category": "tiberium"
+    },{
+        "trigger": "auto",
+        "id": "refine-white-tiberium",
+        "name": "White Tiberium",
+        "input": "white-tiberium",
+        "output": {"aluminum": 0.30, "manganese": 0.10, "zinc": 0.10},
+        "category": "tiberium"
+    },{
+        "trigger": "auto",
+        "id": "refine-gold_tiberium",
+        "name": "Refine Golden Tiberium",
+        "input": "gold-tiberium",
+        "output": {"gold": 0.50, "iron": 0.40, "nickel": 0.10},
+        "category": "tiberium"
     }
 ]
 

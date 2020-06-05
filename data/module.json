@@ -5,17 +5,20 @@
         "category": ["storage"]
     },{ "id": "shelf_storage",
         "name": "Warehouse",
-        "category": ["storage"]
+        "category": ["storage"],
+        "cost": {"steel": 1}
     },{ "id": "fluid_storage",
         "name": "Fluid Storage",
         "category": ["storage"],
-        "cost": {"steel": 1}
+        "cost": {"steel": 3}
     },{ "id": "Yard Storage",
         "name": "Yard Storage",
-        "category": ["storage"]
+        "category": ["storage"],
+        "cost": {"wood": 1}
     },{ "id": "dormitory",
         "name": "Dormitory",
-        "category": ["population"]
+        "category": ["population"],
+        "cost": {"steel": 1, "wood": 1}
     },{ "id": "generic_chemical_refinery",
         "name": "Generic Chemical Reactor",
         "category": "chemicals"
@@ -23,13 +26,12 @@
         "name": "Engine Workshop",
         "category": ["vehicle"],
         "cost": {"steel": 2,
-                 "hand_tools": 2}
+                 "hand-tools": 2}
     },{ "id": "turbine_workshop",
         "name": "Engine Workshop",
         "category": ["vehicle", "aircraft"],
         "cost": {"steel": 2,
-                 "tools": 4,
-                 "electronic_tools": 4}
+                 "power-tools": 4}
     },{ "id": "battery_workshop",
         "name": "Battery Cell Workshop",
         "desc": "manufacture reactors, batteries, and feul cells",

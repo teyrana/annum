@@ -50,6 +50,14 @@ class DataEntry:
                     print(f"!! Unexpected field, while loading: {self.__class__.__name__}: {self._id}:   {key} = {value}")
 
 
+    def _load_categories(self, value: Union[list,str]) -> tuple:
+        if isinstance(value, str):
+            return (value,)
+        elif isinstance(value, list):
+            return tuple(value)
+        else:
+            raise TypeError("Expected a string or list here!!")
+
     def _load_defaults(self):
         self._category = []
         self._description = ""
@@ -62,7 +70,7 @@ class DataEntry:
 
     def _load_field(self, key: str, value: Union[str,int,list,dict] ) -> bool:
         if key == "cat" or key == "category":
-            self._chains = list(value)
+            self._chains = self._load_categories(value)
             return True
         elif key == "desc" or key == "description":
             self._description = value
@@ -71,8 +79,6 @@ class DataEntry:
             return True
         elif key == "name":
             self._name = value
-            return True
-        elif key == "parent":
             return True
         elif key == 'tags':
             self._tags = list(value)

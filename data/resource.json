@@ -1,59 +1,52 @@
 [   { 
-        "id": "special",
-        "name": "Special Resource Type",
-        "storage": "other",
-        "units": "Cr"
+        "description": "Alloy of Al, Mg, Si",
+        "id": "aluminum",
+        "name": "Aluminum 6061",
+        "storage": "bulk",
+        "category": ["mineral"]
     },{
-        "id": "money",
-        "name": "Credits",
-        "storage": "other",
-        "units": "Cr"
+        "description": "75% Al, 25% Iron",
+        "id": "bauxite",
+        "name":"Bauxite Ore",
+        "storage": "bulk",
+        "category": ["mineral"]
     },{
-        "id": "time",
-        "name": "Time",
-        "storage": "other",
-        "units": "seconds"
+        "id": "biomass",
+        "name":"Biomass",
+        "storage": "bulk"
     },{
-        "id": "power",
-        "name": "Power",
-        "desc": "Electrical Power.  Aka: 'power' ",
-        "storage": "other",
-        "units": "MW"
+        "id": "blue-tiberium", 
+        "name": "Blue Tiberium",
+        "category": "mineral",
+        "storage": "hazmat"
     },{
-        "id": "unskilled_labor", 
-        "name": "Unskilled Labor", 
-        "storage": "person",
-        "units": "People"
+        "id": "copper",
+        "name":"Copper",
+        "category": ["mineral"]
     },{
-        "id": "tiberium", 
-        "name": "Tiberium",
-        "storage": "hazmat",
-        "desc": "Overarching parent resource for Tiberium"
+        "id": "food",
+        "name": "Food", 
+        "desc":"Basic, Generic Food", 
+        "storage": "food",
+        "category": ["food"]
     },{
-        "id": "blue_tiberium", 
-        "name": "Blue Tiberium", 
-        "parent": "tiberium",
-        "category": "tiberium"
+        "id": "gold",
+        "name":"Gold",
+        "category": ["mineral"]
     },{
-        "id": "green_tiberium",
-        "name": "Green Tiberium",
-        "parent": "tiberium",
-        "category": "tiberium"
-    },{
-        "id": "red_tiberium",
-        "name": "Red Tiberium",
-        "parent": "tiberium",
-        "category": "tiberium"
-    },{
-        "id": "white_tiberium",
-        "name": "White Tiberium",
-        "parent": "tiberium",
-        "category": "tiberium"
-    },{
-        "id": "golden_tiberium",
+        "id": "gold-tiberium",
         "name": "Golden Tiberium",
-        "parent": "tiberium",
-        "category": "tiberium"
+        "category": "mineral",
+        "storage": "hazmat"
+    },{
+        "id": "green-tiberium",
+        "name": "Green Tiberium",
+        "category": "mineral",
+        "storage": "hazmat"
+    },{
+        "id": "hand-tools",
+        "name":"Handheld Tools", 
+        "desc": "Handheld Tools: required for all basic construction"
     },{
         "id": "heat",
         "name": "Heat",
@@ -62,53 +55,105 @@
         "storage": "other",
         "units":"W"
     },{
-        "desc": "Water",
-        "id": "water",
-        "name": "Water",
-        "storage": "liquid",
-        "units": "L"
+        "id": "iron",
+        "name":"Iron Ingots",
+        "category": ["mineral"]
+    },{
+        "description": "Pink Ore, 10% Li, 30% Al, 10% Si, 10% Mg",
+        "id": "lepidolite",
+        "name":"Lepidolite Ore",
+        "storage": "bulk",
+        "category": ["mineral"]
+    },{
+        "id": "lithum",
+        "name": "Lithium",
+        "storage": "bulk",
+        "category": ["mineral"]
+    },{
+        "description": "Iron Ore",
+        "id": "magnetite",
+        "name":"Magnetite Ore",
+        "storage": "bulk",
+        "category": ["mineral"]
+    },{
+        "id": "manganese",
+        "name":"Manganese",
+        "category": ["mineral"]
     },{
         "id": "methane",
         "name":"Methane",
         "storage": "gas"
     },{
-        "id": "food",
-        "name": "Food", 
-        "desc":"Basic, Generic Food", 
-        "storage": "food",
-        "category": ["food"]
+        "id": "money",
+        "name": "Credits",
+        "storage": "other",
+        "units": "Cr"
+    },{
+        "id": "nickel",
+        "name":"Nickel",
+        "category": ["mineral"]   
+    },{
+        "id": "power",
+        "name": "Power",
+        "desc": "Electrical Power.  Aka: 'power' ",
+        "storage": "other",
+        "units": "MW"
+    },{
+        "id": "power-tools",
+        "name":"Power Tools", 
+        "desc": "More Efficient Tools: does everything tools can do, but faster"
+    },{
+        "id": "red-tiberium",
+        "name": "Red Tiberium",
+        "category": "mineral",
+        "storage": "hazmat"
     },{
         "id": "spare-parts",
         "name": "Spare Parts",
         "category": ["maintenance"],
         "storage": "bulk"
     },{
-        "id": "ferrite",
-        "name":"Ferrite Ore",
-        "storage": "bulk",
-        "category": ["Steel"]
+        "id": "special",
+        "name": "Special Resource Type",
+        "storage": "other",
+        "units": "Cr"
     },{
-        "id": "iron-ingots",
-        "name":"Iron Ingots",
-        "category": ["Steel"]
+        "id": "silicon",
+        "name":"Silicon",
+        "category": ["mineral"]
     },{
-        "id": "steel-ingots",
-        "name":"Steel Ingots",
-        "category": ["Steel"]
+        "description": "Steel Alloy, with 1% Carbon, 5% Nickel, 2% Manganese",
+        "id": "steel",
+        "name":"Steel (HSLA)",
+        "category": ["mineral"]
     },{
-        "id": "timber",
+        "id": "time",
+        "name": "Time",
+        "storage": "other",
+        "units": "seconds"
+    },{
+        "id": "unskilled-labor", 
+        "name": "Unskilled Labor", 
+        "storage": "person",
+        "units": "People"
+    },{
+        "desc": "Water",
+        "id": "water",
+        "name": "Water",
+        "storage": "liquid",
+        "units": "L"
+    },{
+        "id": "white-tiberium",
+        "name": "White Tiberium",
+        "category": "mineral",
+        "storage": "hazmat"
+    },{
+        "id": "wood",
         "name":"Timber"
     },{
-        "id": "hand-tools",
-        "name":"Handheld Tools", 
-        "desc": "Handheld Tools: required for all basic construction"
-    },{
-        "id": "power-tools",
-        "name":"Power Tools", 
-        "desc": "More Efficient Tools: does everything tools can do, but faster"
-    },{
-        "id": "biomass",
-        "name":"Biomass",
-        "storage": "bulk"
+        "id": "zinc",
+        "name": "Zinc",
+        "storage": "bulk",
+        "category": ["mineral"]
     }
 ]

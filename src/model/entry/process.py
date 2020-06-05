@@ -30,13 +30,19 @@ class Process(DataEntry):
                 self._load_trigger(value)
                 return True
             elif key.startswith("input"):
-                self._input = value
+                self._input = self._load_inputs(value)
                 return True
             elif key.startswith('output'):
                 self._output = value
                 return True
 
             return False
+
+    def _load_inputs(self, value):
+        if isinstance(value, str):
+            return {value: 1}
+        else:
+            return value
 
     def _load_trigger(self, value: str) -> bool:
         if isinstance(value, str):
