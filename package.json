@@ -11,16 +11,19 @@
   "files": [
     "dist"
   ],
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "main": "dist/src/app.js",
+  "typings": "dist/src/app.d.ts",
   "scripts": {
-    "build": "npm run clean && tsc",
-    "watch": "tsc --watch",
-    "test": "mocha --opts tests/mocha.opts",
-    "test-watch": "mocha --opts tests/mocha.opts --watch",
+    "app": "node dist/src/app.js",
+    "build": "npm run clean && npm run tsc",
     "clean": "rm -rf dist",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
-    "lint-fix": "tslint -c tslint.json 'src/**/*.ts' --fix"
+    "lint-fix": "tslint -c tslint.json 'src/**/*.ts' --fix",
+    "test": "mocha --opts tests/mocha.opts",
+    "test-watch": "mocha --opts tests/mocha.opts --watch",
+    "tsc": "tsc",
+    "validate": "tsc && node dist/src/validate.js",
+    "watch": "tsc --watch"
   },
   "devDependencies": {
     "@types/chai": "^4.0.5",

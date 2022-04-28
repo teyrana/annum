@@ -1,259 +1,256 @@
-{"key": "time", "name": "Time", "desc": "Time", "units": "seconds", "volume":0, "mass":0 }
-{"key": "heat", "name": "Heat", "tag": "environmental", "units":"W", "volume":0, "mass":0 }
-{"key": "light", "name": "Light", "tag": "environmental", "units":"W", "volume":0, "mass":0 }
-{"key": "electricity", "name": "Electricity", "tag":"electricity", "desc":"Raw electricity, suitable for powering lights or electronics", "units": "W", "volume": 0, "mass": 0}
-{"key": "torque", "name": "Torque", "desc": "Power suitable for turning a shaft or wheel, to turn a machine, or move a vehicle", "units": "W", "volume": 0, "mass": 0}
-{"key": "power", "name": "Power", "desc": "Motive Power, suitable for lifting a load or moving a vehicle", "units": "W", "volume": 0, "mass": 0}
-{"key": "credits", "name": "Credits", "desc":"Standard Futuristic Unit of Money", "units": "Cr", "volume": 0, "mass": 0}
+{
+    "time":{"name": "Time", "desc": "Time", "units": "seconds", "volume":0, "mass":0 },
+    "heat":{"name": "Heat", "tag":["environmental"], "units":"W", "volume":0, "mass":0 },
+    "light":{"name": "Light", "tag":["environmental"], "units":"W", "volume":0, "mass":0 },
+    "electricity":{"name": "Electricity", "tag":["electricity"], "desc":"Raw electricity, suitable for powering lights or electronics", "units": "W", "volume": 0, "mass": 0},
+    "torque":{"name": "Torque", "desc": "Power suitable for turning a shaft or wheel, to turn a machine, or move a vehicle", "units": "W", "volume": 0, "mass": 0},
+    "power":{"name": "Power", "desc": "Motive Power, suitable for lifting a load or moving a vehicle", "units": "W", "volume": 0, "mass": 0},
+    "credits":{"name": "Credits", "desc":"Standard Futuristic Unit of Money", "units": "Cr", "volume": 0, "mass": 0},
 
-{"key":"oxygen", "name": "Oxygen", "units":"L", "density":1, "tag":"air"}
-{"key":"water", "name": "Water", "units":"L", "density":1, "tag":"water"}
+    "oxygen":{"name": "Oxygen", "units":"L", "density":1, "tag":["air"]},
+    "water":{"name": "Water", "units":"L", "density":1, "tag":["water"]},
 
-{"key":"rock", "name":"Rock (Generic)", "density":2.5}
+    "rock":{"name":"Rock (Generic)", "density":2.5},
 
-{"key":"timber",   "name":"Timber", "density":1.5, "tag":"fuel,timber"}
-{"key":"lumber",   "name":"Lumber", "density":1.5, "tag":"fuel,timber"}
-{"key":"wood_pulp", "name":"Wood_pulp", "density":1.5}
-{"key":"biomass", "name":"Biomass"}
+    "timber":{"name":"Timber", "density":1.5, "tag":["fuel","timber"]},
+    "lumber":{"name":"Lumber", "density":1.5, "tag":["fuel","timber"]},
+    "wood_pulp":{"name":"Wood_pulp", "density":1.5},
+    "biomass":{"name":"Biomass"},
 
-{"key":"methane",  "name":"Methane", "units":"L", "density":0.7, "tag":"fuel"}
-{"key":"coal",     "name":"Coal", "density":2, "tag":"fuel", "super":"rock"}
-{"key":"crude_oil","name":"Crude Oil","units":"L", "density":0.85,"tag":"fuel,oil"}
-{"key":"gasoline", "name":"Gasoline", "units":"L", "density":0.76, "tag":"fuel,oil", "desc": "common hydrocarbon fuel, widely used for ground vehicles"}
-{"key":"diesel",    "name":"Diesel", "desc": "common hydrocarbon fuel, used for heavy machinery and power generation", "density": 0.85}
-{"key":"kerosene",  "name":"Kerosene", "density": 0.8, "units":"L", "density":0.7, "tag":"fuel,oil", "desc": "common hydrocarbon fuel, used for aviation"}
+    "methane":{"name":"Methane", "units":"L", "density":0.7, "tag":["fuel"]},
+    "coal":{"name":"Coal", "density":2, "tag":["fuel"], "super":"rock"},
+    "crude_oil":{"name":"Crude Oil","units":"L", "density":0.85,"tag":["fuel","oil"]},
+    "gasoline":{"name":"Gasoline", "units":"L", "density":0.76, "tag":["fuel","oil"], "desc": "common hydrocarbon fuel, widely used for ground vehicles"},
+    "diesel":{"name":"Diesel", "desc": "common hydrocarbon fuel, used for heavy machinery and power generation", "density": 0.85},
+    "kerosene":{"name":"Kerosene", "units":"L", "density":0.7, "tag":["fuel","oil"], "desc": "common hydrocarbon fuel, used for aviation"},
 
-{"key":"deuterium",  "name":"Deuterium (H2)", "units":"L", "density":0.005, "tag":"fusion,fuel"}
+    "deuterium":{"name":"Deuterium (H2)", "units":"L", "density":0.005, "tag":["fusion","fuel"]},
 
-{"key":"gunpowder", "name":"Gunpowder", "tag":"gunpowder"}
-{"key":"apcp",      "name":"Ammonium Perchlorate (APCP)", "tag":"fuel"}
-{"key":"solid_rocket_fuel", "name":"Solid Rocket Fuel", "tag":"fuel"}
-{"key":"spare_parts", "name": "Spare Parts", "tag": "maintenance, item"}
+    "gunpowder":{"name":"Gunpowder", "tag":["gunpowder"]},
+    "apcp":{"name":"Ammonium Perchlorate (APCP)", "tag":["fuel"]},
+    "solid_rocket_fuel":{"name":"Solid Rocket Fuel", "tag":["fuel"]},
+    "spare_parts":{"name": "Spare Parts", "tag":["maintenance","item"]},
 
-{"key":"piston_engine_5kW", "name":"Small Piston Engine; 5kW rating; may use any type of gas"}
-{"key":"piston_engine_100kW", "name":"Small 200cc Gas Engine"}
-{"key":"piston_engine_250kW", "name":"?? ??cc Gas Engine"}
-{"key":"piston_engine_2MW", "name":"?? ??cc Gas Engine"}
+    "piston_engine_5kW":{"name":"Small Piston Engine; 5kW rating; may use any type of gas"},
+    "piston_engine_100kW":{"name":"Small 200cc Gas Engine"},
+    "piston_engine_250kW":{"name":"?? ??cc Gas Engine"},
+    "piston_engine_2MW":{"name":"?? ??cc Gas Engine"},
+    
+    "gas_turbine_2MW":{"name":"Small Gas Turbine"},
 
-{"key":"gas_turbine_2MW", "name":"Small Gas Turbine"}
+    "electric_generator_5kw":{"name":"Small portable generator"},
+    "electric_motor_5kw":{"name":"Small portable motor"},
+    "battery":{"name":"Batteries", "density":"2.5"},
+    "batteries_lipo":{"name":"Lithium-Polymer Batteries", "super":"battery"},
+    "batteries_nimh":{"name":"Nickel-Metal-Hydride Batteries", "super":"battery"},
 
-{"key":"electric_generator_5kw", "name":"Small portable generator"}
-{"key":"electric_motor_5kw", "name":"Small portable motor"}
-{"key":"battery", "name":"Batteries", "density":"2.5"}
-{"key":"batteries_lipo", "name":"Lithium-Polymer Batteries", "super":"battery"}
-{"key":"batteries_nimh", "name":"Nickel-Metal-Hydride Batteries", "super":"battery"}
+    "basic_hand_tools":{"name":"Hand Tools", "desc": "Basic Handheld Power Tools: usable for all basic construction"},
+    "power_tools":{"name":"Power Tools", "desc": "Power Tools; weildable by individual workers: usable for all basic construction"},
+    "heavy_tools":{"name":"Heavy Tools", "desc": "Simple, labor-intensive tools; too big to be carried by an individual; used for heavy industry"},
+    "automated_tools":{"name":"Automated Tools", "desc": "more labor-efficient tools; too big to be carried by an individual; used for heavy industry"},
+    "robotic_tools":{"name":"Robotic Power Tools", "desc": "Completely automated; requires minimial labor/maintenance; too big to be carried by an individual; used for heavy industry"},
 
-{"key":"basic_hand_tools", "name":"Hand Tools", "desc": "Basic Handheld Power Tools: usable for all basic construction"}
-{"key":"power_tools", "name":"Power Tools", "desc": "Power Tools; weildable by individual workers: usable for all basic construction"}
-{"key":"heavy_tools", "name":"Heavy Tools", "desc": "Simple, labor-intensive tools; too big to be carried by an individual; used for heavy industry"}
-{"key":"automated_tools", "name":"Automated Tools", "desc": "more labor-efficient tools; too big to be carried by an individual; used for heavy industry"}
-{"key":"robotic_tools", "name":"Robotic Power Tools", "desc": "Completely automated; requires minimial labor/maintenance; too big to be carried by an individual; used for heavy industry"}
+    "railgun_10mm":{"name":"Light Railguns"},
+    "railgun_50mm":{"name":"Medium Railguns"},
+    "railgun_120mm":{"name":"Heavy Railguns"},
+    "railgun_100mm":{"name":"Howitzer Railguns"},
 
-{"key":"railgun_10mm", "name":"Light Railguns"}
-{"key":"railgun_50mm", "name":"Medium Railguns"}
-{"key":"railgun_120mm", "name":"Heavy Railguns"}
-{"key":"railgun_100mm", "name":"Howitzer Railguns"}
+    "heavy_industrial_forge":{"name":"heavy_industrial_forge"},
+    "hydraulic_press":{"name":"hydraulic_press"},
+    "life_support_equipment":{"name":"life_support_equipment"},
 
-{"key":"heavy_industrial_forge"}
-{"key":"hydraulic_press"}
-{"key":"life_support_equipment"}
+    "prop_airframe_t3":{"name":"Propeller Airframe (T3)"},
+    "missiles":{"name":"Missiles"},
+    "frame_ground_tank":{"name":"Tank Chassis (20t)"},
 
-{"key":"prop_airframe_t3"}
-{"key":"missiles"}
-{"key":"frame_ground_tank"}
+    "gun_small_armament":{"name":"Small Arms"},
+    "gun_medium_armament":{"name":"Mounted Gun"},
+    "turrent_medium":{"name":"Samson Remote Weapon Turret"},
 
-{"key":"gun_small_armament", "name":"Small Arms"}
-{"key":"gun_medium_armament", "name":"Mounted Gun"}
-{"key":"turrent_medium", "name":"Samson Remote Weapon Turret"}
+    "ammo_gun_9mm":{"name":"Bullets"},
+    "ammo_gun_5_76mm":{"name":"Shells"},
+    "ammo_gun_50cal":{"name":"Shells"},
+    "ammo_gun_60mm":{"name":"Shells"},
+    "ammo_gun_90mm":{"name":"Shells"},
+    "ammo_gun_120mm":{"name":"Shells"},
 
-{"key":"ammo_gun_9mm", "name":"Bullets"}
-{"key":"ammo_gun_5_76mm", "name":"Shells"}
-{"key":"ammo_gun_50cal", "name":"Shells"}
-{"key":"ammo_gun_60mm", "name":"Shells"}
-{"key":"ammo_gun_90mm", "name":"Shells"}
-{"key":"ammo_gun_120mm", "name":"Shells"}
+    "frame_ground_buggy":{"name":"frame_ground_buggy"},
+    "frame_ground_truck":{"name":"frame_ground_truck"},
+    "frame_naval_cruiser":{"name":"frame_naval_cruiser"},
+    "frame_naval_capitol":{"name":"frame_naval_capitol"},
+    "frame_naval_submarine":{"name":"frame_naval_submarine"},
 
-{"key":"frame_ground_buggy"}
-{"key":"frame_ground_truck"}
+    "manure":{"name": "Manure", "tag":["waste"]},
+    "black_water":{"name": "Waste Water (Sewage)", "tag":["waste","fluid"], "density":1.1},
 
-{"key":"frame_naval_cruiser"}
-{"key":"frame_naval_capitol"}
-{"key":"frame_naval_submarine"}
-{"key":"manure", "name": "Manure", "tag":"waste"}
-{"key":"black_water", "name": "Waste Water (Sewage)", "tag": "waste, fluid", "density":1.1}
+    "food":{"name": "Food","tag":["food"]},
+    "grain":{"name": "Grain", "tag":["farm","grain"], "super":"food"},
+    "vegetables":{"name":"Vegetables", "super":"food", "tag":["food","veggie","farm"]},
+    "fruit":{"name":"Fruit", "super":"food", "tag":["food","farm","fruit"]},
+    "legume":{"name":"Beans", "super":"food", "tag":["food","farm","legume"]},
 
-{"key":"food", "name": "Food","tag":"food" }
-{"key":"grain", "name": "Grain", "tag":"farm,grain", "super":"food"}
-{"key":"vegetables", "name":"Vegetables", "super":"food", "tag":"food,veggie,farm"}
-{"key":"fruit", "name":"Fruit", "super":"food", "tag":"food,farm,fruit"}
-{"key":"legume", "name":"Beans", "super":"food", "tag":"food,farm,legume"}
+    "corn":{"name":"Corn (Grain)", "super":"grain"},
+    "wheat":{"name":"Wheat (Grain)", "super":"grain"},
+    "rice":{"name":"Rice", "super":"grain"},
+    "soy":{"name":"Soy", "super":"food"},
+    "lentil":{"name":"Lentil Beans", "super":"legume", "tag":["farm"]},
+    "black_beans":{"name":"Black Beans", "super":"legume", "tag":["farm"]},
 
-{"key":"corn", "name":"Corn (Grain)", "super":"grain"}
-{"key":"wheat", "name":"Wheat (Grain)", "super":"grain"}
-{"key":"rice", "name":"Rice", "super":"grain"}
-{"key":"soy", "name":"Soy", "super":"food"}
-{"key":"lentil", "name":"Lentil Beans", "super":"legume", "tag":"farm"}
-{"key":"black_beans", "name":"Black Beans", "super":"legume", "tag":"farm"}
+    "edible-algae":{"name":"Algae (Edible)", "desc":"Uninspiring, But Nutritious.", "density": 0.8, "tag":["food","aquatic"]},
 
-{"key":"edible-algae", "name":"Algae (Edible)", "desc":"Uninspiring, But Nutritious.", "density": 0.8, "tag":"food,aquatic"}
+    "livestock":{"name": "Live Stock", "tag":["livestock","farm"]},
+    "chicken":{"name": "Live Chickens", "volume":200, "mass":2.5, "super":"livestock"},
+    "cow":{"name": "Live Cows","volume":3000, "mass":1100, "super":"livestock"},
+    "goat":{"name": "Live Goats", "volume":400, "mass":140, "super":"livestock"},
+    "pig":{"name": "Live Pigs", "volume":600, "mass":250, "super":"livestock"},
+    "sheep":{"name": "Live Sheep", "volume":400, "mass":160, "super":"livestock"},
 
-{"key":"livestock", "name": "Live Stock", "tag":"livestock,farm"}
-{"key":"chicken", "name": "Live Chickens", "volume":200, "mass":2.5, "super":"livestock"}
-{"key":"cow", "name": "Live Cows","volume":3000, "mass":1100, "super":"livestock"}
-{"key":"goat", "name": "Live Goats", "volume":400, "mass":140, "super":"livestock"}
-{"key":"pig", "name": "Live Pigs", "volume":600, "mass":250, "super":"livestock"}
-{"key":"sheep", "name": "Live Sheep", "volume":400, "mass":160, "super":"livestock"}
+    "chicken_eggs":{"name": "Eggs", "volume":12, "mass":0.050, "super":"food"},
+    "raw_milk":{"name": "Milk (Raw, Cow)", "density":1.0, "super":"food"},
 
-{"key":"chicken_eggs", "name": "Eggs", "volume":12, "mass":0.050, "super":"food"}
-{"key":"raw_milk", "name": "Milk (Raw, Cow)", "density":1.0, "super":"food"}
+    "meat":{"name": "Meat", "density":1.2, "super":"food"},
+    "chicken_meat":{"name": "Chicken Meat", "super":"meat"},
+    "beef":{"name": "Beef", "super":"meat"},
+    "goat_meat":{"name": "Goat Meat", "super":"meat"},
+    "pork":{"name": "Pork", "super":"meat"},
+    "mutton":{"name": "Mutton", "super":"meat"},
 
-{"key":"meat", "name": "Meat", "density":1.2, "super":"food"}
-{"key":"chicken_meat", "name": "Chicken Meat", "super":"meat"}
-{"key":"beef", "name": "Beef", "super":"meat"}
-{"key":"goat_meat", "name": "Goat Meat", "super":"meat"}
-{"key":"pork", "name": "Pork", "super":"meat"}
-{"key":"mutton", "name": "Mutton", "super":"meat"}
+    "bread":{"name": "Bread", "density":0.1, "super":"food"},
+    "pasta":{"name": "Pasta", "density":0.1, "super":"food"},
+    "cheese":{"name": "Cheese", "density":0.5, "super":"food"},
 
-{"key":"bread", "name": "Bread", "density":0.1, "super":"food"}
-{"key":"pasta", "name": "Pasta", "density":0.1, "super":"food"}
-{"key":"cheese", "name": "Cheese", "density":0.5, "super":"food"}
+    "potato":{"name":"Carrot", "super":"vegetables"},
+    "carrot":{"name":"Carrot", "super":"vegetables"},
+    "broccoli":{"name":"Broccoli", "super":"vegetables"},
 
-{"key":"potato", "name":"Carrot", "super":"vegetables"}
-{"key":"carrot", "name":"Carrot", "super":"vegetables"}
-{"key":"broccoli", "name":"Broccoli", "super":"vegetables"}
+    "apple":{"name":"Apples", "super":"fruit"},
+    "bananas":{"name":"Apples", "super":"fruit"},
+    "peach":{"name":"Peach", "super":"fruit"},
 
-{"key":"apple", "name":"Apples", "super":"fruit"}
-{"key":"bananas", "name":"Apples", "super":"fruit"}
-{"key":"peach", "name":"Peach", "super":"fruit"}
+    "spices":{"name":"Spices"},
 
-{"key":"spices", "name":"Spices"}
+    "beer":{"name":"Beer", "tag":["alcohol","recreation"]},
+    "liquor":{"name":"Liquor", "tag":["alcohol","recreation"]},
+    "wine":{"name":"Wine", "tag":["alcohol","recreation"]},
 
-{"key":"beer", "name":"Beer", "tag":"alcohol,recreation"}
-{"key":"liquor", "name":"Liquor", "tag":"alcohol,recreation"}
-{"key":"wine", "name":"Wine", "tag":"alcohol,recreation"}
+    "ore":{"name":"Ore", "super":"rock", "tag":["ore"]},
+    "au_ore":{"name":"Gold Ore", "super":"ore"},
+    "al_ore":{"name":"Bauxite", "desc":"(Aluminum Ore)", "super":"ore", "desc":"Aluminum Ore"},
+    "cr_ore":{"name":"Chromium Ore", "super":"ore"},
+    "co_ore":{"name":"Cobalt Ore", "super":"ore"},
+    "cu_ore":{"name":"Cuprite", "desc":"(Copper Ore)", "super":"ore"},
+    "fe_ore":{"name":"Magnetite Ore", "desc":"Iron Ore (Fe3O4)", "super":"ore"},
+    "ge_ore":{"name":"Germanium Ore", "super":"ore"},
+    "li_ore":{"name":"Lithium Ore", "super":"ore"},
+    "ca_ore":{"name":"Limestone", "desc":"Calcium Oxide (CaCO3) Ore", "super":"ore"},
+    "mg_ore":{"name":"Magnesium", "super":"ore"},
+    "mo_ore":{"name":"Molybdenum Ore", "super":"ore"},
+    "mn_ore":{"name":"Manganese Ore", "super":"ore"},
+    "ni_ore":{"name":"Nickel Ore", "super":"ore"},
+    "si_ore":{"name":"Silica Ore", "super":"ore"},
+    "ti_ore":{"name":"Ilmenite Ore", "desc":"(Titanium Ore)", "super":"ore"},
+    "u_ore": {"name":"Yellowcake Ore", "desc":"(Uranium Ore)", "super":"ore"},
+    "w_ore": {"name":"Tungsten Ore", "super":"ore"},
+    "z_ore": {"name":"Zinc Ore", "super":"ore"},
 
-{"key":"ore", "name":"Ore", "super":"rock", "tag":"ore"}
-{"key":"au_ore", "name":"Gold Ore", "super":"ore"}
-{"key":"al_ore", "name":"Bauxite", "desc":"(Aluminum Ore)", "super":"ore", "desc":"Aluminum Ore"}
-{"key":"cr_ore", "name":"Chromium Ore", "super":"ore"}
-{"key":"co_ore", "name":"Cobalt Ore", "super":"ore"}
-{"key":"cu_ore", "name":"Cuprite", "desc":"(Copper Ore)", "super":"ore"}
-{"key":"fe_ore", "name":"Magnetite Ore", "desc":"Iron Ore (Fe3O4)", "super":"ore"}
-{"key":"ge_ore", "name":"Germanium Ore", "super":"ore"}
-{"key":"li_ore", "name":"Lithium Ore", "super":"ore"}
-{"key":"ca_ore", "name":"Limestone", "desc":"Calcium Oxide (CaCO3) Ore", "super":"ore"}
-{"key":"mg_ore", "name":"Magnesium", "super":"ore"}
-{"key":"mo_ore", "name":"Molybdenum Ore", "super":"ore"}
-{"key":"mn_ore", "name":"Manganese Ore", "super":"ore"}
-{"key":"ni_ore", "name":"Nickel Ore", "super":"ore"}
-{"key":"si_ore", "name":"Silica Ore", "super":"ore"}
-{"key":"ti_ore", "name":"Ilmenite Ore", "desc":"(Titanium Ore)", "super":"ore"}
-{"key":"u_ore",  "name":"Yellowcake Ore", "desc":"(Uranium Ore)", "super":"ore"}
-{"key":"w_ore",  "name":"Tungsten Ore", "super":"ore"}
-{"key":"z_ore",  "name":"Zinc Ore", "super":"ore"}
+    "metal_ingot":{"name":"Metal Ingot", "units":"piece", "density":5.0},
+    "al_ingot":{"name":"Aluminum Ingot", "super":"metal_ingot", "density":2.7},
+    "au_ingot":{"name":"Gold Ingot", "super":"metal_ingot", "density":20.0},
+    "carbon":{"name":"Carbon (feedstock)"},
+    "cu_ingot":{"name":"Copper Ingot", "super":"metal_ingot", "density":20.0},
+    "iron_ingot":{"name":"Iron Ingots", "super":"metal_ingot"},
+    "alloy_steel_ingot":{"name":"Alloy Steel", "super":"metal_ingot"},
+    "carbon_steel_ingot":{"name":"Carbon Steel", "desc":"AKA 'Structural Steel'", "super":"metal_ingot"},
+    "stainless_steel_ingot":{"name":"Stainless Steel", "super":"metal_ingot"},
+    "tool_steel_ingot":{"name":"Tool Steel", "super":"metal_ingot"},
+    "foam_metal":{"name":"Foam Metal Alloy", "density":0.1},
 
-{"key":"metal_ingot", "name":"Metal Ingot", "units":"piece", "density":5.0}
-{"key":"al_ingot", "name":"Aluminum Ingot", "super":"metal_ingot", "density":2.7}
-{"key":"au_ingot", "name":"Gold Ingot", "super":"metal_ingot", "density":20.0}
-{"key":"carbon", "name":"Carbon (feedstock)"}
-{"key":"cu_ingot", "name":"Copper Ingot", "super":"metal_ingot", "density":20.0}
-{"key":"iron_ingot", "name":"Iron Ingots", "super":"metal_ingot"}
-{"key":"alloy_steel_ingot", "name":"Alloy Steel", "super":"metal_ingot"}
-{"key":"carbon_steel_ingot", "name":"Carbon Steel", "desc":"AKA 'Structural Steel'", "super":"metal_ingot"}
-{"key":"stainless_steel_ingot", "name":"Stainless Steel", "super":"metal_ingot"}
-{"key":"tool_steel_ingot", "name":"Tool Steel", "super":"metal_ingot"}
-{"key":"foam_metal", "name":"Foam Metal Alloy", "density":0.1}
+    "glass":{"name":"Glass"},
+    "cfrp":{"name":"Carbon Fiber", "desc":"(Carbon_Fiber Reinforced Polymer)"},
+    "plastic":{"name":"Plastic"},
+    "bio_polymers":{"name":"Plastic", "desc":"biologic-derived plastic", "super":"plastic"},
+    "oil_plastic":{"name":"Plastic", "desc":"fossil-fuel-derived plastic", "super":"plastic"},
 
+    "microchips":{"name":"Microchips", "desc":"Any microchips used for computers, communications and automation","tag":["electronics"]},
+    "si_chips":{"name":"Silicon Microchips", "desc":"Silicon_Based microchips", "super":"microchips"},
+    "ge_chips":{"name":"Germanium Microchips", "desc":"Any Germanium_Based microchips used for computers, communications and automation.   Especially useful for power delivery, but also substitutes for Silicon_based chips, if needed.", "super":"microchips"},
 
-{"key":"glass", "name":"Glass"}
-{"key":"cfrp", "name":"Carbon Fiber", "desc":"(Carbon_Fiber Reinforced Polymer)"}
-{"key":"plastic", "name":"Plastic"}
-{"key":"bio_polymers", "name":"Plastic", "desc":"biologic-derived plastic", "super":"plastic"}
-{"key":"oil_plastic", "name":"Plastic", "desc":"fossil-fuel-derived plastic", "super":"plastic"}
+    "crushed_stone":{"name":"Crushed Stone", "mass":2.0},
+    "construction_blocks":{"name":"Construction Blocks", "mass":2.0},
+    "bricks":{"name":"Bricks", "mass":2.0, "desc":"Fired, clay construction bricks"},
 
-{"key": "microchips", "name":"Microchips", "desc":"Any microchips used for computers, communications and automation"}
-{"key": "si_chips", "name":"Silicon Microchips", "desc":"Silicon_Based microchips", "super":"microchips"}
-{"key": "ge_chips", "name":"Germanium Microchips", "desc":"Any Germanium_Based microchips used for computers, communications and automation.   Especially useful for power delivery, but also substitutes for Silicon_based chips, if needed.", "super":"microchips"}
+    "cement_mix_blocks":{"name":"Cement Mix", "mass":2.0},
 
-{"key": "crushed_stone", "name":"Crushed Stone", "mass":2.0}
-{"key": "construction_blocks", "name":"Construction Blocks", "mass":2.0}
-{"key": "bricks", "name":"Bricks", "mass":2.0, "desc":"Fired, clay construction bricks"}
+    "rail_gun_magnets":{"name":"High_Gauss Magnets"},
+    "high_power_components":{"name":"Power Converters"},
 
-{"key": "cement_mix_blocks", "name":"Cement Mix", "mass":2.0}
+    "service_robot":{"name":"Service Robot"},
 
-{"key":"rail_gun_magnets", "name":"High_Gauss Magnets"}
-{"key":"high_power_components", "name":"Power Converters"}
+    "photonics":{"name":"Photonic Curcuits"},
+    "carbon_nano_tubes":{"name":"Carbon Nano-Tubes"},
+    "superconductor":{"name":"Superconductor"},
+    "supercapacitors":{"name":"Supercapacitor"},
 
-{"key":"service_robot", "name":"Service Robot"}
+    "concrete":{"name":"Concrete Mix"},
+    "paper":{"name":"Paper"},
 
-{"key":"photonics", "name":"Photonic Curcuits"}
-{"key":"carbon_nano_tubes", "name":"Carbon Nano-Tubes"}
-{"key":"superconductor", "name":"Superconductor"}
-{"key":"supercapacitors", "name":"Supercapacitor"}
+//  "rsc_combustion_exhaust":{"name": "smoke", "tag": " tech1, waste, gas"},
+//  "rsc_flyash":{"name": "Fly Ash",  "desc": "contains SiO2, CaO, Al2O3, Fe2O3, et al"},
+//  "rsc_ash":{"name": "Potash",  "desc": "Contains Potassium Carbonate (KCO3), used as fertilizer", "tag": " tech1, waste, solid"},
 
-{"key":"concrete"}
-{"key":"paper","name":"Paper"}
+    // civilian personnel
+    "person":  {"name":"Generic Person", "tag":["human"]},
+    "xp":      {"name":"Experience Points", "tag":["human","labor"]},
+    "worker":  {"name":"Generic Worker", "super":"person", "tag":["human"]},
+    "soldier": {"name":"Generic Worker", "super":"person", "tag":["soldier"]},
+    "farmer":  {"name":"Farmhand", "super":"worker"},
+    "mechanic":{"name":"Mechanic", "super":"worker"},
+     "engineer":{"name":"Engineer", "super":"worker"},
+    
+    // military personnel
+    "conscript":{"name":"Conscript", "super":"soldier", "tag":["soldier"]},
+    "recruit":{"name":"Mechanic", "super":"soldier"},
+    "rifleman":{"name":"Rifleman", "super":"soldier"},
+    "officer":{"name":"Military Officer", "super":"soldier"},
+    "pilot":{"name":"Pilot", "super":"soldier"},
+    "gunner":{"name":"Gunner", "tag":["soldier"]},
+    "technician":{"name":"Equipment Technician", "super":"soldier"},
 
+    // clothing
+    "fiber":{"name":"Clothing Fibers", "density":5.0, "tag":["fiber","clothing"]},
+    "wool":{"name":"Wool", "super":"fiber"},
+    "hemp":{"name":"Hemp Fibers", "super":"fiber"},
+    "flax":{"name":"Flax Fibers", "super":"fiber"},
+    "cotton":{"name":"Cotton Fibers", "super":"fiber"},
+    "silk":{"name":"Silk Fibers", "super":"fiber"},
 
-// {"key": "rsc_combustion_exhaust", "name": "smoke", "tag": " tech1, waste, gas"}
-// {"key": "rsc_flyash", "name": "Fly Ash",  "desc": "contains SiO2, CaO, Al2O3, Fe2O3, et al"}
-// {"key": "rsc_ash", "name": "Potash",  "desc": "Contains Potassium Carbonate (KCO3), used as fertilizer", "tag": " tech1, waste, solid"},
+    "clothing":{"name":"Clothing", "density":2.0, "tag":["clothing"]},
+    "jeans":{"name":"Blue Jeans", "super":"clothing"},
+    "tshirts":{"name":"Shirts", "super":"clothing"},
 
-// civilian personnel
-{"key": "person",   "name":"Generic Person", "tag":"human" }
-{"key": "xp",       "name":"Experience Points", "tag":"human,labor"}
-{"key": "worker",   "name":"Generic Worker", "super":"person", "tag":"labor"}
-{"key": "soldier",  "name":"Generic Worker", "super":"person", "tag":"soldier"}
-{"key": "farmer",   "name":"Farmhand", "super":"worker"}
-{"key": "mechanic", "name":"Mechanic", "super":"worker"}
-{"key": "engineer", "name":"Engineer", "super":"worker"}
+    "corals":{"name":"Corals"},
 
-// military personnel
-{"key": "conscript", "name":"Conscript", "super":"soldier", "tag":"soldier"}
-{"key": "recruit", "name":"Mechanic", "super":"soldier", "tag":"e2"}
-{"key": "rifleman", "name":"Rifleman", "super":"soldier"}
-{"key": "officer", "name":"Military Officer", "super":"soldier"}
-{"key": "pilot",  "name":"Pilot", "super":"soldier"}
-{"key": "gunner", "name":"Gunner", "tag":"soldier"}
-{"key": "technician", "name":"Equipment Technician", "super":"soldier"}
+    // luxuries
+    "jewelry":{"name":"Gold Jewelry"},
+    "antibiotics":{"name":"Antibiotics"},
+    "coke":{"name":"Cocaine", "tag":["recreation"]},
+    "marijuanan":{"name":"Marijuana", "tag":["recreation"]},
 
-// clothing
-{"key":"fiber", "name":"Clothing Fibers", "density":5.0, "tag":"fiber,clothing"}
-{"key":"wool", "name":"Wool", "super":"fiber"}
-{"key":"hemp", "name":"Hemp Fibers", "super":"fiber"}
-{"key":"flax", "name":"Flax Fibers", "super":"fiber"}
-{"key":"cotton", "name":"Cotton Fibers", "super":"fiber"}
-{"key":"silk", "name":"Silk Fibers", "super":"fiber"}
-
-{"key":"clothing", "name":"Clothing", "density":2.0, "tag":"clothing"}
-{"key":"jeans", "name":"Blue Jeans", "super":"clothing"}
-{"key":"tshirts", "name":"Shirts", "super":"clothing"}
-
-{"key":"corals", "name":"Corals"}
-
-// luxuries
-{"key":"jewelry"}
-
-{"key":"antibiotics", "name":"Antibiotics"}
-{"key":"coke", "name":"Cocaine", "tag":"recreation"}
-{"key":"marijuanan", "name":"Marijuana", "tag":"recreation"}
-
-// Transgenic
-{"key":"xgen_animals"}
-{"key":"xgen_crops"}
-{"key":"xgen_luxuries"}
-{"key":"xgen_bacteria reactors"}
-
-{"key":"xgen_enzymes" }
-{"key":"xgen_antibiotics" }
-{"key":"xgen_immunity_drugs" }
-{"key":"xgen_coral" }
-{"key":"neuroimplants"}
-{"key":"mechsuit"}
-
-{"key":"tiberium",       "name":"Tiberium",       "density":2, "tag":"tiberium"}
-{"key":"blue_tiberium",  "name":"Blue Tiberium",  "density":2, "tag":"tiberium"}
-{"key":"green_tiberium", "name":"Green Tiberium", "density":2, "tag":"tiberium"}
-{"key":"red_tiberium",   "name":"Red Tiberium",   "density":2, "tag":"tiberium"}
-{"key":"white_tiberium", "name":"White Tiberium", "density":2, "tag":"tiberium"}
-{"key":"yellow_tiberium","name":"Yellow Tiberium","density":2, "tag":"tiberium"}
+    // Transgenic
+    "xgen_animals":{"name":"Transgenic Animals"},
+    "xgen_crops":{"name":"Transgenic Crops"},
+    "xgen_luxuries":{"name":"Transgenic Luxuries"},
+    "xgen_bacteria_rx":{"name":"Transgenic Bacteria Reactors"},
+    "xgen_enzymes":{"name":"Transgenic Enzymes" },
+    "xgen_antibiotics":{"name":"Transgenic Antibiotics" },
+    "xgen_immunity_drugs":{"name":"Transgenic Immunity_drugs" },
+    "xgen_coral":{"name":"Transgenic Coral" },
+    "neuroimplants":{"name":"neuroimplants"},
+    
+    "tiberium":       {"name":"Tiberium",       "density":2, "tag":["tiberium"]},
+    "blue_tiberium":  {"name":"Blue Tiberium",  "super":"tiberium"},
+    "green_tiberium": {"name":"Green Tiberium", "super":"tiberium"},
+    "red_tiberium":   {"name":"Red Tiberium",   "super":"tiberium"},
+    "white_tiberium": {"name":"White Tiberium", "super":"tiberium"},
+    "yellow_tiberium":{"name":"Yellow Tiberium","super":"tiberium"},
+}

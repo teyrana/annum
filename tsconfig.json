@@ -6,6 +6,7 @@
     "noImplicitAny": false,
     "removeComments": true,
     "preserveConstEnums": true,
+    "resolveJsonModule": true,
     "sourceMap": true,
     "forceConsistentCasingInFileNames": true,
     "outDir": "dist",

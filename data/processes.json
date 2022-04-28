@@ -1,77 +1,85 @@
-{"key":"cooling", "name":"Cooling", "io":{"heat":-1}}
+{
+    "cooling":{"name":"Cooling", "io":{"heat":-1}},
 
-{"key":"mill_lumber", "name":"Mill Lumber", "io":{"timber":-1, "lumber":1}}
+    "mill_lumber":{"name":"Mill Lumber", "io":{"timber":-1, "lumber":1}},
 
-{"key":"operate_solar_panels", "name":"Generate Power (Solar)", "tag":"electricity", "io": {"electricity": 1.0, "light": -1.0}}
-{"key":"operate_turbine_generator", "name":"Generate Power (Turbine)", "tag":"electricity", "io": {"torque":-1.0, "electricity": 1.0}}
-{"key":"operate_sterling_engine", "name":"Generate Power (Sterling Engine)", "tag":"electricity", "io": {"heat":-0.4, "electricity": 1.0}}
+    "operate_solar_panels":{"name":"Generate Power (Solar)", "tag":"electricity", "io": {"electricity": 1.0, "light": -1.0}},
+    "operate_turbine_generator":{"name":"Generate Power (Turbine)", "tag":"electricity", "io": {"torque":-1.0, "electricity": 1.0}},
+    "operate_sterling_engine":{"name":"Generate Power (Sterling Engine)", "tag":"electricity", "io": {"heat":-0.4, "electricity": 1.0}},
 
-{"key": "sell_tiberium", "name": "Sell Tiberium", "tag": "tiberium", "io":  {"tiberium": -1.0, "credits": 70.0}}
-{"key": "refine_blue_tiberium", "name": "Refine Blue Tiberium", "tag": "tiberium", "io":     {"blue_tiberium": -1.0,  "co_ore":0.4, "cr_ore":0.2, "mg_ore":0.1, "mn_ore":0.1, "mo_ore":0.1, "li_ore":0.9}}
-{"key": "refine_green_tiberium", "name": "Refine Green Tiberium", "tag": "tiberium", "io":   {"green_tiberium": -1.0, "cu_ore":0.7, "fe_ore":0.4, "mg_ore":0.1, "mn_ore":0.1}}
-{"key": "refine_red_tiberium", "name": "Refine Red Tiberium", "tag": "tiberium", "io":       {"red_tiberium": -1.0,   "fe_ore":0.1, "mg_ore":0.2, "cu_ore":0.1}}
-{"key": "refine_white_tiberium", "name": "Refine White Tiberium", "tag": "tiberium", "io":   {"white_tiberium": -1.0, "al_ore":0.8, "ti_ore":0.4, "li_ore":0.3}}
-{"key": "refine_yellow_tiberium", "name": "Refine Yellow Tiberium", "tag": "tiberium", "io": {"yellow_tiberium": -1.0,"au_ore":0.8, "co_ore":0.4, "li_ore":0.1}}
+    "sell_tiberium":{"name": "Sell Tiberium", "tag": "tiberium", "io":  {"tiberium": -1.0, "credits": 70.0}},
+    "refine_blue_tiberium":{"name": "Refine Blue Tiberium", "tag": "tiberium", "io":     {"blue_tiberium": -1.0,  "co_ore":0.4, "cr_ore":0.2, "mg_ore":0.1, "mn_ore":0.1, "mo_ore":0.1, "li_ore":0.9}},
+    "refine_green_tiberium":{"name": "Refine Green Tiberium", "tag": "tiberium", "io":   {"green_tiberium": -1.0, "cu_ore":0.7, "fe_ore":0.4, "mg_ore":0.1, "mn_ore":0.1}},
+    "refine_red_tiberium":{"name": "Refine Red Tiberium", "tag": "tiberium", "io":       {"red_tiberium": -1.0,   "fe_ore":0.1, "mg_ore":0.2, "cu_ore":0.1}},
+    "refine_white_tiberium":{"name": "Refine White Tiberium", "tag": "tiberium", "io":   {"white_tiberium": -1.0, "al_ore":0.8, "ti_ore":0.4, "li_ore":0.3}},
+    "refine_yellow_tiberium":{"name": "Refine Yellow Tiberium", "tag": "tiberium", "io": {"yellow_tiberium": -1.0,"au_ore":0.8, "co_ore":0.4, "li_ore":0.1}},
 
-{"key": "smelt_gold", "name":"Smelt Gold", "io":{ "au_ore":-1, "au_ingot":1.0} }
-{"key": "smelt_aluminum", "name":"Smelt Aluminum", "io":{"al_ore":-1.0, "mg_ore":-0.1, "al_ingot":1}}
-{"key": "smelt_iron", "name":"Smelt Iron", "tag":"steel", "io":{"fe_ore":-1, "iron_ingot":1}}
-{"key": "smelt_alloy_steal", "name":"Smelt Carbon Steel", "tag":"steel",        "io": {"carbon_steel_ingot":-1.0, "mo_ore":-0.05, "mn_ore":-0.05,"alloy_steel_ingot":1.0},        "desc":" https://en.wikipedia.org/wiki/Alloy_steel; https://www.thoughtco.com/steel-grades-2340174"}
-{"key": "smelt_carbon_steal", "name":"Smelt Carbon Steel", "tag":"steel",        "io":{"iron_ingot":-1.0, "carbon":-0.1, "carbon_steel_ingot":1.0}}
-{"key": "smelt_stainless_steal", "name":"Smelt Stainless Steel", "tag":"steel",        "io":{"carbon_steel_ingot":-1, "cr_ore":-0.1, "stainless_steel_ingot":1.0}}
-{"key": "smelt_tool_steal", "name":"Smelt Tool Steel", "tag":"steel",        "io":{"carbon_steel_ingot":-1, "cr_ore":-0.2, "mo_ore":-0.1, "w_ore":-0.05, "tool_steel_ingot":1}}
+    "smelt_gold":{"name":"Smelt Gold", "io":{ "au_ore":-1, "au_ingot":1.0}},
+    "smelt_aluminum":{"name":"Smelt Aluminum", "io":{"al_ore":-1.0, "mg_ore":-0.1, "al_ingot":1}},
+    "smelt_iron":{"name":"Smelt Iron", "tag":"steel", "io":{"fe_ore":-1, "iron_ingot":1}},
+    "smelt_alloy_steal":{"name":"Smelt Carbon Steel", "tag":"steel",
+            "io": {"carbon_steel_ingot":-1.0, "mo_ore":-0.05, "mn_ore":-0.05,"alloy_steel_ingot":1.0}, "desc":" https://en.wikipedia.org/wiki/Alloy_steel; https://www.thoughtco.com/steel-grades-2340174"},
+    "smelt_carbon_steal":{"name":"Smelt Carbon Steel", "tag":"steel",
+            "io":{"iron_ingot":-1.0, "carbon":-0.1, "carbon_steel_ingot":1.0}},
+    "smelt_stainless_steal":{"name":"Smelt Stainless Steel", "tag":"steel",
+            "io":{"carbon_steel_ingot":-1, "cr_ore":-0.1, "stainless_steel_ingot":1.0}},
+    "smelt_tool_steal":{"name":"Smelt Tool Steel", "tag":"steel",
+            "io":{"carbon_steel_ingot":-1, "cr_ore":-0.2, "mo_ore":-0.1, "w_ore":-0.05, "tool_steel_ingot":1}},
 
-{"key": "smelt_si_chips", "name":"Smelt Silicon Chips",        "io":{"si_ore":-1, "cu_ore":-0.2, "si_chips":1.0}}
-{"key": "smelt_ge_chips", "name":"Smelt Germanium Chips",        "io":{"ge_ore":-1, "cu_ore":-0.2, "ge_chips":1.0}}
+    "smelt_si_chips":{"name":"Smelt Silicon Chips",
+            "io":{"si_ore":-1, "cu_ore":-0.2, "si_chips":1.0}},
+    "smelt_ge_chips":{"name":"Smelt Germanium Chips",
+            "io":{"ge_ore":-1, "cu_ore":-0.2, "ge_chips":1.0}},
 
-{"key":"refine_bio_plastics", "name":"Make Agricultural Plastics", "io":{"carbon":-1,"plastic":1, "time":20}}
-{"key":"refine_fossil_plastics", "name":"Make Hydrocarbon Plastics", "io":{"crude_oil":-1,"plastic":1, "time":20}}
+    "refine_bio_plastics":{"name":"Make Agricultural Plastics", "io":{"carbon":-1,"plastic":1, "time":20}},
+    "refine_fossil_plastics":{"name":"Make Hydrocarbon Plastics", "io":{"crude_oil":-1,"plastic":1, "time":20}},
 
-{"key":"make_basic_hand_tools", "name":"Build Basic Tools", "tag":"tools", "io":{"iron_ingot":-1, "lumber":-0.5, "basic_hand_tools":10}}
-{"key":"make_power_tools", "name":"Build Power Tools", "tag":"tools", "io":{"tool_steel_ingot":-1, "cu_ore":-0.2, "plastic":-0.6, "power_tools":10}}
-{"key":"make_heavy_tools", "name":"Build Heavy Tools", "tag":"tools", "io":{"carbon_steel_ingot":-1, "tool_steel_ingot":-1, "heavy_tools":4}}
-{"key":"make_automated_tools", "name":"Build Automated Tools", "tag":"tools", "io":{"carbon_steel_ingot":-1, "tool_steel_ingot":-1, "si_chips":-0.2, "automated_tools":4}}
-{"key":"make_robotic_tools", "name":"Build Robotic Tools", "tag":"tools", "io":{"carbon_steel_ingot":-1, "tool_steel_ingot":-1, "si_chips":-0.2, "robotic_tools":4}}
+    "make_basic_hand_tools":{"name":"Build Basic Tools", "tag":"tools", "io":{"iron_ingot":-1, "lumber":-0.5, "basic_hand_tools":10}},
+    "make_power_tools":{"name":"Build Power Tools", "tag":"tools", "io":{"tool_steel_ingot":-1, "cu_ore":-0.2, "plastic":-0.6, "power_tools":10}},
+    "make_heavy_tools":{"name":"Build Heavy Tools", "tag":"tools", "io":{"carbon_steel_ingot":-1, "tool_steel_ingot":-1, "heavy_tools":4}},
+    "make_automated_tools":{"name":"Build Automated Tools", "tag":"tools", "io":{"carbon_steel_ingot":-1, "tool_steel_ingot":-1, "si_chips":-0.2, "automated_tools":4}},
+    "make_robotic_tools":{"name":"Build Robotic Tools", "tag":"tools", "io":{"carbon_steel_ingot":-1, "tool_steel_ingot":-1, "si_chips":-0.2, "robotic_tools":4}},
 
-// {"key":"na", "desc":"    # piston engines -- multifuel -- diesel / gasoline / kerosene / other"}
-// {"key":"na", "desc":"    steel_ingot, iron_ingot, al_ingot -> piston_engine_5kW    // ~200cc engine; tiny utility engines, tiny generators"}
-// {"key":"na", "desc":"    steel_ingot, iron_ingot, al_ingot -> piston_engine_100kW  // ~1-5L engine; motorcycles, snowmobiles, small UAV, jeep, HMMMV, etc"}
-// {"key":"na", "desc":"    steel_ingot, iron_ingot, al_ingot -> piston_engine_160kW  // semi-truck, light/medium supply trucks"}
-// {"key":"na", "desc":"    steel_ingot, iron_ingot, al_ingot -> piston_engine_400kW  // large trucks, large equipment, small generators,"}
-// {"key":"na", "desc":"    steel_ingot, iron_ingot, al_ingot -> piston_engine_900kW  // Challenger Tank"}
-// {"key":"na", "desc":"    steel_ingot, iron_ingot, al_ingot -> piston_engine_12MW   // small frigates, LCS, etc"}
-// {"key":"na", "desc":"    steel_ingot, iron_ingot, al_ingot -> piston_engine_80MW   // https://en.wikipedia.org/wiki/W%C3%A4rtsil%C3%A4-Sulzer_RTA96-C "}
+    // piston engines -- multifuel -- diesel / gasoline / kerosene / other"
+//     "na":{"name":"", "desc":"steel_ingot, iron_ingot, al_ingot -> piston_engine_5kW    // ~200cc engine; tiny utility engines, tiny generators"}
+//     "na":{"name":"", "desc":"steel_ingot, iron_ingot, al_ingot -> piston_engine_100kW  // ~1-5L engine; motorcycles, snowmobiles, small UAV, jeep, HMMMV, etc"}
+//     "na":{"name":"", "desc":"steel_ingot, iron_ingot, al_ingot -> piston_engine_160kW  // semi-truck, light/medium supply trucks"}
+//     "na":{"name":"", "desc":"steel_ingot, iron_ingot, al_ingot -> piston_engine_400kW  // large trucks, large equipment, small generators,"}
+//     "na":{"name":"", "desc":"steel_ingot, iron_ingot, al_ingot -> piston_engine_900kW  // Challenger Tank"}
+//     "na":{"name":"", "desc":"steel_ingot, iron_ingot, al_ingot -> piston_engine_12MW   // small frigates, LCS, etc"}
+//     "na":{"name":"", "desc":"steel_ingot, iron_ingot, al_ingot -> piston_engine_80MW   // https://en.wikipedia.org/wiki/W%C3%A4rtsil%C3%A4-Sulzer_RTA96-C "}
 
-//{"key":"na", "desc":"        // turbine (mostly gas turbine)"}
-//{"key":"na", "desc":"        steel_ingot, iron_ingot, al_ingot -> turbine_1MW   // Abrams Tank"}
-//{"key":"na", "desc":"        steel_ingot, iron_ingot, al_ingot -> turbine_3MW   // https://www.rolls-royce.com/products-and-services/defence/naval/gas-turbines/ag9140-generator-set.aspx; 3x per arleigh-burke"}
-//{"key":"na", "desc":"        steel_ingot, iron_ingot, al_ingot -> turbine_20MW      // https://en.wikipedia.org/wiki/General_Electric_LM2500; 4x per Arleigh-Burke (propulsion)"}
+//    "na":{"name":"", "desc":"// turbine (mostly gas turbine)"}
+//    "na":{"name":"", "desc":"steel_ingot, iron_ingot, al_ingot -> turbine_1MW   // Abrams Tank"},
+//    "na":{"name":"", "desc":"steel_ingot, iron_ingot, al_ingot -> turbine_3MW   // https://www.rolls-royce.com/products-and-services/defence/naval/gas-turbines/ag9140-generator-set.aspx; 3x per arleigh-burke"},
+//    "na":{"name":"", "desc":"steel_ingot, iron_ingot, al_ingot -> turbine_20MW      // https://en.wikipedia.org/wiki/General_Electric_LM2500; 4x per Arleigh-Burke (propulsion)"},
     
 
-{"key":"build_generator", "name":"Build Generator", "io":{ "cu_ingot":-1, "carbon_steel_ingot":-1, "electric_generator_5kW":1}}
-{"key":"build_electric_motor", "name":"Build Electric Motor", "io":{"cu_ingot":-1, "carbon_steel_ingot":-1, "electric_motor_5kW":1}}
-{"key":"build_lipo_batteries", "name":"Build LiPo Batteries", "io":{"li_ore":-1, "co_ore":-0.1, "cu_ore":-0.2, "batteries_lipo":1}}
-{"key":"build_nimh_batteries", "name":"Build NiMH Batteries", "io":{"ni_ore":-1, "cu_ore":-0.2, "batteries_nimh":1}}
+    "build_generator":{"name":"Build Generator", "io":{ "cu_ingot":-1, "carbon_steel_ingot":-1, "electric_generator_5kW":1}},
+    "build_electric_motor":{"name":"Build Electric Motor", "io":{"cu_ingot":-1, "carbon_steel_ingot":-1, "electric_motor_5kW":1}},
+    "build_lipo_batteries":{"name":"Build LiPo Batteries", "io":{"li_ore":-1, "co_ore":-0.1, "cu_ore":-0.2, "batteries_lipo":1}},
+    "build_nimh_batteries":{"name":"Build NiMH Batteries", "io":{"ni_ore":-1, "cu_ore":-0.2, "batteries_nimh":1}},
 
-{"key": "rsc-t1-spare_parts", "name": "Spare Parts", "tag": " tech1, maintenance, item"}
+    "rsc-t1-spare_parts":{"name": "Spare Parts", "tag": " tech1, maintenance, item"},
 
-{"key":"grow-vegetables", "name":"Grow Vegetables", "tag":"food", "io": {"water": -0.2, "light": -0.5, "vegetables": 1.0, "time": -30.0}}
-{"key":"grow-grain", "name":"Grow Grain", "tag":"food", "io": {"water": -0.2, "light": -0.5, "grain": 1.0, "time": -30.0}}
-{"key":"grow-chickens", "name":"Raise Chickens", "tag":"food", "io": {"water": -0.2, "light": -0.5, "chicken": 1.0, "chicken_eggs":8.0, "time": -30.0}}
-{"key":"grow-cows", "name":"Raise Cows", "tag":"food", "io": {"water": -0.2, "light": -0.5, "cow": 1.0, "raw_milk":8.0, "time": -60.0}}
-{"key":"grow-goats", "name":"Raise Goats", "tag":"food", "io": {"water": -0.2, "light": -0.5, "goat": 1.0, "time": -40.0}}
-{"key":"grow-pigs", "name":"Raise Pigs", "tag":"food", "io": {"water": -0.2, "light": -0.5, "pig": 1.0, "time": -50.0}}
-{"key":"grow-sheep", "name":"Raise Sheep", "tag":"food,clothing", "io": {"water": -0.2, "light": -0.5, "sheep": 1.0, "wool":12.0, "time": -40.0}}
+    "grow-vegetables":{"name":"Grow Vegetables", "tag":"food", "io": {"water": -0.2, "light": -0.5, "vegetables": 1.0, "time": -30.0}},
+    "grow-grain":{"name":"Grow Grain", "tag":"food", "io": {"water": -0.2, "light": -0.5, "grain": 1.0, "time": -30.0}},
+    "grow-chickens":{"name":"Raise Chickens", "tag":"food", "io": {"water": -0.2, "light": -0.5, "chicken": 1.0, "chicken_eggs":8.0, "time": -30.0}},
+    "grow-cows":{"name":"Raise Cows", "tag":"food", "io": {"water": -0.2, "light": -0.5, "cow": 1.0, "raw_milk":8.0, "time": -60.0}},
+    "grow-goats":{"name":"Raise Goats", "tag":"food", "io": {"water": -0.2, "light": -0.5, "goat": 1.0, "time": -40.0}},
+    "grow-pigs":{"name":"Raise Pigs", "tag":"food", "io": {"water": -0.2, "light": -0.5, "pig": 1.0, "time": -50.0}},
+    "grow-sheep":{"name":"Raise Sheep", "tag":"food,clothing", "io": {"water": -0.2, "light": -0.5, "sheep": 1.0, "wool":12.0, "time": -40.0}},
 
-{"key":"cook-bread", "name":"Bake Bread", "tag":"food", "io": {"grain": -1.0, "bread": 1.0, "time": -5.0}}
-{"key":"cook-cheese", "name":"Make Cheese", "tag":"food", "io": {"raw_milk": -1.0, "cheese": 1.0, "time": -6.0}}
+    "cook-bread":{"name":"Bake Bread", "tag":"food", "io": {"grain": -1.0, "bread": 1.0, "time": -5.0}},
+    "cook-cheese":{"name":"Make Cheese", "tag":"food", "io": {"raw_milk": -1.0, "cheese": 1.0, "time": -6.0}},
 
-{"key":"butcher-chickens", "name":"Raise Chickens", "tag":"food", "io": {"chicken": -1.0, "chicken_meat":2.0, "time": -2.0}}
-{"key":"butcher-cows", "name":"Raise Cows", "tag":"food", "io": {"cow": -1.0, "beef": 880.0, "time": -4.0}}
-{"key":"butcher-goats", "name":"Raise Goats", "tag":"food", "io": {"goat": -1.0, "goat_meat":112.0, "time": -3.0}}
-{"key":"butcher-pigs", "name":"Raise Pigs", "tag":"food", "io": {"pig": -1.0, "pork":480.0, "time": -3.0}}
-{"key":"butcher-sheep", "name":"Raise Sheep", "tag":"food,clothing", "io": {"sheep": -1.0, "mutton":112.0, "time": -3.0}}
+    "butcher-chickens":{"name":"Raise Chickens", "tag":"food", "io": {"chicken": -1.0, "chicken_meat":2.0, "time": -2.0}},
+    "butcher-cows":{"name":"Raise Cows", "tag":"food", "io": {"cow": -1.0, "beef": 880.0, "time": -4.0}},
+    "butcher-goats":{"name":"Raise Goats", "tag":"food", "io": {"goat": -1.0, "goat_meat":112.0, "time": -3.0}},
+    "butcher-pigs":{"name":"Raise Pigs", "tag":"food", "io": {"pig": -1.0, "pork":480.0, "time": -3.0}},
+    "butcher-sheep":{"name":"Raise Sheep", "tag":"food,clothing", "io": {"sheep": -1.0, "mutton":112.0, "time": -3.0}},
 
 
-{"key":"refine_oil", "name":"Refine Crude Oil", "tag":"energy,fuel", "io":{"crude_oil":-1, "gasoline":0.6, "kerosene":0.6, "time":-10.0}}
-{"key":"manufacture_solid_rocket_fuel", "name":"Manufacture solid rocket fuel", "tag":"energy,rockets,weapons,fuel", "io": {"apcp": -1.0, "al_ingot":-1.0, "time": -3.0, "solid_rocket_fuel":2.0}}
+    "refine_oil":{"name":"Refine Crude Oil", "tag":"energy,fuel", "io":{"crude_oil":-1, "gasoline":0.6, "kerosene":0.6, "time":-10.0}},
+    "manufacture_solid_rocket_fuel":{"name":"Manufacture solid rocket fuel", "tag":"energy,rockets,weapons,fuel", "io": {"apcp": -1.0, "al_ingot":-1.0, "time": -3.0, "solid_rocket_fuel":2.0}},
+}
