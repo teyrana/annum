@@ -10,9 +10,9 @@ import * as processData from '../data/processes.json';
 
 function collectTags( catalog, allTags: TagSet ){
   for( const entry of catalog ){
-    // if( typeof entry.tags === 'undefined'){
-    //   console.error("!?: entry.tags is undefined on: " + entry.key );
-    // }
+    if( typeof entry.tags === 'undefined'){
+      console.error("!?: entry.tags is undefined on: " + entry.key );
+    }
     allTags.update(entry.tags);
   }
   return allTags;
@@ -86,25 +86,22 @@ export function loadAllTypes(): boolean {
     collectTags( resources, allTags );
   }
 
-
-
-  // console.log("==>> [2] Loading Processes...");
-  // const processArchetype = new ProcessType();
-  // const processes = loadType<ProcessType>(processData, processArchetype );
-  // const loadProcessSuccess = (0 < processes.size);
-  // if( loadProcessSuccess ){
-  //   collectTags( processes, allTags );
-  // }
-  const loadProcessSuccess = false;
+  console.log("==>> [2] Loading Processes...");
+  const processArchetype = new ProcessType();
+  const processes = loadType<ProcessType>(processData, processArchetype );
+  const loadProcessSuccess = (0 < processes.size);
+  if( loadProcessSuccess ){
+    collectTags( processes, allTags );
+  }
 
   // debug
   //printEntries( resources);
   //printEntries( resources, 'tiberium' );
-  //printEntries(processes);
+  //printEntries( processes );
   // debug
 
-  console.log("<<== [8] Loaded ${allTags.size} tags:");
-  console.log(`    ${Array.from(allTags).join(',')}`);
+  console.log(`<<== [8] Loaded ${allTags.size} tags.`);
+  //console.log(`    ${Array.from(allTags).join(',')}`);
 
   return (loadResourceSuccess && loadProcessSuccess);
             

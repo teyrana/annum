@@ -41,8 +41,10 @@ export class EntryCatalog<EntryType extends BaseEntryType> implements Iterable<E
       next: () => {
         i++;
         if (i < this.index.length){
+          //console.log(`....Fetching: [${i}]: ${this.index[i]}`);
           return {value: this.index[i], done: false}
         } else {
+          //console.log(`....Fetching: [${i}]: null;`);
           return {value: null, done: true}
         }
       }
