@@ -8,6 +8,9 @@ import * as resourceData from '../data/resources.json';
 import ProcessType from './process_type'
 import * as processData from '../data/processes.json';
 
+import TechnologyType from './technology_type'
+import * as technologyData from '../data/technologies.json';
+
 function collectTags( catalog, allTags: TagSet ){
   for( const entry of catalog ){
     if( typeof entry.tags === 'undefined'){
@@ -91,20 +94,31 @@ export function loadAllTypes(): boolean {
   const processes = loadType<ProcessType>(processData, processArchetype );
   const loadProcessSuccess = (0 < processes.size);
   if( loadProcessSuccess ){
+    // vvv NYI vvv
+//    processes.link( resources );
+    // ^^^ NYI ^^^
     collectTags( processes, allTags );
+  }
+
+  console.log("==>> [3] Loading Technologies...");
+  const technologyArchetype = new TechnologyType();
+  const technologies = loadType<TechnologyType>(technologyData, technologyArchetype );
+  const loadTechnologiesSuccess = (0 < technologies.size);
+  if( loadTechnologiesSuccess ){
+    collectTags( technologies, allTags );
   }
 
   // debug
   //printEntries( resources);
   //printEntries( resources, 'tiberium' );
-  //printEntries( processes );
+//  printEntries( processes, 'tiberium');
+  //printEntries( technologies, 'tiberium');
   // debug
 
-  console.log(`<<== [8] Loaded ${allTags.size} tags.`);
+  console.log(`<<== Loaded ${allTags.size} tags.`);
   //console.log(`    ${Array.from(allTags).join(',')}`);
 
-  return (loadResourceSuccess && loadProcessSuccess);
-            
+  return (loadResourceSuccess && loadProcessSuccess && loadTechnologiesSuccess);
 }
 
 export default loadAllTypes;
