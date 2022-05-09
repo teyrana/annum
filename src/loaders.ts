@@ -28,7 +28,7 @@ function loadType<EntryType extends BaseEntryType>( data, archetype: EntryType )
   : EntryCatalog<EntryType>
 {
   let rowCount = Object.keys(data).length;
-  console.log(`    >>> JSON File Loaded.  Found: ${rowCount} <${archetype.typeName}> entries.`);
+  console.log(`    >>> Loading: ${rowCount} <${archetype.typeName}> entries.`);
   
   let catalog = new EntryCatalog<EntryType>();
 
@@ -68,7 +68,6 @@ function loadType<EntryType extends BaseEntryType>( data, archetype: EntryType )
     }
   }
 
-  console.log(`    <<: Finished Loading.`);
   return catalog;
 }
 
@@ -84,54 +83,63 @@ function printEntries<EntryType extends BaseEntryType>( catalog: EntryCatalog<En
 export function loadAllTypes(): boolean {
   const allTags = new TagSet();
 
-  console.log("==>> [1] Loading Resources...");
-  const resourceArchetype = new ResourceType();
-  const resources = loadType<ResourceType>(resourceData, resourceArchetype );
-  const loadResourcesSuccess = (0 < resources.size);
-  collectTags( resources, allTags );
+  console.log("==>> Stage 1: Load Entries...");
 
-  console.log("==>> [2] Loading Processes...");
+  console.log("  >> 1:A: Loading Buildings...");
+
+  console.log("  >> 1:B: Loading Modules...");
+
+  console.log("  >> 1:C: Loading Platforms...");
+
+  console.log("  >> 1:D: Loading Processes...");
   const processArchetype = new ProcessType();
   const processes = loadType<ProcessType>(processData, processArchetype );
   const loadProcessesSuccess = (0 < processes.size);
   collectTags( processes, allTags );
 
-  console.log("==>> [3] Loading Technologies...");
+  console.log("  >> 1:E: Loading Resources...");
+  const resourceArchetype = new ResourceType();
+  const resources = loadType<ResourceType>(resourceData, resourceArchetype );
+  const loadResourcesSuccess = (0 < resources.size);
+  collectTags( resources, allTags );
+
+  console.log("  >> 1:F: Loading Technologies...");
   const technologyArchetype = new TechnologyType();
   const technologies = loadType<TechnologyType>(technologyData, technologyArchetype );
   const loadTechnologiesSuccess = (0 < technologies.size);
   collectTags( technologies, allTags );
 
-  console.log("==>> [6] Loading Weapons...");
+  console.log("  >> 1:G: Loading Units...");
+
+  console.log("  >> 1:H: Loading Weapons...");
   const weaponArchetype = new WeaponType();
   const weapons = loadType<WeaponType>(weaponData, weaponArchetype );
   const loadWeaponsSuccess = (0 < weapons.size);
   collectTags( weapons, allTags );
 
-
   // debug
+  if( true ){
+  // console.log("   << Stage 1 // DEBUG");
   //printEntries( resources);
   //printEntries( resources, 'tiberium' );
-//  printEntries( processes, 'tiberium');
+  // printEntries( processes, 'tiberium');
   //printEntries( technologies, 'tiberium');
-  printEntries( weapons);
+  //printEntries( weapons);
+  //console.log(`<<== Loaded ${allTags.size} tags.`);
+  //console.log(`    ${Array.from(allTags).join(',')}`);
+  }
   // debug
 
-  if( loadResourcesSuccess && loadProcessesSuccess ){
-    // vvv NYI vvv
-//    processes.link( resources );
-    // ^^^ NYI ^^^
-  }
+  console.log("==>> Stage 2: Link Entries...");
 
-  if( loadProcessesSuccess && loadWeaponsSuccess ){
-    // vvv NYI vvv
-//    weapons.link( processes );
-    // ^^^ NYI ^^^
-  }
+  console.log("  >> 2:A: Link Processes to Resources...");
+  processes.link( resources );
 
+  console.log("  >> 2:B: Link Weapons to Processes...");
+  weapons.link( processes );
 
-  console.log(`<<== Loaded ${allTags.size} tags.`);
-  //console.log(`    ${Array.from(allTags).join(',')}`);
+  // ...
+
 
   return (loadResourcesSuccess
     && loadProcessesSuccess

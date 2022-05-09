@@ -83,6 +83,10 @@ class ResourceType implements BaseEntryType {
     }
   }
 
+  link(other:any): boolean {
+    return true;
+  }
+
   str() : string {
     let str = `          - [${this.index.toString().padStart(3)}][${this.key}]: "${this.name}"`;
     if( this.superKey ){

@@ -23,12 +23,25 @@ export class EntryCatalog<EntryType extends BaseEntryType> implements Iterable<E
     return this.index[lookup];
   }
 
+  by( lookup: string ): EntryType {
+    return this.catalog.get(lookup);
+  }
+
   contains( lookup: string ): boolean {
     return this.catalog.has(lookup);
   }
 
-  by( lookup: string ): EntryType {
-    return this.catalog.get(lookup);
+  link( other: EntryCatalog<any> ): boolean {
+    if( (0 == this.size) || (0 == other.size) ){
+      return false;
+    }
+
+    for( let i = 0; i < this.index.length; i++ ){
+      const entry = this.index[i];
+      if( ! entry.link(other))
+        break;
+    }
+    return true;
   }
 
   get size(): number {

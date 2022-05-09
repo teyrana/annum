@@ -55,8 +55,8 @@
 //    "na":{"name":"", "desc":"steel_ingot, iron_ingot, al_ingot -> turbine_20MW      // https://en.wikipedia.org/wiki/General_Electric_LM2500; 4x per Arleigh-Burke (propulsion)"},
     
 
-    "build_generator":{"name":"Build Generator", "io":{ "cu_ingot":-1, "carbon_steel_ingot":-1, "electric_generator_5kW":1}},
-    "build_electric_motor":{"name":"Build Electric Motor", "io":{"cu_ingot":-1, "carbon_steel_ingot":-1, "electric_motor_5kW":1}},
+    "build_generator":{"name":"Build Generator", "io":{ "cu_ingot":-1, "carbon_steel_ingot":-1, "electric_generator_5kw":1}},
+    "build_electric_motor":{"name":"Build Electric Motor", "io":{"cu_ingot":-1, "carbon_steel_ingot":-1, "electric_motor_5kw":1}},
     "build_lipo_batteries":{"name":"Build LiPo Batteries", "io":{"li_ore":-1, "co_ore":-0.1, "cu_ore":-0.2, "batteries_lipo":1}},
     "build_nimh_batteries":{"name":"Build NiMH Batteries", "io":{"ni_ore":-1, "cu_ore":-0.2, "batteries_nimh":1}},
 

@@ -71,6 +71,14 @@ class WeaponType implements BaseEntryType {
     }
   }
 
+  link(other:any): boolean {
+    //console.log(`    @ [${this.key}] <${this.typeName}>  ==>>  ${other.at(0).typeName}`);
+    const found = other.contains(this.process);
+    //console.log(`    -[${this.process}] => ${found}`);
+    return found;
+  }
+
+
   str() : string {
     let str = '';
     str += `          - [${this.index.toString().padStart(3)}][${this.key}]: "${this.name}"\n`;

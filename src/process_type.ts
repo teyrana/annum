@@ -61,6 +61,19 @@ class ProcessType implements BaseEntryType {
     }
   }
 
+  link(other:any): boolean {
+    //console.log(`    @ [${this.key}] <${this.typeName}>  ==>>  ${other.at(0).typeName}`);
+    this.io.forEach( (qty,key) => {
+      const found = other.contains(key);
+      if( ! found){
+        console.log(`    !! could not find resource: ${key} in process: ${this.key}`);
+        return false;
+      }
+    });
+
+    return true;
+  }
+
   str() : string {
     let str = '';
     str += `          - [${this.index.toString().padStart(3)}][${this.key}]: "${this.name}"\n`;

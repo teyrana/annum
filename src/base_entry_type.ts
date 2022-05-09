@@ -10,6 +10,7 @@ interface BaseEntryType {
   readonly tags?: TagSet;
 
   copy( i:number, doc:any ): any;
+  link( other:any ): boolean;
   str(): string;
 
 }
