@@ -1,28 +1,30 @@
-{"id":"ammo_apfsds", "name":"APFSDS", "desc":"Armour-piercing fin-stablized discarding sabot"}
+{
+    "ammo_cannon_120mm_apfsds":{"name":"APFSDS", "desc":"Armour-piercing fin-stablized discarding sabot"},
 
+    "railgun_50mm":{"name":"Medium Railguns"},
+    "railgun_120mm":{"name":"Heavy Railguns"},
+    "railgun_100mm":{"name":"Howitzer Railguns"},
 
-//{"id":"railgun_50mm", "name":"Medium Railguns"}
-{"id":"railgun_120mm", "name":"Heavy Railguns"}
-//{"id":"railgun_100mm", "name":"Howitzer Railguns"}
+    "ssm_80mm_launcher":{"name":"Missile Launcher (80mm)", "mass":22},
+    "ssm_80mm_katyusha":{"name":"Katyusha Rocket", "desc":"High-Explosive, Anti-Personnel, Artillery Rocket"},
+    "atm_120mm_javelin":{"name":"Javelin"},
+    "sam_120mm_stinger":{"name":"Stinger"},
+    "aam_120_sidewinder":{"name":"Sidewinder"},
 
-{"id":"missile_javelin", "name":"Javelin"}
-{"id":"missile_stinger", "name":"Stinger"}
-{"id":"missile_katyusha", "name":"Katyusha Rocket", "desc":"High-Explosive, Anti-Personnel, Artillery Rocket"}
+    "assult_rifle_5_76mm":{"name":"Assault Rifle", "desc":"standard infantry rifle (eg M27 IAR)", "mass":12},
+    "sniper_rifle_5_76mm":{"name":"AI Sniper Rifle", "desc":"==30.08 cartridge; anti-personnel sniper rifle", "mass":15},
+    "sniper_rifle_12_7mm":{"name":"AM Sniper Rifle", "desc":"==50cal; anti-material sniper rifle", "mass":54},
+    "battle_rifle_6_8mm":{"name":"Battle Rifle", "desc":"more powerful infantry rifle", "mass":25},
+    "machine_gun_6_8mm":{"name":"Dismounted Machine Gun", "desc":"==50cal; vehicle mounted machine gun (eg: M27 6.8)","mass":65},
+    "pistol_9mm":{"name":"Pistol Sidearm", "mass":3},
+    "machine_gun_12_7mm":{"name":"Vehicle Mounted Machine Gun", "desc":"==50cal; vehicle mounted machine gun (eg: Browning 50cal machine gun aka BMG)", "mass":80},
+    "autocannon_25mm":{"name":"Autocannon", "desc":"rapid fire large-caliber cannon.  cross between artillery and a machine gun (eg M242 Bushmaster). Usable for ant-ground or anti-air", "mass":150},
+    "assault_shotgun_18_52mm":{"name":"Assault Shotgun", "desc":"standard 12-gauge shotgun", "mass":20},
 
-// gunpowder weapons
-{"id":"assult_rifle_5_76mm", "name":"Assault Rifle", "desc":"standard infantry rifle (eg M27 IAR)"}
-{"id":"sniper_rifle_5_76mm", "name":"AI Sniper Rifle", "desc":"==30.08 cartridge; anti-personnel sniper rifle"}
-{"id":"sniper_rifle_12_7mm", "name":"AM Sniper Rifle", "desc":"==50cal; anti-material sniper rifle"}
-{"id":"battle_rifle_6_8mm", "name":"Battle Rifle", "desc":"more powerful infantry rifle"}
-{"id":"machine_gun_6_8mm", "name":"Dismounted Machine Gun", "desc":"==50cal; vehicle mounted machine gun (eg: M27 6.8)"} 
-{"id":"pistol_9mm", "name":"Pistol Sidearm"}
-{"id":"machine_gun_12_7mm", "name":"Vehicle Mounted Machine Gun", "desc":"==50cal; vehicle mounted machine gun (eg: Browning 50cal machine gun aka BMG)"}
-{"id":"autocannon_25mm", "name":"Autocannon", "desc":"rapid fire large-caliber cannon.  cross between artillery and a machine gun (eg M242 Bushmaster). Usable for ant-ground or anti-air"}
-{"id":"assault_shotgun_18_52mm", "name":"Assault Shotgun", "desc":"standard 12-gauge shotgun"}
+    "recoilles_rifle_106mm":{"name":"Recoilles Rifle", "desc":"no longer in common use?"},
 
-{"id":"recoilles_rifle_106mm", "name":"Recoilles Rifle", "desc":"no longer in common use?"}
-
-{"id":"cannon_90mm", "name":"90mm Cannon", ""}
-{"id":"cannon_120mm", "name":"120mm Cannon", "desc":"standard tank gun; 120mm smoothbore cannon"}
-{"id":"howitzer_155mm", "name":"Howitzer", "desc":"common artillery cannon"}
+    "cannon_90mm":{"name":"90mm Cannon","desc":"light utility gun: 90 rifled cannon"},
+    "cannon_120mm":{"name":"120mm Cannon", "desc":"standard tank gun; 120mm smoothbore cannon"},
+    "howitzer_155mm":{"name":"Howitzer", "desc":"common artillery cannon"},
+}
 

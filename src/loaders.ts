@@ -11,6 +11,9 @@ import * as processData from '../data/processes.json';
 import TechnologyType from './technology_type'
 import * as technologyData from '../data/technologies.json';
 
+import WeaponType from './weapon_type'
+import * as weaponData from '../data/weapons.json';
+
 function collectTags( catalog, allTags: TagSet ){
   for( const entry of catalog ){
     if( typeof entry.tags === 'undefined'){
@@ -84,41 +87,56 @@ export function loadAllTypes(): boolean {
   console.log("==>> [1] Loading Resources...");
   const resourceArchetype = new ResourceType();
   const resources = loadType<ResourceType>(resourceData, resourceArchetype );
-  const loadResourceSuccess = (0 < resources.size);
-  if( loadResourceSuccess ){
-    collectTags( resources, allTags );
-  }
+  const loadResourcesSuccess = (0 < resources.size);
+  collectTags( resources, allTags );
 
   console.log("==>> [2] Loading Processes...");
   const processArchetype = new ProcessType();
   const processes = loadType<ProcessType>(processData, processArchetype );
-  const loadProcessSuccess = (0 < processes.size);
-  if( loadProcessSuccess ){
-    // vvv NYI vvv
-//    processes.link( resources );
-    // ^^^ NYI ^^^
-    collectTags( processes, allTags );
-  }
+  const loadProcessesSuccess = (0 < processes.size);
+  collectTags( processes, allTags );
 
   console.log("==>> [3] Loading Technologies...");
   const technologyArchetype = new TechnologyType();
   const technologies = loadType<TechnologyType>(technologyData, technologyArchetype );
   const loadTechnologiesSuccess = (0 < technologies.size);
-  if( loadTechnologiesSuccess ){
-    collectTags( technologies, allTags );
-  }
+  collectTags( technologies, allTags );
+
+  console.log("==>> [6] Loading Weapons...");
+  const weaponArchetype = new WeaponType();
+  const weapons = loadType<WeaponType>(weaponData, weaponArchetype );
+  const loadWeaponsSuccess = (0 < weapons.size);
+  collectTags( weapons, allTags );
+
 
   // debug
   //printEntries( resources);
   //printEntries( resources, 'tiberium' );
 //  printEntries( processes, 'tiberium');
   //printEntries( technologies, 'tiberium');
+  printEntries( weapons);
   // debug
+
+  if( loadResourcesSuccess && loadProcessesSuccess ){
+    // vvv NYI vvv
+//    processes.link( resources );
+    // ^^^ NYI ^^^
+  }
+
+  if( loadProcessesSuccess && loadWeaponsSuccess ){
+    // vvv NYI vvv
+//    weapons.link( processes );
+    // ^^^ NYI ^^^
+  }
+
 
   console.log(`<<== Loaded ${allTags.size} tags.`);
   //console.log(`    ${Array.from(allTags).join(',')}`);
 
-  return (loadResourceSuccess && loadProcessSuccess && loadTechnologiesSuccess);
+  return (loadResourcesSuccess
+    && loadProcessesSuccess
+    && loadTechnologiesSuccess
+    && loadWeaponsSuccess);
 }
 
 export default loadAllTypes;
