@@ -1,5 +1,6 @@
-Logistics:
-    Each <supply node> creates a network.
+## Logistics:
+
+Each Supply Node has its own supply pool creates a network.
         Within that network, supply trips are free.
         Supply quantities are individual to each... node?
     roads are required to connect each node
@@ -82,10 +83,35 @@ vacuum yard (ship?)
   construction mote
 
 
+# Building Configuration 
+    - Buildings
+        - contain n modules
+            - contain n processes
 
-10cm shell
-9mm shell
-10 cm sabot
-10 cm HEAT
-10 cm frag
-10 cm HV (hyper-velocity)
+## Sample Building configurations:
+- power_plant (simple):
+    - power_generation_unit:
+        - generate_electrocityt_from_wood
+
+    - power_plant (complex):
+        - furnace:
+            - burn_wood
+            - burn_coal
+            - burn_coal
+        - steam_boiler:
+            - generate_steam
+        - steam_turbine
+            - drive_turbine
+        - spin_generator
+            - generate_electricity
+
+    - farm:
+        - dirt:
+            - grow_wheat
+            - grow_vegetables
+        - fertilizer
+            
+    - algae_farm:
+        - algae_reactor:
+             - synthesize_gasol
+

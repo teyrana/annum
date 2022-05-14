@@ -2,11 +2,14 @@ import BaseEntryType from './base_entry_type'
 import EntryCatalog from './entry_catalog'
 import TagSet from './tag_set'
 
-import ResourceType from './resource_type'
-import * as resourceData from '../data/resources.json';
+import BuildingType from './building_type'
+import * as buildingData from '../data/buildings.json';
 
 import ProcessType from './process_type'
 import * as processData from '../data/processes.json';
+
+import ResourceType from './resource_type'
+import * as resourceData from '../data/resources.json';
 
 import TechnologyType from './technology_type'
 import * as technologyData from '../data/technologies.json';
@@ -86,6 +89,10 @@ export function loadAllTypes(): boolean {
   console.log("==>> Stage 1: Load Entries...");
 
   console.log("  >> 1:A: Loading Buildings...");
+  const buildingArchetype = new BuildingType();
+  const buildings = loadType<BuildingType>(buildingData, buildingArchetype );
+  const loadBuildingsSuccess = (0 < buildings.size);
+  collectTags( buildings, allTags );
 
   console.log("  >> 1:B: Loading Modules...");
 

@@ -3,16 +3,27 @@
 
     "mill_lumber":{"name":"Mill Lumber", "io":{"timber":-1, "lumber":1}},
 
-    "operate_solar_panels":{"name":"Generate Power (Solar)", "tag":["electricity"], "io": {"electricity": 1.0, "light": -1.0}},
-    "operate_turbine_generator":{"name":"Generate Power (Turbine)", "tag":["electricity"], "io": {"torque":-1.0, "electricity": 1.0}},
-    "operate_sterling_engine":{"name":"Generate Power (Sterling Engine)", "tag":["electricity"], "io": {"heat":-0.4, "electricity": 1.0}},
 
-    "sell_tiberium":{"name": "Sell Tiberium", "tag":["tiberium"], "io":  {"tiberium": -1.0, "credits": 70.0}},
-    "refine_blue_tiberium":{"name": "Refine Blue Tiberium", "tag":["tiberium"], "io":     {"blue_tiberium": -1.0,  "co_ore":0.4, "cr_ore":0.2, "mg_ore":0.1, "mn_ore":0.1, "mo_ore":0.1, "li_ore":0.9}},
-    "refine_green_tiberium":{"name": "Refine Green Tiberium", "tag":["tiberium"], "io":   {"green_tiberium": -1.0, "cu_ore":0.7, "fe_ore":0.4, "mg_ore":0.1, "mn_ore":0.1}},
-    "refine_red_tiberium":{"name": "Refine Red Tiberium", "tag":["tiberium"], "io":       {"red_tiberium": -1.0,   "fe_ore":0.1, "mg_ore":0.2, "cu_ore":0.1}},
-    "refine_white_tiberium":{"name": "Refine White Tiberium", "tag":["tiberium"], "io":   {"white_tiberium": -1.0, "al_ore":0.8, "ti_ore":0.4, "li_ore":0.3}},
-    "refine_yellow_tiberium":{"name": "Refine Yellow Tiberium", "tag":["tiberium"], "io": {"yellow_tiberium": -1.0,"au_ore":0.8, "co_ore":0.4, "li_ore":0.1}},
+    "generate_steam":{"name":"Generate Steam", "":"", "io":{"geothermal":-1,"water":-5,"steam":5}},
+    "spin_turbine":{"name":"Spin Turbine", "tag":["electricity"], "io":{"steam":-5,"torque":10}},
+    "spin_sterling_engine":{"name":"Generate Power (Sterling Engine)", "tag":["electricity"], "io":{"heat":-0.4, "electricity": 1.0}},
+    "spin_generator":{"name":"Spin Turbine", "tag":["electricity"], "io":{"torque":-10,"power":50}},
+
+    "generate_power_from_solar":{"name":"Generate (Solar) Power", "tag":["electricity"], "io":{"electricity": 1.0, "light": -1.0}},
+    "generate_power_from_geothermal":{"name":"Generate (Geothermal) Power", "tag":["electricity"], "io":{"geothermal":-1,"power":50}},
+    "generate_power_from_biomass":{"name":"Generate Biomass Power", "tag":["electricity"], "io":{"air": -1,"biomass": -4.0,"power": 50.0}},
+    "generate_power_from_timber":{"name":"Generate Timber Power", "tag":["electricity"], "io":{"air": -1, "timber": -2.0, "power": 50.0}},
+    "generate_power_from_coal":{"name":"Generate Coal Power", "tag":["electricity"], "io":{"air": -1,"coal": -1.0,"power": 50.0}},
+    "generate_power_from_oil":{"name":"Generate Oil Power", "tag":["electricity"], "io":{"air": -1,"oil": -1.0,"power": 50.0}},
+    "generate_power_from_wind":{"name":"Generate (Wind) Power", "tag":["electricity"], "io":{"wind": -1, "power": 10.0 }},
+
+    "sell_tiberium":{"name": "Sell Tiberium", "tag":["tiberium"], "io":{"tiberium": -1.0, "credits": 70.0}},
+    "refine_blue_tiberium":{"name": "Refine Blue Tiberium", "tag":["tiberium"], "io":{"blue_tiberium": -1.0,  "co_ore":0.4, "cr_ore":0.2, "mg_ore":0.1, "mn_ore":0.1, "mo_ore":0.1, "li_ore":0.9}},
+    "refine_green_tiberium":{"name": "Refine Green Tiberium", "tag":["tiberium"], "io":{"green_tiberium": -1.0, "cu_ore":0.7, "fe_ore":0.4, "mg_ore":0.1, "mn_ore":0.1}},
+    "refine_red_tiberium":{"name": "Refine Red Tiberium", "tag":["tiberium"], "io":{"red_tiberium": -1.0,   "fe_ore":0.1, "mg_ore":0.2, "cu_ore":0.1}},
+    "refine_white_tiberium":{"name": "Refine White Tiberium", "tag":["tiberium"], "io":{"white_tiberium": -1.0, "al_ore":0.8, "ti_ore":0.4, "li_ore":0.3}},
+    "refine_yellow_tiberium":{"name": "Refine Yellow Tiberium", "tag":["tiberium"], "io":{"yellow_tiberium": -1.0,"au_ore":0.8, "co_ore":0.4, "li_ore":0.1}},
+
 
     "smelt_gold":{"name":"Smelt Gold", "io":{ "au_ore":-1, "au_ingot":1.0}},
     "smelt_aluminum":{"name":"Smelt Aluminum", "io":{"al_ore":-1.0, "mg_ore":-0.1, "al_ingot":1}},
