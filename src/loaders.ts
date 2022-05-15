@@ -126,14 +126,14 @@ export function loadAllTypes(): boolean {
 
   // debug
   if( true ){
-  // console.log("   << Stage 1 // DEBUG");
-  //printEntries( resources);
-  //printEntries( resources, 'tiberium' );
-  // printEntries( processes, 'tiberium');
-  //printEntries( technologies, 'tiberium');
-  //printEntries( weapons);
-  //console.log(`<<== Loaded ${allTags.size} tags.`);
-  //console.log(`    ${Array.from(allTags).join(',')}`);
+    //console.log("   << Stage 1.b. // DEBUG");
+    // printEntries( resources);
+    //printEntries( resources, 'tiberium' );
+    // printEntries( processes, 'tiberium');
+    //printEntries( technologies, 'tiberium');
+    //printEntries( weapons);
+    //console.log(`<<== Loaded ${allTags.size} tags.`);
+    //console.log(`    ${Array.from(allTags).join(',')}`);
   }
   // debug
 
