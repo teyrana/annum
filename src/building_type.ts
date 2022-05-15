@@ -21,37 +21,21 @@ class BuildingType implements BaseEntryType {
   readonly tags?: TagSet = new TagSet();
 
   copy( entryIndex: number, doc:any=null) : BuildingType {
-    // add defaults, if not present
-    if( doc.desc === 'undefined' ){
-      doc['desc'] = this.description;
-    }
-
-    if( doc.armor === 'undefined' ){
-      doc['armor'] = this.armor
-    }
-    if( doc.size === 'undefined' ){
-      doc['size'] = Object.assign({}, this.size);
-    }
-    if( doc.hitpoints === 'undefined' ){
-      doc['hitpoints'] = this.hitpoints;
-    }
-
-    let other = new BuildingType(entryIndex, doc );
-
-    other.tags.update(this.tags);
-
-    //other.modules.update(this.modules);
-
-    return other;
-
+    return new BuildingType(entryIndex, this, doc );
   }
 
-  constructor( entryIndex: number = -1, doc = null ){
+  constructor( entryIndex: number = -1, archetype: BuildingType = null, doc = null ){
     this.index = entryIndex;
 
-    if( doc === null ){
+    if( (archetype === null) || (doc === null) ){
       return;
     }
+
+    this.armor = archetype.armor;
+    this.description = archetype.description;
+    this.hitpoints === archetype.hitpoints;
+    this.size = archetype.size;
+    this.tags.update(archetype.tags);
 
     for( const [key,value] of Object.entries(doc)){
       if('armor' === key){

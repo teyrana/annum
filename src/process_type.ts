@@ -18,25 +18,22 @@ class ProcessType implements BaseEntryType {
   readonly tags?: TagSet = new TagSet();
 
   copy( entryIndex: number, doc:any=null) : ProcessType {
+    return new ProcessType(entryIndex, this, doc );
+  }
+
+  constructor( entryIndex: number = -1, archetype: ProcessType = null, doc = null ){
+    this.index = entryIndex;
+
+    if( (archetype === null) || (doc === null) ){
+       return;
+    }
+ 
+    this.description = archetype.description;
+    this.tags.update(archetype.tags);
+
     // add defaults, if not present
     if( doc.desc === 'undefined' ){
       doc['desc'] = this.description;
-    }
-    let other = new ProcessType(entryIndex, doc );
-
-    other.tags.update(this.tags);
-
-    //other.io.update(this.io)
-
-    return other;
-
-  }
-
-  constructor( entryIndex: number = -1, doc = null ){
-    this.index = entryIndex;
-
-    if( doc === null ){
-      return;
     }
 
     for( const [key,value] of Object.entries(doc)){

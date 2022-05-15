@@ -15,27 +15,19 @@ class TechnologyType implements BaseEntryType {
   readonly tags? = new TagSet();
 
   copy( entryIndex: number, doc:any=null) : TechnologyType {
-    // add defaults, if not present
-    if( doc.desc === 'undefined' ){
-      doc['desc'] = this.description;
-    }
-    if( 0 < this.requires.size ){
-      this.requires.forEach( ea => { doc['req'].set(ea); });
-    }
-
-    let newCopy = new TechnologyType( entryIndex, doc );
-
-    newCopy.tags.update(this.tags);
-
-    return newCopy;
+    return new TechnologyType( entryIndex, this, doc );
   }
 
-  constructor( entryIndex: number = -1, doc = null ){
+  constructor( entryIndex: number = -1, archetype: TechnologyType = null, doc = null ){
     this.index = entryIndex;
 
-    if( doc === null ){
+    if( (archetype === null) || (doc === null) ){
       return;
     }
+
+    this.description = archetype.description;
+    archetype.requires.forEach( ea => { this.requires.add(ea); });
+    this.tags.update(archetype.tags);
 
     for( const [key,value] of Object.entries(doc)){
       if('key' === key){

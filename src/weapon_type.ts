@@ -18,34 +18,21 @@ class WeaponType implements BaseEntryType {
   readonly tags?: TagSet = new TagSet();
 
   copy( entryIndex: number, doc:any=null) : WeaponType {
-    // add defaults, if not present
-    if( doc.desc === 'undefined' ){
-      doc['desc'] = this.description;
-    }
-    if( doc.mass === 'undefined' ){
-      doc['mass'] = this.mass;
-    }
-    if( doc.process === 'undefined' ){
-      doc['proc'] = this.process;
-    }
-    if( doc.desc === 'undefined' ){
-      doc['mount'] = this.mount;
-    }
-
-    let other = new WeaponType(entryIndex, doc );
-
-    other.tags.update(this.tags);
-
-    return other;
-
+    return new WeaponType(entryIndex, doc );
   }
 
-  constructor( entryIndex: number = -1, doc = null ){
+  constructor( entryIndex: number = -1, archetype: WeaponType = null, doc = null ){
     this.index = entryIndex;
 
-    if( doc === null ){
+    if( (archetype === null) || (doc === null) ){
       return;
     }
+
+    this.description = archetype.description;
+    this.mass = archetype.mass;
+    this.process = archetype.process;
+    this.mount = archetype.mount
+    this.tags.update(archetype.tags);
 
     for( const [key,value] of Object.entries(doc)){
       if('description'.startsWith(key)){
@@ -54,15 +41,15 @@ class WeaponType implements BaseEntryType {
         console.error('!!!! not allowed to explicitly set the index field in input data. Aborting.');
         return;
       }else if('key' === key){
-        this.key = doc.key;
+        this.key = <string>value;
       }else if('mass' === key){
-        this.mass = doc.mass;
+        this.mass = <number>value;
       }else if('mount' === key){
-        this.mount = doc.mount;
+        this.mount = <string>value;
       }else if('name' === key){
-        this.name = doc.name;
+        this.name = <string>value;
       }else if('process'.startsWith(key)){
-        this.process == doc.process;
+        this.process = <string>value;
       }else if(key.startsWith('tag')){
         this.tags.update(value);
       }else{

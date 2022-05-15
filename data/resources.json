@@ -25,7 +25,7 @@
     "methane":{"name":"Methane", "density":0.7, "tag":["fuel"], "super":"gas"},
     "coal":{"name":"Coal", "density":2, "tag":["fuel"], "super":"rock"},
     "crude_oil":{"name":"Crude Oil", "density":0.85,"tag":["fuel","oil"], "super":"liquid"},
-    "feul_oil":{"name":"Feul Oil", "density":0.8, "tag":["fuel","oil"], "super":"liquid"},
+    "fuel_oil":{"name":"Fuel Oil", "density":0.8, "tag":["fuel","oil"], "super":"liquid"},
     "gasoline":{"name":"Gasoline", "density":0.76, "tag":["fuel","oil"], "desc": "common hydrocarbon fuel, widely used for ground vehicles", "super":"liquid"},
     "diesel":{"name":"Diesel", "desc": "common hydrocarbon fuel, used for heavy machinery and power generation", "density": 0.85, "super":"liquid"},
     "kerosene":{"name":"Kerosene", "units":"L", "density":0.7, "tag":["fuel","oil"], "desc": "common hydrocarbon fuel, used for aviation", "super":"liquid"},

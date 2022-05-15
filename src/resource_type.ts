@@ -20,33 +20,22 @@ class ResourceType implements BaseEntryType {
   readonly tags?: TagSet = new TagSet()
 
   copy( entryIndex:number, doc: any ) : ResourceType {
-    // add defaults, if not present
-    if( doc.desc === 'undefined' ){
-      doc['desc'] = this.description;
-    }
-    if( doc.units === 'undefined' ){
-      doc['units'] = this.units;
-    }
-    if( doc.mass === 'undefined' ){
-      doc['mass'] = this.mass;
-    }
-    if( doc.volume === 'undefined' ){
-      doc['vol'] == this.volume;
-    }
-
-    let other = new ResourceType( entryIndex, doc );
-
-    other.tags.update(this.tags);
-
-    return other;
+    return new ResourceType( entryIndex, this, doc );
   }
 
-  constructor( entryIndex: number = -1, doc: any = null ){
+  constructor( entryIndex: number = -1, archetype: ResourceType = null, doc: any = null ){
     this.index = entryIndex;
 
-    if( doc === null ){
+    if( (archetype === null) || (doc === null) ){
       return;
     }
+
+    // override defaults with pattern values
+    this.description = archetype.description;
+    this.units = archetype.units;
+    this.mass = archetype.mass;
+    this.volume = archetype.volume;
+    this.tags.update(archetype.tags);
 
     for( const [key,value] of Object.entries(doc)){
       if('key' === key){
@@ -75,12 +64,13 @@ class ResourceType implements BaseEntryType {
       }else if('volume'.startsWith(key)){
         this.volume = doc.volume;
       }else if('description'.startsWith(key)){
-        this.description = doc.desc;
+        this.description = <string>value;
       }else if(('store' === key) || ('storage' === key)){
         this.store = StorageType.parse(<string>value);
       }else if('super' === key){
         this.superKey = doc['super'];
       }else if(key.startsWith('tag')){
+
         this.tags.update(value);
       }else{
         console.error(`!!!! Could not load JSON key: ${key} into class ${this.constructor.name}`);
