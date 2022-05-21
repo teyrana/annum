@@ -5,6 +5,12 @@ import TagSet from './tag_set'
 import BuildingType from './building_type'
 import * as buildingData from '../data/buildings.json';
 
+import ModuleType from './module_type'
+import * as moduleData from '../data/modules.json';
+
+//import ProcessType from './process_type'
+//import * as processData from '../data/processes.json';
+
 import ProcessType from './process_type'
 import * as processData from '../data/processes.json';
 
@@ -44,7 +50,6 @@ function loadType<EntryType extends BaseEntryType>( data, archetype: EntryType )
       if( 'super' in <any>row ){
         let superKey: string = row['super'];
         if(catalog.contains(superKey)){
-          //console.log(`          @ [${row['key']}]: super=${superKey}`);
           let superEntry = catalog.by(superKey);
           entry = superEntry.copy(entryCount, row);
           entryCount++;
@@ -88,41 +93,65 @@ export function loadAllTypes(): boolean {
 
   console.log("==>> Stage 1: Load Entries...");
 
+  // master catalog
+  let catalog = {'building':null,
+                 'module':null,
+                 'platform':null,
+                 'process':null,
+                 'resource':null,
+                 'technology':null,
+                 'unit':null,
+                 'weapon':null};
+
   console.log("  >> 1:A: Loading Buildings...");
   const buildingArchetype = new BuildingType();
-  const buildings = loadType<BuildingType>(buildingData, buildingArchetype );
-  const loadBuildingsSuccess = (0 < buildings.size);
-  collectTags( buildings, allTags );
+  catalog.building = loadType<BuildingType>(buildingData, buildingArchetype );
+  const loadBuildingsSuccess = (0 < catalog.building.size);
+  collectTags( catalog.building, allTags );
 
   console.log("  >> 1:B: Loading Modules...");
+  const moduleArchetype = new ModuleType();
+  catalog.module = loadType<ModuleType>(moduleData, moduleArchetype );
+  const loadModulesSuccess = (0 < catalog.module.size);
+  collectTags( catalog.module, allTags );
 
   console.log("  >> 1:C: Loading Platforms...");
+  const loadPlatformsSuccess = true;
+  // const platformArchetype = new platformType();
+  // catalog.platform = loadType<PlatformType>(platformData, platformArchetype );
+  // const loadplatformsSuccess = (0 < catalog.platform.size);
+  // collectTags( catalog.platform, allTags );
 
   console.log("  >> 1:D: Loading Processes...");
   const processArchetype = new ProcessType();
-  const processes = loadType<ProcessType>(processData, processArchetype );
-  const loadProcessesSuccess = (0 < processes.size);
-  collectTags( processes, allTags );
+  catalog.process = loadType<ProcessType>(processData, processArchetype );
+  const loadProcessesSuccess = (0 < catalog.process.size);
+  collectTags( catalog.process, allTags );
 
   console.log("  >> 1:E: Loading Resources...");
   const resourceArchetype = new ResourceType();
-  const resources = loadType<ResourceType>(resourceData, resourceArchetype );
-  const loadResourcesSuccess = (0 < resources.size);
-  collectTags( resources, allTags );
+  catalog.resource = loadType<ResourceType>(resourceData, resourceArchetype );
+  const loadResourcesSuccess = (0 < catalog.resource.size);
+  collectTags( catalog.resource, allTags );
 
   console.log("  >> 1:F: Loading Technologies...");
   const technologyArchetype = new TechnologyType();
-  const technologies = loadType<TechnologyType>(technologyData, technologyArchetype );
-  const loadTechnologiesSuccess = (0 < technologies.size);
-  collectTags( technologies, allTags );
+  catalog.technology = loadType<TechnologyType>(technologyData, technologyArchetype );
+  const loadTechnologiesSuccess = (0 < catalog.technology.size);
+  collectTags( catalog.technology, allTags );
 
   console.log("  >> 1:G: Loading Units...");
+  const loadUnitsSuccess = true;
+  // const unitArchetype = new unitType();
+  // catalog.unit = loadType<FnitType>(unitData, unitArchetype );
+  // const loadFnitsSuccess = (0 < catalog.unit.size);
+  // collectTags( catalog.unit, allTags );
 
   console.log("  >> 1:H: Loading Weapons...");
   const weaponArchetype = new WeaponType();
-  const weapons = loadType<WeaponType>(weaponData, weaponArchetype );
-  const loadWeaponsSuccess = (0 < weapons.size);
-  collectTags( weapons, allTags );
+  catalog.weapon = loadType<WeaponType>(weaponData, weaponArchetype );
+  const loadWeaponsSuccess = (0 < catalog.weapon.size);
+  collectTags( catalog.weapon, allTags );
 
   // debug
   if( true ){
@@ -134,23 +163,59 @@ export function loadAllTypes(): boolean {
     //printEntries( weapons);
     //console.log(`<<== Loaded ${allTags.size} tags.`);
     //console.log(`    ${Array.from(allTags).join(',')}`);
+    //printEntries( modules );
   }
   // debug
 
   console.log("==>> Stage 2: Link Entries...");
 
-  console.log("  >> 2:A: Link Processes to Resources...");
-  processes.link( resources );
+  console.log("   :: Load Order of different data types\n");
+  console.log("    resource => process");
+  console.log("                process => modules");
+  console.log("                           modules => buildings");
+  console.log("                           modules => platform");
+  console.log("                                      platform => unit");
+  console.log("                process => weapons");
+  console.log("    technology"); // no dependency
+  //  console.log("    technology => process"); // NYI
 
-  console.log("  >> 2:B: Link Weapons to Processes...");
-  weapons.link( processes );
 
+  console.log("  >> 2:A: Link Buildings to Modules ...");
+  //catalog.building.link( ??? ); // NYI
+
+  console.log("  >> 2:B: Link Modules to Processes  ...");
+  catalog.module.link( catalog );
+
+  console.log("  >> 2:C: Link Platforms to [???]  ...");
+
+
+  console.log("  >> 2:D: Link Processes to Resources...");
+  catalog.process.link( catalog );
+
+  // console.log("  >> 2:E: Link Resources...");
+  //     => no linking required
+
+  // console.log("  >> 2:F: Link Technologies to (Technologies)  ...");
+  //     => already linked (linking performed during load)
+
+  console.log("  >> 2:G: Link Units to [???]  ...");
+
+  console.log("  >> 2:H: Link Weapons to Processes...");
+  catalog.weapon.link( catalog );
+
+
+
+  
   // ...
 
 
-  return (loadResourcesSuccess
+  return (loadBuildingsSuccess
+    && loadModulesSuccess
+    && loadResourcesSuccess
+    && loadPlatformsSuccess
     && loadProcessesSuccess
     && loadTechnologiesSuccess
+    && loadUnitsSuccess
     && loadWeaponsSuccess);
 }
 

@@ -58,10 +58,13 @@ class WeaponType implements BaseEntryType {
     }
   }
 
-  link(other:any): boolean {
+  link( masterCatalog ): boolean {
+    const processCatalog = masterCatalog.process;
+
     //console.log(`    @ [${this.key}] <${this.typeName}>  ==>>  ${other.at(0).typeName}`);
-    const found = other.contains(this.process);
+    const found = processCatalog.contains(this.process); // only has 0|1 processes
     //console.log(`    -[${this.process}] => ${found}`);
+
     return found;
   }
 
