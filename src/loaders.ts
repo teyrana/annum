@@ -23,7 +23,18 @@ import * as technologyData from '../data/technologies.json';
 import WeaponType from './weapon_type'
 import * as weaponData from '../data/weapons.json';
 
-function collectTags( catalog, allTags: TagSet ){
+function collectAllTags( masterCatalog ){
+  collectTags( masterCatalog.building, masterCatalog.tags );
+  collectTags( masterCatalog.module, masterCatalog.tags );
+  // collectTags( masterCatalog.platform, masterCatalog.tags );
+  collectTags( masterCatalog.process, masterCatalog.tags );
+  collectTags( masterCatalog.resource, masterCatalog.tags );
+  collectTags( masterCatalog.technology, masterCatalog.tags );
+  // collectTags( masterCatalog.unit, masterCatalog.tags );
+  collectTags( masterCatalog.weapon, masterCatalog.tags );
+}
+
+function collectTags( catalog: EntryCatalog<BaseEntryType>, allTags: TagSet ){
   for( const entry of catalog ){
     if( typeof entry.tags === 'undefined'){
       console.error("!?: entry.tags is undefined on: " + entry.key );
@@ -64,12 +75,6 @@ function loadType<EntryType extends BaseEntryType>( data, archetype: EntryType )
 
       catalog.add(entry);
 
-      // debug
-      // if( entry.tags && entry.tags.has('tiberium') ){ 
-      //   console.log(`        - [${entry.index.toString().padStart(3)}][${entry.key}]: "${entry.name}"`);
-      // }
-      // debug 
-
     } catch(err) {
       console.error(`??? @key=${key}, Error: " + err`);
       throw err;
@@ -89,56 +94,60 @@ function printEntries<EntryType extends BaseEntryType>( catalog: EntryCatalog<En
 }
 
 export function loadAllTypes(): boolean {
-  const allTags = new TagSet();
-
   console.log("==>> Stage 1: Load Entries...");
+  console.log("   :: Load Order Dependencies:\n");
+  console.log("    resource => process");
+  console.log("                process => modules");
+  console.log("    resource =>            modules");
+  console.log("                           modules => buildings");
+  console.log("                           modules => platform");
+  console.log("                                      platform => unit");
+  console.log("                process => weapons");
+  console.log("    technology"); // no dependency
+  //  console.log("    technology => process"); // NYI
 
   // master catalog
-  let catalog = {'building':null,
-                 'module':null,
-                 'platform':null,
-                 'process':null,
-                 'resource':null,
-                 'technology':null,
-                 'unit':null,
-                 'weapon':null};
+  let catalog = {'building': null,
+                 'tags': new TagSet(),
+                 'module': null,
+                 'platform': null,
+                 'process': null,
+                 'resource': null,
+                 'technology': null,
+                 'unit': null,
+                 'weapon': null};
+
 
   console.log("  >> 1:A: Loading Buildings...");
   const buildingArchetype = new BuildingType();
   catalog.building = loadType<BuildingType>(buildingData, buildingArchetype );
   const loadBuildingsSuccess = (0 < catalog.building.size);
-  collectTags( catalog.building, allTags );
 
   console.log("  >> 1:B: Loading Modules...");
   const moduleArchetype = new ModuleType();
   catalog.module = loadType<ModuleType>(moduleData, moduleArchetype );
   const loadModulesSuccess = (0 < catalog.module.size);
-  collectTags( catalog.module, allTags );
 
   console.log("  >> 1:C: Loading Platforms...");
   const loadPlatformsSuccess = true;
   // const platformArchetype = new platformType();
   // catalog.platform = loadType<PlatformType>(platformData, platformArchetype );
   // const loadplatformsSuccess = (0 < catalog.platform.size);
-  // collectTags( catalog.platform, allTags );
 
   console.log("  >> 1:D: Loading Processes...");
   const processArchetype = new ProcessType();
   catalog.process = loadType<ProcessType>(processData, processArchetype );
   const loadProcessesSuccess = (0 < catalog.process.size);
-  collectTags( catalog.process, allTags );
 
   console.log("  >> 1:E: Loading Resources...");
   const resourceArchetype = new ResourceType();
   catalog.resource = loadType<ResourceType>(resourceData, resourceArchetype );
   const loadResourcesSuccess = (0 < catalog.resource.size);
-  collectTags( catalog.resource, allTags );
 
   console.log("  >> 1:F: Loading Technologies...");
   const technologyArchetype = new TechnologyType();
   catalog.technology = loadType<TechnologyType>(technologyData, technologyArchetype );
   const loadTechnologiesSuccess = (0 < catalog.technology.size);
-  collectTags( catalog.technology, allTags );
 
   console.log("  >> 1:G: Loading Units...");
   const loadUnitsSuccess = true;
@@ -151,7 +160,9 @@ export function loadAllTypes(): boolean {
   const weaponArchetype = new WeaponType();
   catalog.weapon = loadType<WeaponType>(weaponData, weaponArchetype );
   const loadWeaponsSuccess = (0 < catalog.weapon.size);
-  collectTags( catalog.weapon, allTags );
+
+
+  collectAllTags( catalog );
 
   // debug
   if( true ){
@@ -167,18 +178,7 @@ export function loadAllTypes(): boolean {
   }
   // debug
 
-  console.log("==>> Stage 2: Link Entries...");
-
-  console.log("   :: Load Order of different data types\n");
-  console.log("    resource => process");
-  console.log("                process => modules");
-  console.log("                           modules => buildings");
-  console.log("                           modules => platform");
-  console.log("                                      platform => unit");
-  console.log("                process => weapons");
-  console.log("    technology"); // no dependency
-  //  console.log("    technology => process"); // NYI
-
+  console.log("==>> Stage 3: Link Entries...");
 
   console.log("  >> 2:A: Link Buildings to Modules ...");
   //catalog.building.link( ??? ); // NYI

@@ -1,413 +1,302 @@
-<!-- ====== ====== ====== ====== Tier 1 Buildings ====== ====== ====== ====== -->
-<!--    Note: storage defaults to 100 * possible production wherever a structure/unit actually produces anything        -->
-<module id="template_module" name="Template Module" vol=1000 descr="template entry, to define default values">
-	<!-- Note: size=vol in cubic meters. 0 means variable size -->
-	<tags="template"/>
-	<price>
-		<input="time"   qty=60 />
-		<input="energy" qty=250 />
-		<input="metal"  qty=50 />
-	</price>
-</module>
-
-
-<module id="" name="" size=2000 descr="" >
-</module>
-<module id="" name="" size=2000 descr="" >
-</module>
-<module id="" name="" size=2000 descr="" >
-</module>
-<module id="" name="" size=2000 descr="" >
-</module>
-<module id="" name="" size=2000 descr="" >
-</module>
-<module id="" name="" size=2000 descr="" >
-</module>
-<module id="" name="" size=2000 descr="" >
-</module>
-<module id="" name="" size=2000 descr="" >
-</module>
-<module id="" name="" size=2000 descr="" >
-</module>
-<module id="" name="" size=2000 descr="" >
-</module>
-<module id="" name="" size=2000 descr="" >
-</module>
-
-<module id="t0_empty_storage" name="Empty Storage" size=0 descr="empty Space, suitable for storing hardy items" >
-	<tags="tech0"/>
-	<price>
-		<input="time"   qty=0 />
-	</price>
-</module>
-
-<!-- ====== ====== ====== ====== Tier 1 Buildings ====== ====== ====== ====== -->
-				
-<module tier=1 id="worker_dorm_sm_t1" name="Makeshift Housing" hp=1000 armor=0.2>
-	<production="t1_chain_population"/>
-</module>
-
-<module id="t1_ice_melter" name="Volatiles Furnace" size=2000 descr="Furnace to convert frozen ices into useful gasses" >
-	<tags="tech1, raw_materials"/>
-	<production="volatiles"/>
-</module>
-
-<module tier=1 id="exped_fab_shop_t1" hp=1000 armor=0.2>
-	<production="basic_tools"/>
-</module>
-
-<module tier=1 id="exped_food_factory_t1" hp=1000 armor=0.2>
-	<production="algae_factory"/>
-</module>
-			
-<module id="t1_chemical_reactor" name="Crude Chemical Reactor"  size=2000 descr="Generic Chemical Production" >
-	<tags="tech1, industrial"/>
-	<production="category:chemicals"/>
-</module>
-		
-<module id="t1_o2_generator" name="O2 Generator" size=2000 descr="" >
-</module>
-<module id="t1_co2_scrubber" name="CO2 Scrubber" size=2000 descr="" >
-</module>
-		
-<!-- ====== ====== ====== ====== Tier 2 Buildings ====== ====== ====== ====== -->
-<module id="t2_cheap_apartments" name="Cheap Apartments" size=2000 descr="" >
-</module>
-<module id="t2_rough_dormitory" name="Rough Dormitory" size=2000 descr="" >
-</module>
-
-<module id="t2_engine_workshop" name="Engine Workshop" size=2000 descr="working with internal combustion engines" >
-	<tags="tech2, manufacture"/>
-	<production="piston_engine"/>
-</module>
-
-<module id="t3_turbine_workshop" name="Turbine Workshop" size=2000 descr="Manufactures Turbines, Jets" >
-	<tags="tech3, manufacture"/>
-	<production="turbine, jet_engine"/>
-</module>
-
-<module id="t3_battery_workshop" name="Battery Cell Workshop" size=2000 descr="manufacture reactors, batteries, and feul cells" >
-	<tags="tech3, manufacture"/>
-	<production="batteries, reactors, feul_cells"/>
-</module>
-
-<module id="t2_welding_shop" name="Welding Shop" size=2000 descr="enables ground vehicle chassis manufacture" >
-	<tags="tech2, manufacture"/>
-	<production="ground_vehicle_chassis"/>
-</module>
-
-<module id="t2_forging_press" name="Forging Press" size=2000 descr="chassis prereq" >
-	<tags="tech2, manufacture"/>
-	<production="ground_vehicle_chassis"/>
-</module>
-
-<module id="t3_precision_frame_press" name="Precision Frame Press" size=2000 descr="?" >
-	<production="?"/>
-</module>
-
-<module id="t4_kiln" name="Composites Kiln" size=2000 descr="Composites Manufacture" >
-	<production="category:composites"/>
-</module>
-
-<module id="t2_assembly_garage" name="Assembly Garage" size=2000 descr="for ground vehicle assembly" >
-	<production=""/>
-</module>
-<module id="t3_assembly_dock" name="Assembly Dock" size=2000 descr="boat construction" >
-	<production=""/>
-</module>
-
-<module id="t3_assembly_bay" name="Assembly Bay" size=2000 descr="assembly of air, ground, space vehicles" >
-	<production=""/>
-</module>
-
-<module id="t1_agriculture_lab" name="Agriculture Lab" size=2000 descr="" >
-</module>
-<module id="t2_comp_lab" name="Computation Lab" size=2000 descr="" >
-</module>
-<module id="t3_proto_lab" name="Rapid Prototyping Lab" size=2000 descr="" >
-</module>
-<module id="t2_chemistry_lab" name="Chemistry Lab" size=2000 descr="" >
-</module>
-<module id="t2_metal_lab" name="Metals Lab" size=2000 descr="" >
-</module>
-<module id="t2_ceramic_lab" name="Ceramics Lab" size=2000 descr="" >
-</module>
-<module id="t2_polymer_lab" name="Polymer Lab" size=2000 descr="" >
-</module>
-<module id="t3_optics_lab" name="Optics Lab" size=2000 descr="" >
-</module>
-<module id="t3_elec_lab" name="Electronics Lab" size=2000 descr="" >
-</module>
-<module id="t4_spin_lab" name="Spintronics Lab" size=2000 descr="" >
-</module>
-<module id="t4_quantum_lab" name="Quantum Materials Lab" size=2000 descr="aka Nanomaterials: CNTS, MEMS, quantum dots" >
-</module>
-<module id="t4_genetic_lab" name="Genetics Lab" size=2000 descr="" >
-</module>
-<module id="t4_medical_lab" name="Medical Lab" size=2000 descr="" >
-</module>
-<module id="t3_physics_lab" name="High-Energy Physics Lab" size=2000 descr="" >
-</module>
-<module id="t2_combustion_lab" name="Combustion Lab" size=2000 descr="engine, turbine, jet, explosives research" >
-</module>
-<module id="t3_magnet_lab" name="Magnetics Lab" size=2000 descr="" >
-	<production=""/>
-</module>
-
-<!-- ====== ====== ====== ====== Tier 3 Buildings ====== ====== ====== ====== -->
-<module id="t3_medium_apartments" name="" size=2000 descr="" >
-</module>
-<module id="t4_penthouse" name="Penthouse" size=2000 descr="" >
-</module>
-
-<module id="t1_emergency_clinic" name="Emergency Clinic" size=2000 descr="" >
-</module>
-<module id="t3_autoclinic" name="Autoclinic" size=2000 descr="" >
-</module>
-<module id="t2_Hospital" name="Hospital" size=2000 descr="also includes research, higher capacity, higher quality" >
-</module>
-<module id="t1_cantina" name="Cantina" size=2000 descr="" >
-</module>
-
-<module id="t2_cafeteria" name="Cafeteria" size=2000 descr="" >
-</module>
-<module id="t2_shopping_mall" name="" size=2000 descr="" >
-</module>
-<module id="t2_entertainment_district" name="Entertainment District" size=2000 descr="" >
-</module>
-<module id="t2_red_light_district" name="Red Light District" size=2000 descr="" >
-</module>
-<module id="t2_restaurants" name="Restaurant Neighborhood" size=2000 descr="" >
-</module>
-<module id="t2_athletic" name="Athletic Facility" size=2000 descr="" >
-</module>
-<module id="t2_recr_drug_clinic" name="Recreational Drug Clinic" size=2000 descr="" >
-</module>
-
-<module id="t1_basic_farm" name="Simple Farm" size=2000 descr="" >
-</module>
-<module id="t2_hydroponic_farm" name="Hydroponic Farm" size=2000 descr="" >
-	<requires="air, gravity, light">
-</module>
-<module id="t2_hydro_farm" name="Aquatic Farm" size=2000 descr="" >
-</module>
-<module id="t3_ensemble_farm" name="Ensemble Farm" size=2000 descr="" >
-</module>
-
-<module id="t1_hydrocarbon_turbine" name="Feul Combustion Turbine" size=2000 descr="" >
-	<requires="air" />
-	<production="biomass_power_combustion"/>
-	<production="timber_power_combustion"/>
-	<production="coal_power_combustion"/>
-	<price>
-		<input="time" qty=10 />
-		<input="energy" qty=250 />
-		<input="metal"  qty=50 />
-	</price>
-</module>
-
-<module id="t1_solar_power_1MW" name="Solar Power Installation" size=2000 descr="" >
-	<requires="light" />
-	<production="solar_power_gen_1MW"/>
-	<price>
-		<input="time" qty=60 />
-		<input="energy" qty=250 />
-		<input="metal"  qty=50 />
-	</price>
-</module>
-
-<module id="t1_wind_turbine_1MW" name="Wind Turbine" size=2000 descr="" >
-	<requires="air" />
-	<production=""/>
-</module>
-
-<module  id="t1_water_turbine_small" name="Water Turbine" size=2000 descr="" >
-	<requires="water"/>
-	<production="water_power_generation_small"/>
-</module>
-
-<module id="t3_fission_power_plant" name="Thorium Power Plant" size=2000 descr="" >
-	<production="fission_power_gen"/>
-</module>
-
-<module id="t4_fusion_power_plant" name="Fusion Power Plant" size=8000 descr="" >
-	<production="fusion_power_gen"/>
-</module>
-
-<module id="t1_battery" name="Battery Bank Storage" size=2000 descr="" >
-</module>
-<module id="t2_battery" name="Flywheel Energy Storage" size=2000 descr="" >
-</module>
-<module id="t3_battery" name="Nanowire Energy Storage" size=2000 descr="" >
-</module>
-<module id="t4_battery" name="Singularity Power Storage" size=2000 descr="" >
-</module>
-
-<module id="t2_uhf_comm_relay" name="UHF Communications Relay" size=2000 descr="" >
-</module>
-<module id="t2_ka_com_relay" name="K-Band Communications Relay" size=2000 descr="" >
-</module>
-<module id="t3_laser_comm_relay" name="Laser Communications Relay" size=2000 descr="" >
-</module>
-
-
-
-<module id="t3_small_radar_array" name="Tactical Radar" size=2000 descr="" >
-</module>
-<module id="t3_large_radar_array" name="Strategic Radar" size=2000 descr="" >
-</module>
-<module id="t4_optical_tracker" name="Optical Tracking Sensor" size=2000 descr="" >
-</module>
-
-<module id="t1_freight_loader" name="Freight Loader" size=2000 descr="" >
-</module>
-<module id="t2_autoloader" name="Automatic Container Loader" size=2000 descr="" >
-</module>
-
-<module id="t1_drill_cart" name="Drill Cart" size=2000 descr="mining equipment." >
-	<tags="tech1, raw_materials, mining"/>
-	<production="category:mining"/>
-</module>
-
-<module id="t1_boreworm" name="Mining Bore Worm" size=2000 descr="automated mining equipment." >
-	<tags="tech1, raw_materials, mining"/>
-	<production="category:mining"/>
-</module>
-
-<module id="t1_rock_crusher" name="Rock Crusher"  size=2000 descr="" >
-	<tags="tech1, raw_materials"/>
-	<production="category:ore"/>
-</module>
-
-<module id="t2_vacuum_smelter" name="Vacuum Smelter" size=2000 descr="Modern, Robust metel smelter" >
-	<tags="tech1, industrial"/>
-	<production="category:metal_smelter"/>
-</module>
-
-<module id="t3oxygen_smelter" name="Oxygen Smelter" size=2000 descr="More efficient metal smelter">
-	<tags="tech3, industrial"/>
-	<production="category:metal_smelting"/>
-</module>
-
-<module id="t4_vortex_smelter" name="Vortex Smelter"  size=2000 descr="Advanced Metal Smelter" >
-	<tags="tech4, industrial"/>
-	<production="category:metal_smelting"/>
-</module>
-
-<module id="t4_alloy_furnace" name="Alloy Furnace"  size=2000 descr="Alloy Metal Smelter" >
-	<tags="tech4, industrial"/>
-	<production="category:metal_smelting"/>
-</module>
-
-<module id="t3_chemical_reactor" name="Precision Rock Crusher" size=2000 descr="" >
-	<tags="tech1, industrial"/>
-	<production="category:chemicals,precision_chemicals"/>
-</module>
-
-<module id="t2_density_refiner" name="Density Refiner" size=2000 descr="" >
-	<tags="tech1, industrial"/>
-	<production="category:?"/>
-</module>
-
-<module id="t2_recycle_smelter" name="Electric Arc Furnace" size=2000 descr="" >
-	<tags="tech1, industrial"/>
-	<production="category:metal_recycle"/>
-</module>
-
-<module id="t2_continuous_caster" name="Continuous Caster" size=2000 descr="produce metal items (ingot)" >
-	<tags="tech2, industrial"/>
-	<production="category:metal_ingot"/>
-</module>
-
-<module id="t2_rolling_forge" name="Rolling Forge" size=2000 descr="produce metal items (plates/pipes/beams)" >
-	<tags="tech2, industrial"/>
-	<production="category:metal_ingot"/>
-</module>
-
-<module id="t2_continuous_caster" name="Continuous Caster" size=2000 descr="" >
-	<tags="tech2, industrial"/>
-	<production="category:metal_ingot"/>
-</module>
-
-<module id="t1_tool_shop" name="Tool Stamping Shop" size=2000 descr="Tool Manufacture" >
-	<tags="tech1, industrial"/>
-	<production="category:tools"/>
-</module>
-
-<module id="t3_tool_shop" name="Tool Forming Shop" size=2000 descr="Upgrade. Tool Manufacture" >
-	<tags="tech3, industrial"/>
-	<production="category:tools"/>
-</module>
-
-<module id="t3_silicon_oven" name="Silicon Kiln"  size=2000 descr="create Silicon Wafers" >
-	<tags="tech3, industrial"/>
-	<production="silicon_wafer"/>
-</module>
-
-
-<module id="t3_microchip_production" name="Semiconductor Fabrication Line"  size=2000 descr="Microchip production" >
-	<tags="tech3, industrial"/>
-	<production="silicon_wafer"/>
-</module>
-
-
-<module id="t3_solder_line" name="Surface Mount Solder Line"  size=2000 descr="create Silicon Wafers" >
-	<tags="tech3, industrial"/>
-	<production="silicon_wafer"/>
-</module>
-
-<module id="t3_optronics_production" name="Optronics Factory"  size=2000 descr="create optronics components" >
-	<tags="tech3, industrial"/>
-	<production="silicon_wafer"/>
-</module>
-
-<module id="t4_optical_fiber_spinner" name="Optical Fiber Spinner"  size=2000 descr="create fiber optic cable" >
-	<tags="tech4, industrial"/>
-	<production="fiber_optic_cable"/>
-</module>
-
-
-<module id="t4_electro_optics_shop" name="Electro-Optics Shop"  size=2000 descr="produce optical sensors (camera, telescope, IR, UV)" >
-	<tags="tech4, industrial"/>
-	<production="optics"/>
-</module>
-
-<module id="t4_magnetic_forge" name="Magnetics Forge" size=2000 descr="produces magnet"/>
-	<tags="tech4, industrial"/>
-	<production="magnets"/>
-</module>
-
-<module id="t2_explosives_manufacture" name="Explosives mixing shop" size=2000 descr="produces (solid) explosives"/>
-	<tags="tech2, ammo"/>
-	<production="propellant,high_explosive"/>
-</module>
-
-<module id="t2_projectile_manufacture" name="Projectile Casting Shopping" size=2000 descr="produces projectile ammunition"/>
-	<tags="tech2, ammo"/>
-	<production="bullets, shells"/>
-</module>
-
-<module id="t2_weapons_assembly" name="Weapons Assembly Line" size=2000 descr="produces weapons"/>
-	<tags="tech2, ammo"/>
-	<production="category:weapons"/>
-</module>
-
-<module id="t1_weaving_mill" name="Weaving Mill" size=2000 descr="turns fiber into cloth"/>
-	<tags="tech1, ammo"/>
-	<production="category:weapons"/>
-</module>
-
-<module id="t1_clothing_shop" name="Clothing Factory" size=2000 descr="turns cloth into clothing."/>
-	<tags="tech1, ammo"/>
-	<production="category:weapons"/>
-</module>
-
-<module id="t1_synthetic_fiber_factory" name="Synthetic Fiber Reactor" size=2000 descr="Creates synthetic fibers (nylon, gore-tex)"/>
-	<tags="tech1, ammo"/>
-	<production="category:weapons"/>
-</module>
-
-<module id="t1_weaving_mill" name="Weaving Mill" size=2000 descr="turns fiber into cloth"/>
-	<tags="tech1, ammo"/>
-	<production="category:weapons"/>
-</module>
+{
+    "bulk_storage":{
+        "name":"Bulk Storage", "mass":10000, "vol":1000, "desc":"empty Space, suitable for storing hardy items",
+        "store":{"bulk":1000}},
+    "liquid_storage":{
+        "name":"Liquid Storage", "mass":10000, "volume":1000,
+        "storage":{"liquid":1000}},
+
+    "ice_furnace":{
+        "name":"Volatiles Furnace", "vol":2000, "tags":["raw_materials"],
+        "descr":"Furnace to convert frozen ices into useful liquids and gasses",
+        "process":["melt_water_ice"]},
+    "exped_fab_shop":{
+        "name":"Expeditionary Fabrication Shop", "vol":1000, "tags":["industrial"],
+	"process":["make_basic_hand_tools"]},
+    "exped_food_factory":{
+        "name":"Expeditionary Food Factory", "vol":1000, "tags":["food","agricultural"],
+	"process":["grow_algae"]},
+
+    "crude_chemical_reactor":{
+        "name":"Crude Chemical Reactor", "volume":2000, "tags":["chemical","industrial"]},
+        //"process":["make_chemicals"]},
+    "precision_chemical_reactor":{
+        "name":"Precision Chemical Reactor", "vol":2000, "desc":"",
+	"tags":["chemical","industrial"],},
+        //"process":["make_chemicals"]},
+    "o2_generator":{
+        "name":"O2 Generator", "vol":250, "tag":["habitation","life_support"]},
+    "co2_scrubber":{
+        "name":"CO2 Scrubber", "vol":250, "tag":["habitation","life_support"],
+        "process":["scrub_co2"]},
+
+    "habitation_camp_dorm":{
+        "name":"Makeshift Housing", "vol":1000, "tag":["habitation","housing"],
+        "storage":{"housing":15}},
+    "habitation_tenement_dorm":{
+        "name":"Cramped Tenement Housing", "volume":1000, "tag":["habitation","housing"],
+        "storage":{"housing":25}},
+    "habitation_comfortable_apartment":{
+        "name":"Comfortable Apartment Housing", "volume":1000, "tag":["habitation","housing"],
+        "storage":{"housing":12}},
+    "habitation_luxurious_apartment":{
+        "name":"Luxurious Apartment", "volume":1000, "desc":"", "tag":["habitation","housing"],
+        "storage":{"housing":4}},
+    "habitation_penthouse_apartment":{
+        "name":"Penthouse", "vol":2500, "desc":"", "tag":["habitation","housing"],
+        "storage":{"housing":4}},
+
+    "engine_workshop":{
+        "name":"Engine Workshop", "vol":2000, "desc":"working with internal combustion engines",
+	"tags":["industrial"],
+	"process":["assemble_piston_engine_5kw",
+                   "assemble_generator_5kw",
+                   "assemble_electric_motor_5kw"]},
+    "turbine_workshop":{
+        "name":"Turbine Workshop", "vol":2000, "desc":"Manufactures Turbines, Jets", "tags":["industrial"],
+	"process":["assemble_gas_turbine_2mw"]},
+    "battery_workshop":{"name":"Battery Cell Workshop", "vol":2000, "desc":"manufacture reactors, batteries, and feul cells","tags":["industrial"],
+	                "process":["build_fuel_cells",
+                                   "build_lipo_batteries",
+                                   "build_nimh_batteries"]},
+    "welding_shop":{"name":"Welding Shop", "vol":2000, "desc":"enables ground vehicle chassis manufacture", "tags":["industrial"],
+	            "process":["weld_chassis_light_road_auto",
+                               "weld_chassis_light_road_truck",
+                               "weld_chassis_medium_road_truck",
+                               "weld_chassis_heavy_road_truck"]},
+    "forging_press":{"name":"Forging Press", "vol":2000, "desc":"chassis prereq", "tags":["industrial"],
+	             "process":["forge_chassis_light_road_auto",
+                                "forge_chassis_light_road_truck",
+                                "forge_chassis_medium_road_truck",
+                                "forge_chassis_heavy_road_truck"]},
+    "precision_frame_press":{"name":"Precision Frame Press", "vol":2000},
+
+    "ceramic_kiln":{
+        "name":"Ceramics Kiln", "vol":2000, "desc":"Composites Manufacture", "tag":["composites"],
+        "process":["smelt_glass","smelt_ceramics",
+                   //"cure_composites"]},
+                   "smelt_silicon_wafers","smelt_germanium_wafers"]},
+
+    "graduation_hall":{
+        "name":"Graduation Hall", "vol":2000, "desc":"Assembly point for trained infantry", "tags":["industrial"],
+        "process":["assemble_infantry"]},
+    "assembly_garage":{
+        "name":"Assembly Garage", "vol":2000, "desc":"Assembles ground vehicles", "tags":["industrial"],
+        "process":["assemble_vehicles"]},
+    "assembly_shipyard":{
+        "name":"Assembly Dock", "vol":2000, "desc":"Assembles Naval Units", "tags":["industrial"],
+        "process":["assemble_ships"]},
+    "assembly_bay":{
+        "name":"Assembly Bay", "vol":2000, "desc":"assembly of air and ground vehicles", "tags":["industrial"]},
+    "assembly_hangar":{
+        "name":"Air Field Assembly Hangar", "desc":"assembly of air vehicles", "tags":["industrial"],
+        "process":["assemble_aircraft"]},
+
+    "agriculture_lab":{"name":"Agriculture Lab", "vol":5000, "tag":["agricultural","research"]},
+    "electronics_lab":{"name":"Electronics Lab", "vol":5000, "tag":["electronics","research"]},
+    "computer_lab":{"name":"Computation Lab", "vol":5000, "tag":["electronics","research"]},
+    "prototype_lab":{"name":"Rapid Prototyping Lab", "vol":5000, "tag":["industrial","research"]},
+    "chemistry_lab":{"name":"Chemistry Lab", "vol":5000, "tag":["chemistry","research"]},
+    "metal_lab":   {"name":"Metals Lab", "vol":5000, "tag":["chemistry","industrial","research"]},
+    "ceramic_lab":{"name":"Ceramics Lab", "vol":5000, "tag":["industrial","research","ceramic"]},
+    "polymer_lab":{"name":"Polymer Lab", "vol":5000, "tag":["industrial","research"]},
+    "optics_lab":{ "name":"Optics Lab", "vol":5000, "tag":["research"]},
+    "spintronics_lab":{"name":"Spintronics Lab", "vol":5000, "tag":["research"]},
+    "quantum_lab":{"name":"Quantum Materials Lab", "vol":5000, "desc":"aka Nanomaterials: CNTS, MEMS, quantum dots", "tag":["quantum","research"]},
+    "genetic_lab":{"name":"Genetics Lab", "vol":5000, "desc":"description?", "tag":["genetics","research"]},
+    "medical_lab":{"name":"Medical Lab", "vol":5000, "tag":["medicine","research"]},
+    "physics_lab":{"name":"High-Energy Physics Lab", "vol":5000, "tag":["research"]},
+    "combustion_lab":{"name":"Combustion Lab", "vol":5000, "desc":"engine, turbine, jet, explosives research", "tag":["research"]},
+    "magnetics_lab":{"name":"Magnetics Lab", "vol":2000, "desc":"<placeholder>", "tag":["research"]},
+
+    "emergency_clinic":{"name":"Emergency Clinic", "vol":2000, "desc":"" },
+    "autoclinic":{"name":"Autoclinic", "vol":2000, "desc":"" },
+    "Hospital":{"name":"Hospital", "vol":2000, "desc":"also includes research, higher capacity, higher quality"},
+
+    "cantina":{"name":"Cantina", "vol":2000, "desc":"" },
+
+    "cafeteria":{"name":"Cafeteria", "vol":2000, "desc":"" },
+
+    "shopping_mall":{"name":"", "vol":2000, "desc":"" },
+
+    "entertainment_district":{"name":"Entertainment District", "vol":2000, "desc":"" },
+
+    "red_light_district":{"name":"Red Light District", "vol":2000, "desc":"" },
+
+    "restaurants":{"name":"Restaurant Neighborhood", "vol":2000, "desc":"" },
+
+    "athletic_facility":{"name":"Athletic Facility", "vol":2000, "desc":"" },
+    "recr_drug_clinic":{"name":"Recreational Drug Clinic", "vol":2000, "desc":"" },
+
+    "basic_farm_house":{"name":"Simple Farm", "vol":2000, "desc":"" },
+    "basic_farm_field":{"name":"Simple Farm", "vol":2000, "desc":"" },
+    "hydroponic_farm_center":{"name":"Hydroponic Farm", "vol":2000, "desc":""},
+    "hydroponic_farm_field":{"name":"Hydroponic Farm", "vol":2000, "desc":""},
+    "hydro_farm_center":{"name":"Aquatic Farm", "vol":2000, "desc":""},
+    "hydro_farm_tray":{"name":"Aquatic Farm", "vol":2000, "desc":""},
+    "ensemble_farm_center":{"name":"Ensemble Farm", "vol":2000, "desc":""},
+    "ensemble_farm_field":{"name":"Ensemble Farm", "vol":2000, "desc":""},
+    
+    "hydrocarbon_turbine":{"name":"Feul Combustion Turbine", "vol":2000,
+	                   "process":["burn_biomass_1mw",
+                                      "burn_timber_1mw",
+                                      "burn_coal_1mw",
+                                      "burn_oil_1mw"]},
+    "fission_power_plant_1gw":{
+        "name":"Thorium Power Plant", "vol":80000,
+	"process":["react_fission_1gw"]},
+    "fusion_power_plant_1gw":{
+        "name":"Fusion Power Plant", "vol":80000,
+	"process":["react_fusion_1gw"]},
+
+    "solar_power_1MW":{
+        "name":"Solar Power Segment", "vol":2000,
+        "process":["generate_power_from_solar_1mw"]},
+    "wind_turbine_1MW":{
+        "name":"Wind Turbine", "vol":2000, "desc":"",
+        "process":["generate_power_from_wind_1mw"]},
+    "water_turbine_small":{
+        "name":"Water Turbine", "vol":2000,
+	"process":["generate_power_from_water_1mw"]},
+
+    "nimh_battery_bank":{
+        "name":"Battery Bank Storage", "vol":2000,
+        "storage":{"power":1000}},
+    "lipo_battery_bank":{
+        "name":"Battery Bank Storage", "vol":2000, "desc":"",
+        "storage":{"power":2500}},
+    "flywheel":{
+        "name":"Flywheel Energy Storage", "vol":2000, "desc":"",
+        "storage":{"power":2500}},
+    "nanowire_battery":{
+        "name":"Nanowire Energy Storage", "vol":2000, "desc":"",
+        "storage":{"power":2500}},
+    "singularity_battery":{
+        "name":"Singularity Power Storage", "vol":2000, "desc":"",
+        "storage":{"power":2500}},
+    
+    "uhf_comm_relay":{
+        "name":"UHF Communications Relay", "vol":2000},
+    "ka_com_relay":{
+        "name":"K-Band Communications Relay", "vol":2000},
+    "laser_comm_relay":{
+        "name":"Laser Communications Relay", "vol":2000},
+
+    "radar_array_1mw":{"name":"Tactical Radar", "vol":2000},
+    "radar_array_25mw":{"name":"Strategic Radar", "vol":2000},
+    "optical_tracker":{"name":"Optical Tracking Sensor", "vol":2000},
+                       //"process":["optical_sense":1,"infrared_sense":1}},
+    "optical_tracker":{"name":"Optical Tracking Sensor", "vol":2000},
+                       //"process":["optical_sense":50}},
+
+    "freight_loader":{"name":"Freight Loader", "vol":2000},
+    "autoloader":{"name":"Automatic Container Loader", "vol":2000},
+
+    "drill_cart":{"name":"Drill Cart", "vol":2000, "desc":"mining equipment.",
+	          "tags":["mining"]},
+	          //"process":["mining"]},
+    "boreworm":{"name":"Mining Bore Worm", "vol":2000, "desc":"automated mining equipment.",
+	        "tags":["mining"]},
+	        //"process":["mining"]},
+
+    "rock_crusher":{"name":"Rock Crusher", "vol":2000, "desc":"",
+	            "tags":["mining","industrial"]},
+
+    "vacuum_smelter":{"name":"Vacuum Smelter", "vol":2000, "desc":"Modern, Robust metel smelter",
+                      "tags":["metal","industrial"],
+                      "process":["smelt_carbon_steel"]},
+
+    "oxygen_smelter":{"name":"Oxygen Smelter", "vol":2000, "desc":"More efficient metal smelter",
+	              "tags":["metal","industrial"],
+	              "process":["smelt_carbon_steel"]},
+
+    "vortex_smelter":{"name":"Vortex Smelter" , "vol":2000, "desc":"Advanced Metal Smelter",
+	              "tags":["metal","industrial"],
+	              "process":["smelt_carbon_steel"]},
+
+    "alloy_furnace":{"name":"Alloy Furnace", "vol":2000, "desc":"Alloy Metal Smelter",
+	             "tags":["metal","industrial"],
+	             "process":["smelt_alloy_steel"]},
+
+    "density_refiner":{
+        "name":"Density Refiner", "vol":2000, "desc":"",
+	"tags":["metal","industrial"]},
+    "recycle_smelter":{
+        "name":"Electric Arc Furnace", "vol":2000, "desc":"",
+	"tags":["metal","industrial"]},
+	// "process":["metal_recycle":1}},
+    "continuous_caster":{
+        "name":"Continuous Caster", "vol":2000, "desc":"produce metal items (ingot)",
+	"tags":["metal","industrial"]},
+	//"process":["metal_ingot":1}},
+    "rolling_forge":{
+        "name":"Rolling Forge", "vol":2000, "desc":"produce metal items (plates/pipes/beams)",
+	"tags":["metal","industrial"]},
+	//"process":["metal_ingot":1}},
+    "continuous_caster":{
+        "name":"Continuous Caster", "vol":2000, "desc":"",
+	"tags":["metal","industrial"]},
+	//"process":["metal_ingot":1}},
+    "tool_stamp_shop":{
+        "name":"Tool Stamping Shop", "vol":2000, "desc":"Tool Manufacture",
+	"tags":["metal","industrial"]},
+	//"process":["tools":1]},
+    "tool_form_shop":{
+        "name":"Tool Forming Shop", "vol":2000, "desc":"Upgrade. Tool Manufacture",
+	"tags":["industrial"]},
+        //"process":["},
+    "microchip_production":{
+        "name":"Semiconductor Fabrication Line" , "vol":2000, "desc":"Microchip production",
+	"tags":["electronics","industrial"],
+        "process":["etch_silicon_chips", "etch_germanium_chips"]},
+    "solder_line":{
+        "name":"Surface Mount Solder Line" , "vol":2000, "desc":"create Silicon Wafers",
+	"tags":["electronics","industrial"],
+    },
+    "optronics_production":{
+        "name":"Optronics Factory" , "vol":2000, "desc":"create optronics components",
+	"tags":["electronics","industrial"],
+    },
+    "optical_fiber_spinner":{
+        "name":"Optical Fiber Spinner" , "vol":2000, "desc":"create fiber optic cable",
+	"tags":["optronics","industrial"]},
+        //"process":["make_optical_fiber"]},
+    "electro_optics_shop":{
+        "name":"Electro-Optics Shop" , "vol":2000, "desc":"produce optical sensors (camera, telescope, IR, UV)",
+	"tags":["optronics","industrial"]},
+	//"process":["make_optics"]},
+    "magnetic_forge":{
+        "name":"Magnetics Forge", "vol":2000, "desc":"produces magnet",
+	"tags":["industrial"]},
+
+    "explosives_manufacture":{
+        "name":"Explosives mixing shop", "vol":2000, "desc":"produces (solid) explosives",
+	"tags":["ammo","industrial"],
+	"process":["make_rocket_propellant", "make_explosives", "make_gunpowder"]},
+    "projectile_manufacture":{
+        "name":"Projectile Casting Shopping", "vol":2000, "desc":"produces projectile ammunition",
+	"tags":["ammo","industrial"],
+	"process":["make_ammo_5mm",        "make_ammo_9mm",        "make_ammo_12mm",
+                   "make_ammo_shell_60mm", "make_ammo_shell_90mm", "make_ammo_shell_120mm"]},
+    "weapons_assembly":{
+        "name":"Weapons Assembly Line", "vol":2000, "desc":"produces weapons",
+	"tags":["ammo","industrial"],
+	"process":["make_small_arms"]},
+
+    "weaving_mill":{
+        "name":"Weaving Mill", "vol":2000, "desc":"turns fiber into cloth",
+	"tags":["clothing","industrial"],
+	"process":["make_clothes"]},
+    "clothing_shop":{
+        "name":"Clothing Factory", "vol":2000, "desc":"turns cloth into clothing.",
+	"tags":["clothing","industrial"],
+	"process":["make_clothes"]},
+    "synthetic_fiber_factory":{
+        "name":"Synthetic Fiber Reactor", "vol":2000, "desc":"Creates synthetic fibers (nylon, gore-tex)",
+	"tags":["clothing","industrial"],
+	"process":["make_clothes"]},
+    "weaving_mill":{
+        "name":"Weaving Mill", "vol":2000, "desc":"turns fiber into cloth",
+        "tags":["clothing","industrial"],
+	"process":["make_clothes"]},
+}

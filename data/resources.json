@@ -2,13 +2,20 @@
     "time":{"name": "Time", "desc": "Time", "units": "s", "volume":0, "mass":0, "store":"abstract"},
     "heat":{"name": "Heat", "tag":["environmental"], "units":"w", "volume":0, "mass":0, "store":"abstract"},
     "light":{"name": "Light", "tag":["environmental"], "units":"w", "volume":0, "mass":0, "store":"none"},
-    "electricity":{"name": "Electricity", "tag":["electricity"], "desc":"Raw electricity, suitable for powering lights or electronics", "units": "w", "volume": 0, "mass": 0, "store":"power"},
-    "torque":{"name": "Torque", "desc": "Power suitable for turning a shaft or wheel, to turn a machine, or move a vehicle", "units": "w", "volume": 0, "mass": 0, "mass": 0, "store":"none"},
-    "power":{"name": "Power", "desc": "Motive Power, suitable for lifting a load or moving a vehicle", "units": "w", "volume": 0, "mass": 0, "store":"none"},
+    "torque":{
+        "name": "Torque", "desc": "Power suitable for turning a shaft or wheel, to turn a machine, or move a vehicle",
+        "units": "w", "volume": 0, "mass": 0, "mass": 0, "store":"none"},
+    "power":{
+        "name": "Electrical Power", "desc":"Raw electricity, suitable for powering lights or electronics",
+        "tag":["electricity"], "units": "w", "volume": 0, "mass": 0, "store":"power"},
     "credits":{"name": "Credits", "desc":"Standard Futuristic Unit of Money", "units": "Cr", "volume": 0, "mass": 0, "store":"abstract"},
 
+    "labor":{"name": "Torque", "desc":"Unskilled labor from any able-bodied humanoid", "units": "t", "volume": 0, "mass": 0, "mass": 0, "store":"none"},
+    "housing":{"name":"Housing", "desc":"1 unit of house houses a single adult human (adolescents live with their parents)"},
+    
     "discrete":{"name":"Base Discrete Resource", "units":"kg", "store":"discrete"},
-    "gas":{"name":"Base Gas Resource", "units":"kg", "density":1, "tag":["air"], "store":"gas"},
+    "bulk":{"name":"Base Bulk Resource", "units":"kg", "store":"bulk"},
+    "gas":{"name":"Base Gas Resource", "units":"kg", "density":1, "tag":[], "store":"gas"},
     "liquid":{"name":"Base Liquid Resource", "units":"L", "density":1, "tag":["air"], "store":"gas"},
 
     "oxygen":{"name": "Oxygen", "super":"gas", "tag":["air"]},
@@ -17,6 +24,10 @@
     "steam":{"name": "Steam", "super":"gas", "tag":["water"], "store":"none"},
     "rock":{"name":"Rock (Generic)", "density":2.5, "store":"bulk"},
 
+    "water_ice":{"name": "Water Ice", "super":"bulk", "tag":["ice"]},
+    "methane_ice":{"name": "Methane Ice", "super":"bulk", "tag":["ice"]},
+    "dry_ice":{"name": "Dry Ice", "super":"bulk", "tag":["ice"]},
+    
     "timber":{"name":"Timber", "density":1.5, "tag":["fuel","timber"], "store":"bulk"},
     "lumber":{"name":"Lumber", "density":1.5, "tag":["fuel","timber"], "store":"bulk"},
     "wood_pulp":{"name":"Wood_pulp", "density":1.5, "store":"bulk"},
@@ -32,24 +43,27 @@
 
     "deuterium":{"name":"Deuterium (H2)", "density":0.005, "tag":["fusion","fuel"], "store":"gas"},
 
-    "gunpowder":{"name":"Gunpowder", "tag":["gunpowder"], "store":"b"},
-    "apcp":{"name":"Ammonium Perchlorate (APCP)", "tag":["fuel"], "store":"b"},
-    "solid_rocket_fuel":{"name":"Solid Rocket Fuel", "tag":["fuel"], "store":"b"},
+    "explosives_demolition":{"name":"High Explosives", "tag":["weapons"], "store":"b"},
+    "explosives_gunpowder":{"name":"Gunpowder", "tag":["weapons"], "store":"b"},
+    "propellant_solid_rocket":{"name":"Solid Rocket Propellant", "desc":"Consisting of mostly: Ammonium Perchlorate (APCP)", "tag":["weapons"], "store":"b"},
+
     "spare_parts":{"name": "Spare Parts", "tag":["maintenance","item"], "store":"b"},
 
-    "piston_engine_5kW":{"name":"Small Piston Engine; 5kW rating; may use any type of gas", "store":"d"},
-    "piston_engine_100kW":{"name":"Small 200cc Gas Engine", "store":"d"},
-    "piston_engine_250kW":{"name":"?? ??cc Gas Engine", "store":"d"},
-    "piston_engine_2MW":{"name":"?? ??cc Gas Engine", "store":"d"},
+    "piston_engine_5kw":{"name":"Small Piston Engine; 5kW rating; may use any type of gas", "store":"d"},
+    "piston_engine_100kw":{"name":"Small 200cc Gas Engine", "store":"d"},
+    "piston_engine_250kw":{"name":"?? ??cc Gas Engine", "store":"d"},
+    "piston_engine_2mw":{"name":"?? ??cc Gas Engine", "store":"d"},
     
-    "gas_turbine_2MW":{"name":"Small Gas Turbine", "store":"d"},
+    "gas_turbine_2mw":{"name":"Small Gas Turbine", "store":"d"},
 
     "electric_generator_5kw":{"name":"Small portable generator"},
     "electric_motor_5kw":{"name":"Small portable motor"},
-    "battery":{"name":"Batteries", "density":"2.5"},
+    
+    "battery":{"name":"Batteries", "density":"2.5","store":"d"},
     "batteries_lipo":{"name":"Lithium-Polymer Batteries", "super":"battery"},
     "batteries_nimh":{"name":"Nickel-Metal-Hydride Batteries", "super":"battery"},
-
+    "fuel_cell":{"name":"Fuel Cell", "desc":"Extract electricity from a variety of biomass sources", "density":1.6, "store":"d"},
+    
     "basic_hand_tools":{"name":"Hand Tools", "desc": "Basic Handheld Power Tools: usable for all basic construction"},
     "power_tools":{"name":"Power Tools", "desc": "Power Tools; weildable by individual workers: usable for all basic construction"},
     "heavy_tools":{"name":"Heavy Tools", "desc": "Simple, labor-intensive tools; too big to be carried by an individual; used for heavy industry"},
@@ -69,16 +83,16 @@
     "missiles":{"name":"Missiles"},
     "frame_ground_tank":{"name":"Tank Chassis (20t)"},
 
-    "gun_small_armament":{"name":"Small Arms"},
-    "gun_medium_armament":{"name":"Mounted Gun"},
-    "turrent_medium":{"name":"Samson Remote Weapon Turret"},
+    "weapon_small_armament":{"name":"Small Arms"},
+    "weapon_crew_serve_armament":{"name":"Mounted Gun", "desc":"Example: crew-served, but dismounted weapon"},
+    "weapon_auto_turret_armament":{"name":"Samson Remote Weapon Turret"},
 
-    "ammo_gun_9mm":{"name":"Bullets"},
-    "ammo_gun_5_76mm":{"name":"Shells"},
-    "ammo_gun_50cal":{"name":"Shells"},
-    "ammo_gun_60mm":{"name":"Shells"},
-    "ammo_gun_90mm":{"name":"Shells"},
-    "ammo_gun_120mm":{"name":"Shells"},
+    "ammo_bullet_5mm":{"name":"Bullets, 5.76mm"},
+    "ammo_bullet_9mm":{"name":"Bullets, 9mm"},
+    "ammo_bullet_12mm":{"name":"Bullets, 12.7mm", "desc":"(aka .50 Cal)"},
+    "ammo_shell_60mm":{"name":"Shells, 60mm"},
+    "ammo_shell_90mm":{"name":"Shells, 90mm"},
+    "ammo_shell_120mm":{"name":"Shells, 120mm"},
 
     "frame_ground_buggy":{"name":"frame_ground_buggy"},
     "frame_ground_truck":{"name":"frame_ground_truck"},
@@ -102,7 +116,7 @@
     "lentil":{"name":"Lentil Beans", "super":"legume", "tag":["farm"]},
     "black_beans":{"name":"Black Beans", "super":"legume", "tag":["farm"]},
 
-    "edible-algae":{"name":"Algae (Edible)", "desc":"Uninspiring, But Nutritious.", "density": 0.8, "tag":["food","aquatic"]},
+    "edible_algae_paste":{"name":"Algae (Edible)", "desc":"Uninspiring, But Nutritious.", "density": 0.8, "tag":["food","aquatic"]},
 
     "livestock":{"name": "Live Stock", "tag":["livestock","farm"]},
     "chicken":{"name": "Live Chickens", "volume":200, "mass":2.5, "super":"livestock"},
@@ -152,6 +166,7 @@
     "mg_ore":{"name":"Magnesium", "super":"ore"},
     "mo_ore":{"name":"Molybdenum Ore", "super":"ore"},
     "mn_ore":{"name":"Manganese Ore", "super":"ore"},
+
     "ni_ore":{"name":"Nickel Ore", "super":"ore"},
     "si_ore":{"name":"Silica Ore", "super":"ore"},
     "ti_ore":{"name":"Ilmenite Ore", "desc":"(Titanium Ore)", "super":"ore"},
@@ -159,9 +174,12 @@
     "w_ore": {"name":"Tungsten Ore", "super":"ore"},
     "z_ore": {"name":"Zinc Ore", "super":"ore"},
 
+    "sodium_carbonate":{"name":"Sodium Carbonate", "desc":"aka 'Soda Ash'", "super":"ore"},
+
     "metal_ingot":{"name":"Metal Ingot", "units":"piece", "density":5.0},
     "al_ingot":{"name":"Aluminum Ingot", "super":"metal_ingot", "density":2.7},
     "au_ingot":{"name":"Gold Ingot", "super":"metal_ingot", "density":20.0},
+    "brass_ingot":{"name":"Brass Ingot", "super":"metal_ingot", "density":20.0},
     "carbon":{"name":"Carbon (feedstock)"},
     "cu_ingot":{"name":"Copper Ingot", "super":"metal_ingot", "density":20.0},
     "iron_ingot":{"name":"Iron Ingots", "super":"metal_ingot"},
@@ -171,15 +189,18 @@
     "tool_steel_ingot":{"name":"Tool Steel", "super":"metal_ingot"},
     "foam_metal":{"name":"Foam Metal Alloy", "density":0.1},
 
-    "glass":{"name":"Glass"},
+    "ceramic":{"name":"Ceramic", "desc":"Silicon-Based Industrial Ceramics", "density":2.4, "store":"b"},
+    "glass":{"name":"Glass", "super":"ceramic"},
     "cfrp":{"name":"Carbon Fiber", "desc":"(Carbon_Fiber Reinforced Polymer)"},
     "plastic":{"name":"Plastic"},
-    "bio_polymers":{"name":"Plastic", "desc":"biologic-derived plastic", "super":"plastic"},
+    "bio_polymer":{"name":"Plastic", "desc":"biologic-derived plastic", "super":"plastic"},
     "oil_plastic":{"name":"Plastic", "desc":"fossil-fuel-derived plastic", "super":"plastic"},
 
-    "microchips":{"name":"Microchips", "desc":"Any microchips used for computers, communications and automation","tag":["electronics"]},
-    "si_chips":{"name":"Silicon Microchips", "desc":"Silicon_Based microchips", "super":"microchips"},
-    "ge_chips":{"name":"Germanium Microchips", "desc":"Any Germanium_Based microchips used for computers, communications and automation.   Especially useful for power delivery, but also substitutes for Silicon_based chips, if needed.", "super":"microchips"},
+    "si_wafer":{"name":"Silicon Semiconductor Wafers", "super":"ceramic", "tag":["electronics"]},
+    "ge_wafer":{"name":"Germanium Semiconductor Wafers", "super":"ceramic", "tag":["electronics"]},
+    "microchip":{"name":"Microchips", "desc":"Any microchips used for computers, communications and automation","tag":["electronics"]},
+    "si_chip":{"name":"Silicon Microchips", "desc":"Silicon_Based microchips", "super":"microchip"},
+    "ge_chip":{"name":"Germanium Microchips", "desc":"Any Germanium_Based microchips used for computers, communications and automation.   Especially useful for power delivery, but also substitutes for Silicon_based chips, if needed.", "super":"microchip"},
 
     "crushed_stone":{"name":"Crushed Stone", "mass":2.0},
     "construction_blocks":{"name":"Construction Blocks", "mass":2.0},

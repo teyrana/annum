@@ -1,5 +1,10 @@
 
 class Cost extends Map<string,number> {
+
+  constructor(){
+    super()
+    this.set( 'time', 1);
+  }
   
   // distinguished from set(<string>,<number>) by argument count:
   update( value ){
@@ -12,7 +17,13 @@ class Cost extends Map<string,number> {
     return true;
   }
 
-  
+  toString(): string {
+    let buf = '';
+    this.forEach( (qty,rsc) => {
+      buf += `${rsc}:${qty},  `;
+    });
+    return buf;
+  }
 
 };
 
