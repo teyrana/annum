@@ -1,7 +1,7 @@
 import BaseEntryType from './base_entry_type'
 import StorageType from './storage_type'
 import TagSet from './tag_set'
-import UnitType from './unit_type'
+import Units from './units'
 
 class ResourceType implements BaseEntryType {
   readonly typeName: string = 'ResourceType';
@@ -12,7 +12,7 @@ class ResourceType implements BaseEntryType {
   readonly index: number = 0;
   readonly key: Lowercase<string> = 'default_key';
   
-  readonly units: UnitType = UnitType.KG_MASS;
+  readonly units: Units = Units.KG_MASS;
   readonly mass: number = 1000.0;  // units = kilograms
   readonly volume: number = 1.0;  // units == L (liters, litres)
   readonly store: StorageType  = StorageType.DISCRETE;
@@ -46,16 +46,16 @@ class ResourceType implements BaseEntryType {
       }else if('name' === key){
         this.name = doc.name;
       }else if( 'units' === key ){
-        this.units = UnitType.parseUnitCode(<string>value);
+        this.units = Units.parseUnitCode(<string>value);
       }else if('density' === key){
         if( doc['units'] ){
-          this.units = UnitType.parseUnitCode(<string>doc['units']);
+          this.units = Units.parseUnitCode(<string>doc['units']);
         }
         const density = doc['density']
-        if( UnitType.KG_MASS === this.units){
+        if( Units.KG_MASS === this.units){
           this.mass = 1000.0;
           this.volume = 1.0 / density;
-        }else if( UnitType.L_VOLUME === this.units){
+        }else if( Units.L_VOLUME === this.units){
           this.mass = density;
           this.volume = 1.0;
         }
