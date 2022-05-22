@@ -101,48 +101,73 @@
               "power":30,
               "weapon_small_armament":50}},
 
-    "make_ammo_5mm":{
+    "make_bullet_6mm":{
         "name":"Manufacture Small-Caliber Ammunition", "tag":["industrial","weapons"], 
         "io":{"brass_ingot":-1,
               "explosives_gunpowder":-5,
               "time":-20,
               "power":-30,
-              "ammo_bullet_5mm":6000}},
-    "make_ammo_9mm":{
+              "ammo_bullet_6mm":6000}},
+    "make_bullet_8mm":{
         "name":"Manufacture Small-Caliber Ammunition", "tag":["industrial","weapons"], 
         "io":{"brass_ingot":-1,
               "explosives_gunpowder":-5,
               "time":-20,
               "power":-30,
-              "ammo_bullet_9mm":5000}},
-    "make_ammo_12mm":{
+              "ammo_bullet_8mm":5000}},
+    "make_bullet_12mm":{
         "name":"Manufacture Small-Caliber Ammunition", "tag":["industrial","weapons"], 
         "io":{"brass_ingot":-1,
               "explosives_gunpowder":-5,
               "time":-20,
               "power":-30,
               "ammo_bullet_12mm":4600}},
-    "make_ammo_shell_60mm":{
-        "name":"Manufacture Small-Caliber Ammunition", "tag":["industrial","weapons"], 
+
+    "make_shell_18mm":{
+        "name":"Manufacture Shotgun Ammunition", "tag":["industrial","weapons"], 
+        "io":{"brass_ingot":-1,
+              "explosives_gunpowder":-5,
+              "time":-20,
+              "power":-30,
+              "ammo_shell_18mm":4600}},
+    "make_shell_25mm":{
+        "name":"Manufacture Medium-Caliber Shell-Ammunition", "tag":["industrial","weapons"], 
+        "io":{"brass_ingot":-1,
+              "explosives_gunpowder":-5,
+              "time":-20,
+              "power":-30,
+              "ammo_shell_25mm":2800}},
+    "make_shell_60mm":{
+        "name":"Manufacture Medium-Caliber Shell Ammunition", "tag":["industrial","weapons"], 
         "io":{"brass_ingot":-1,
               "explosives_gunpowder":-5,
               "time":-20,
               "power":-30,
               "ammo_shell_60mm":3200}},
-    "make_ammo_shell_90mm":{
-        "name":"Manufacture Small-Caliber Ammunition", "tag":["industrial","weapons"], 
+    "make_shell_90mm":{
+        "name":"Manufacture Medium-Caliber Shell Ammunition", "tag":["industrial","weapons"], 
         "io":{"brass_ingot":-1,
               "explosives_gunpowder":-5,
               "time":-20,
               "power":-30,
               "ammo_shell_90mm":1600}},
-    "make_ammo_shell_120mm":{
-        "name":"Manufacture Small-Caliber Ammunition", "tag":["industrial","weapons"], 
+    "make_shell_120mm":{
+        "name":"Manufacture Medium-Caliber Shell Ammunition", "tag":["industrial","weapons"], 
         "io":{"brass_ingot":-1,
               "explosives_gunpowder":-5,
               "time":-20,
               "power":-30,
               "ammo_shell_120mm":800}},
+
+    "fire_gun_6mm_1r":{
+        "name":"Fire 6mm bullet", "tag":["weapons","combat"], 
+        "io":{"ammo_bullet_6mm":-1, "time":-1.2}},
+    "fire_gun_6mm_3r":{
+        "name":"Fire 6mm bullet", "tag":["weapons","combat"], 
+        "io":{"ammo_bullet_6mm":-3, "time":-1.2}},
+    "fire_gun_6mm_8r":{
+        "name":"Fire 6mm bullet", "tag":["weapons","combat"], 
+        "io":{"ammo_bullet_6mm":-8, "time":-0.8, "heat":0.01}},
 
     // piston engines -- multifuel -- diesel / gasoline / kerosene / other"
 //     "na":{"name":"", "desc":"steel_ingot, iron_ingot, al_ingot -> piston_engine_5kW    // ~200cc engine; tiny utility engines, tiny generators"}

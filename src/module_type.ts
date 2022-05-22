@@ -20,6 +20,8 @@ class ModuleType implements BaseEntryType {
   // really process -> quantity
   readonly process = new Set<string>();
 
+  readonly mount: string = 'internal';
+
   // really resource -> quantity
   // quantity / mass / resource of the _contained_ resource
   readonly store = new Map<string,number>();
@@ -39,7 +41,10 @@ class ModuleType implements BaseEntryType {
 
     // override defaults with pattern values
     this.description = archetype.description;
-
+    this.mass = archetype.mass;
+    this.process = archetype.process;
+    this.mount = archetype.mount
+    this.store = archetype.store;
     this.tags.update(archetype.tags);
 
     for( const [key,value] of Object.entries(doc)){
@@ -63,7 +68,6 @@ class ModuleType implements BaseEntryType {
         for( const [key,qty] of Object.entries(value) ){
           this.store.set( key, <number>qty );
         }
-
       }else if('super' === key){
         this.superKey = doc['super'];
 
@@ -71,6 +75,8 @@ class ModuleType implements BaseEntryType {
         this.tags.update(value);
       }else if('mass' === key){
         this.mass = <number>value;
+      }else if('mount' === key){
+        this.mount = <string>value;
       }else if('volume'.startsWith(key)){
         this.volume = <number>value;
       }else{
@@ -109,12 +115,17 @@ class ModuleType implements BaseEntryType {
     //   str += `\n              :^:${this.superKey}`;
     // }
 
+    if( this.mass ){
+      str += `\n              :mass: ${this.mass}`;
+    }
+    if( this.mount ){
+      str += `\n              :mount: ${this.mount}`;
+    }
+
     if( 0 < this.process.size ){
-      // i'm sure this is not the slickest way to do this :/
       str += '\n              :proc: '
           + Array.from(this.process).join(', ');
     }
-
     if( 0 < this.store.size ){
       str += '\n              :store: '
           + Array.from(this.store, ([rsc,qty]) => `${rsc}:${qty}`).join(', ');

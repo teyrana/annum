@@ -87,9 +87,11 @@
     "weapon_crew_serve_armament":{"name":"Mounted Gun", "desc":"Example: crew-served, but dismounted weapon"},
     "weapon_auto_turret_armament":{"name":"Samson Remote Weapon Turret"},
 
-    "ammo_bullet_5mm":{"name":"Bullets, 5.76mm"},
-    "ammo_bullet_9mm":{"name":"Bullets, 9mm"},
+    "ammo_bullet_6mm":{"name":"Bullets, 5.76mm"},
+    "ammo_bullet_8mm":{"name":"Bullets, 7.62mm"},
     "ammo_bullet_12mm":{"name":"Bullets, 12.7mm", "desc":"(aka .50 Cal)"},
+    "ammo_shell_18mm":{"name":"Shotgun shells, 12gau==18.53mm", "desc":"(aka .50 Cal)"},
+    "ammo_shell_25mm":{"name":"Shells, 25mm"},
     "ammo_shell_60mm":{"name":"Shells, 60mm"},
     "ammo_shell_90mm":{"name":"Shells, 90mm"},
     "ammo_shell_120mm":{"name":"Shells, 120mm"},
