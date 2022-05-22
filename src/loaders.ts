@@ -2,36 +2,38 @@ import BaseEntryType from './base_entry_type'
 import EntryCatalog from './entry_catalog'
 import TagSet from './tag_set'
 
-import BuildingType from './building_type'
-import * as buildingData from '../data/buildings.json';
-
-import ModuleType from './module_type'
-import * as moduleData from '../data/modules.json';
-
-//import ProcessType from './process_type'
-//import * as processData from '../data/processes.json';
-
-import ProcessType from './process_type'
-import * as processData from '../data/processes.json';
-
+// .1. resource
 import ResourceType from './resource_type'
 import * as resourceData from '../data/resources.json';
 
+// .2. process
+import ProcessType from './process_type'
+import * as processData from '../data/processes.json';
+
+// .3. modules
+import ModuleType from './module_type'
+import * as moduleData from '../data/modules.json';
+
+// .4. platform
+import PlatformType from './platform_type'
+import * as platformData from '../data/platforms.json';
+
+// .5. unit
+// import ProcessType from './process_type'
+// import * as processData from '../data/processes.json';
+
+// .6. technology
 import TechnologyType from './technology_type'
 import * as technologyData from '../data/technologies.json';
 
-import WeaponType from './weapon_type'
-import * as weaponData from '../data/weapons.json';
 
 function collectAllTags( masterCatalog ){
-  collectTags( masterCatalog.building, masterCatalog.tags );
   collectTags( masterCatalog.module, masterCatalog.tags );
   // collectTags( masterCatalog.platform, masterCatalog.tags );
   collectTags( masterCatalog.process, masterCatalog.tags );
   collectTags( masterCatalog.resource, masterCatalog.tags );
   collectTags( masterCatalog.technology, masterCatalog.tags );
   // collectTags( masterCatalog.unit, masterCatalog.tags );
-  collectTags( masterCatalog.weapon, masterCatalog.tags );
 }
 
 function collectTags( catalog: EntryCatalog<BaseEntryType>, allTags: TagSet ){
@@ -94,73 +96,62 @@ function printEntries<EntryType extends BaseEntryType>( catalog: EntryCatalog<En
 }
 
 export function loadAllTypes(): boolean {
-  console.log("==>> Stage 1: Load Entries...");
-  console.log("   :: Load Order Dependencies:\n");
-  console.log("    resource => process");
-  console.log("                process => modules");
-  console.log("    resource =>            modules");
-  console.log("                           modules => buildings");
-  console.log("                           modules => platform");
-  console.log("                                      platform => unit");
-  console.log("                process => weapons");
-  console.log("    technology"); // no dependency
-  //  console.log("    technology => process"); // NYI
+  console.log("==>> Stage A: Load Entries...");
+  //    :: Load Order Dependencies:\n");
+  //       resource(1) => process(2) => modules(3) => platform(4) => unit(5)");
+  //       technology(6)");
 
   // master catalog
-  let catalog = {'building': null,
-                 'tags': new TagSet(),
-                 'module': null,
+  let catalog = {'module': null,
                  'platform': null,
                  'process': null,
                  'resource': null,
+                 'tags': new TagSet(),
                  'technology': null,
-                 'unit': null,
-                 'weapon': null};
+                 'unit': null};
 
-
-  console.log("  >> 1:A: Loading Buildings...");
-  const buildingArchetype = new BuildingType();
-  catalog.building = loadType<BuildingType>(buildingData, buildingArchetype );
-  const loadBuildingsSuccess = (0 < catalog.building.size);
-
-  console.log("  >> 1:B: Loading Modules...");
-  const moduleArchetype = new ModuleType();
-  catalog.module = loadType<ModuleType>(moduleData, moduleArchetype );
-  const loadModulesSuccess = (0 < catalog.module.size);
-
-  console.log("  >> 1:C: Loading Platforms...");
-  const loadPlatformsSuccess = true;
-  // const platformArchetype = new platformType();
-  // catalog.platform = loadType<PlatformType>(platformData, platformArchetype );
-  // const loadplatformsSuccess = (0 < catalog.platform.size);
-
-  console.log("  >> 1:D: Loading Processes...");
-  const processArchetype = new ProcessType();
-  catalog.process = loadType<ProcessType>(processData, processArchetype );
-  const loadProcessesSuccess = (0 < catalog.process.size);
-
-  console.log("  >> 1:E: Loading Resources...");
-  const resourceArchetype = new ResourceType();
-  catalog.resource = loadType<ResourceType>(resourceData, resourceArchetype );
+  console.log("  >> A:1: Load Resources...");
+  catalog.resource = loadType<ResourceType>( resourceData, new ResourceType() );
   const loadResourcesSuccess = (0 < catalog.resource.size);
 
-  console.log("  >> 1:F: Loading Technologies...");
-  const technologyArchetype = new TechnologyType();
-  catalog.technology = loadType<TechnologyType>(technologyData, technologyArchetype );
-  const loadTechnologiesSuccess = (0 < catalog.technology.size);
+  console.log("  >> A:2: Load Processes...");
+  catalog.process = loadType<ProcessType>( processData, new ProcessType() );
+  const loadProcessesSuccess = (0 < catalog.process.size);
+  // temp // devel
+  catalog.process.link( catalog );
 
-  console.log("  >> 1:G: Loading Units...");
-  const loadUnitsSuccess = true;
-  // const unitArchetype = new unitType();
-  // catalog.unit = loadType<FnitType>(unitData, unitArchetype );
+  console.log("  >> A:3: Load Modules...");
+  catalog.module = loadType<ModuleType>( moduleData, new ModuleType() );
+  const loadModulesSuccess = (0 < catalog.module.size);
+  // temp // devel
+  catalog.module.link( catalog );
+
+  console.log("  >> A:4: Load Platforms...");
+  catalog.platform = loadType<PlatformType>(platformData, new PlatformType() );
+  const loadPlatformsSuccess = (0 < catalog.platform.size);
+  // temp // devel
+  catalog.platform.link( catalog );
+
+  console.log("  >> A:5: Loading Units...");
+  // catalog.unit = loadType<FnitType>(unitData, new unitType() );
   // const loadFnitsSuccess = (0 < catalog.unit.size);
   // collectTags( catalog.unit, allTags );
+  const loadUnitsSuccess = true;
 
-  console.log("  >> 1:H: Loading Weapons...");
-  const weaponArchetype = new WeaponType();
-  catalog.weapon = loadType<WeaponType>(weaponData, weaponArchetype );
-  const loadWeaponsSuccess = (0 < catalog.weapon.size);
+  console.log("  >> A:6: Loading Technologies...");
+  catalog.technology = loadType<TechnologyType>(technologyData, new TechnologyType() );
+  const loadTechnologiesSuccess = (0 < catalog.technology.size);
 
+  // console.log("  >> 1:A: Loading Buildings...");
+  // const buildingArchetype = new BuildingType();
+  // catalog.building = loadType<BuildingType>(buildingData, buildingArchetype );
+  // const loadBuildingsSuccess = (0 < catalog.building.size);
+
+
+  // console.log("  >> 1:H: Loading Weapons...");
+  // const weaponArchetype = new WeaponType();
+  // catalog.weapon = loadType<WeaponType>(weaponData, weaponArchetype );
+  // const loadWeaponsSuccess = (0 < catalog.weapon.size);
 
   collectAllTags( catalog );
 
@@ -178,45 +169,14 @@ export function loadAllTypes(): boolean {
   }
   // debug
 
-  console.log("==>> Stage 3: Link Entries...");
 
-  console.log("  >> 2:A: Link Buildings to Modules ...");
-  //catalog.building.link( ??? ); // NYI
-
-  console.log("  >> 2:B: Link Modules to Processes  ...");
-  catalog.module.link( catalog );
-
-  console.log("  >> 2:C: Link Platforms to [???]  ...");
-
-
-  console.log("  >> 2:D: Link Processes to Resources...");
-  catalog.process.link( catalog );
-
-  // console.log("  >> 2:E: Link Resources...");
-  //     => no linking required
-
-  // console.log("  >> 2:F: Link Technologies to (Technologies)  ...");
-  //     => already linked (linking performed during load)
-
-  console.log("  >> 2:G: Link Units to [???]  ...");
-
-  console.log("  >> 2:H: Link Weapons to Processes...");
-  catalog.weapon.link( catalog );
-
-
-
-  
-  // ...
-
-
-  return (loadBuildingsSuccess
-    && loadModulesSuccess
-    && loadResourcesSuccess
-    && loadPlatformsSuccess
-    && loadProcessesSuccess
-    && loadTechnologiesSuccess
-    && loadUnitsSuccess
-    && loadWeaponsSuccess);
+  return (loadResourcesSuccess
+       && loadProcessesSuccess
+       && loadModulesSuccess
+       && loadPlatformsSuccess
+       && loadUnitsSuccess
+       && loadTechnologiesSuccess
+  );
 }
 
 export default loadAllTypes;

@@ -1,50 +1,48 @@
-// infantry
-{"key":"human", "name":"Human", "move":"infantry"}
-{"key":"exosuit", "name":"Exo-Suit", "move":"infantry"}
-{"key":"cyborg", "name":"Cyborg", "move":"mech"}
-{"key":"squad", "name":"Squad of humans", "move":"infantry"}
+{
+    // infantry
+    "human":{"name":"Human", "move":"infantry"},
+    "exosuit":{"name":"Exo-Suit", "move":"infantry"},
+    "cyborg":{"name":"Cyborg", "move":"mech"},
+    "squad":{"name":"Squad of humans", "move":"infantry"},
 
-// Road, Wheeled
-{"key": "commercial_auto", "name":"Sedan", "move":"wheel", "mass":500}
-{"key": "commercial_light_truck", "name":"Pickup Truck", "move":"wheel", "mass":1000}
-{"key": "commercial_medium_truck", "name":"Box Truck", "move":"wheel", "mass":6500}
-{"key": "commercial_heavy_truck", "name":"Semi Truck", "move":"wheel", "mass":16000}
+    // Road, Wheeled
+    "commercial_auto":{"name":"Sedan", "move":"wheel", "mass":500},
+    "commercial_light_truck":{"name":"Pickup Truck", "move":"wheel", "mass":1000},
+    "commercial_medium_truck":{"name":"Box Truck", "move":"wheel", "mass":6500},
+    "commercial_heavy_truck":{"name":"Semi Truck", "move":"wheel", "mass":16000},
 
-// All-Terrain Wheeled
-{"key": "light_truck", "name":"Light multi-purpose utility Truck", "move":"wheel"}
-{"key": "medium_truck", "name":"4WD Utility Truck", "move":"wheel"}
-{"key": "heavy_truck", "name":"Logistics Truck", "move":"wheel"}
+    // All-Terrain Wheeled
+    "light_truck":{"name":"Light multi-purpose utility Truck", "move":"wheel"},
+    "medium_truck":{"name":"4WD Utility Truck", "move":"wheel"},
+    "heavy_truck":{"name":"Logistics Truck", "move":"wheel"},
 
-{"key": "medium_infantry_transport", "name":"Medium APC", "move":"track"}
-{"key": "heavy_infantry_transport", "name":"Heavy APC", "move":"track"}
-{"key": "medium_tank", "name":"", "move":"track"}
-{"key": "main_battle_tank", "name":"Lancer", "move":"track"}
-{"key": "heavy_tank", "name":"Bruiser", "move":"track"}
-{"key": "logistics_tank", "name":"Logistics Chassis", "move":"track"}
+    "medium_infantry_transport":{"name":"Medium APC", "move":"track"},
+    "heavy_infantry_transport":{"name":"Heavy APC", "move":"track"},
+    "medium_tank":{"name":"", "move":"track"},
+    "main_battle_tank":{"name":"Lancer", "move":"track"},
+    "heavy_tank":{"name":"Bruiser", "move":"track"},
+    "logistics_tank":{"name":"Logistics Chassis", "move":"track"},
 
-// All-Terrain Mechanical Legged
-{"key": "light_mech", "name":"Light Mech Chassis", "move":"legged"}
+    // All-Terrain Mechanical Legged
+    "light_mech":{"name":"Light Mech Chassis", "move":"legged"},
 
+    // trains
+    "rail_car_12m":{"name":"Rail Car Chassis", "desc":"Smaller, 2-axle rail car", "move":"rail"},
+    "rail_car_16m":{"name":"Rail Car Chassis", "desc":"Medimu, Heavier, 4-axle rail car", "move":"rail"},
+    "rail_car_20m":{"name":"Rail Car Chassis", "desc":"Larger, Lighter, 4-axle rail car", "move":"rail"},
+    "rail_locomotive_24m":{"name":"Rail Locomotive Chassis", "desc":"Huge Freight Locomotive. 6-axle (C-C) Chassis", "move":"rail", "mass":2000},
 
-// trains
-{"key":"rail_car_12m", "name":"Rail Car Chassis", "desc":"Smaller, 2-axle rail car", "move":"rail"}
-{"key":"rail_car_16m", "name":"Rail Car Chassis", "desc":"Medimu, Heavier, 4-axle rail car", "move":"rail"}
-{"key":"rail_car_20m", "name":"Rail Car Chassis", "desc":"Larger, Lighter, 4-axle rail car", "move":"rail"}
-{"key":"rail_locomotive_24m", "name":"Rail Locomotive Chassis", "desc":"Huge Freight Locomotive. 6-axle (C-C) Chassis", "move":"rail", "mass":2000}
+    // aircraft
+    "hornet":{"name":"Hornet", "move":"helo"},
+    "albatross":{"name":"Albatross", "move":"plane"},
 
-// aircraft
-{"key":"hornet", "name":"Hornet", "move":"helo"}
-// tbc
-{"key":"albatross", "name":"Albatross", "move":"plane"}
-// tbc
-
-// boats
-{"key":"hbi", "name":"Inflatable Boat", "description":"Tiny, inflatable boat, w/outboard motor.  Carries 3 people / 250kg", "move":"sea"}
-{"key":"river_patrol_boat", "name":"Riverine Patrol Boat", "length":10}
-{"key":"small_ferry", "name":"Landing Craft", "length":20, "desc":"Carries up to two vehicles or 2500kg, and can offload it at a dock or beach."}
-{"key":"osv", "name":"Offshore Support Vessel", "length":60, "desc":"Carries a cargo supplies, vehicles, or people.  May also be used as a command post."}
-{"key":"coastal_freighter", "name":"Coastal Freighter", "length":60, "desc":"Carries a fair amount of bulk cargo; requires a pier to load/unload"}
+    // boats
+    "inflatable":{"name":"Inflatable Boat", "description":"Tiny, inflatable boat, w/outboard motor.  Carries 3 people / 250kg", "move":"sea"},
+    "river_patrol_boat":{"name":"Riverine Patrol Boat", "length":10},
+    "small_ferry":{"name":"Landing Craft", "length":20, "desc":"Carries up to two vehicles or 2500kg, and can offload it at a dock or beach."},
+    "offshore_support":{"name":"Offshore Support Vessel", "length":60, "desc":"Carries a cargo supplies, vehicles, or people.  May also be used as a command post."},
+    "coastal_freighter":{"name":"Coastal Freighter", "length":60, "desc":"Carries a fair amount of bulk cargo; requires a pier to load/unload"},
 
 
-
+}
 

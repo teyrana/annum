@@ -66,7 +66,7 @@ class ProcessType implements BaseEntryType {
     this.io.forEach( (qty,key) => {
       const found = resourceCatalog.contains(key);
       if( ! found){
-        console.log(`    !! could not find resource: ${key} in process: ${this.key}`);
+        console.log(`    !! could not find resource: ${key} for process: ${this.key}`);
         return false;
       }
     });

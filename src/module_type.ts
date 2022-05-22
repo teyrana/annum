@@ -93,7 +93,7 @@ class ModuleType implements BaseEntryType {
     this.process.forEach( key => {
       const found = processCatalog.contains(key);
       if( ! found){
-        console.log(`    !!!! <${this.typeName}> @[${this.key.padEnd(32)}].process: ${key}`)
+        console.log(`    !!!! @<${this.typeName}>: ${this.key.padEnd(32)}  ... could not find process: ${key}`)
         return false;
       }
     });
