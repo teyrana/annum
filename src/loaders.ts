@@ -1,5 +1,6 @@
 import BaseEntryType from './base_entry_type'
-import EntryCatalog from './entry_catalog'
+import EntryTable from './entry_table'
+import Catalog from './catalog'
 import TagSet from './tag_set'
 
 // .1. resource
@@ -29,32 +30,13 @@ import * as technologyData from '../data/technologies.json';
 
 const earlyExit : boolean = true;
 
-function collectAllTags( masterCatalog ){
-  collectTags( masterCatalog.module, masterCatalog.tags );
-  // collectTags( masterCatalog.platform, masterCatalog.tags );
-  collectTags( masterCatalog.process, masterCatalog.tags );
-  collectTags( masterCatalog.resource, masterCatalog.tags );
-  collectTags( masterCatalog.technology, masterCatalog.tags );
-  // collectTags( masterCatalog.unit, masterCatalog.tags );
-}
 
-function collectTags( catalog: EntryCatalog<BaseEntryType>, allTags: TagSet ){
-  for( const entry of catalog ){
-    if( typeof entry.tags === 'undefined'){
-      console.error("!?: entry.tags is undefined on: " + entry.key );
-    }
-    allTags.update(entry.tags);
-  }
-  return allTags;
-}
-
-function loadType<EntryType extends BaseEntryType>( data, archetype: EntryType, masterCatalog )
-  : EntryCatalog<EntryType>
+function loadType<EntryType extends BaseEntryType>( data, archetype: EntryType, catalog: Catalog ) : EntryTable<EntryType>
 {
   let rowCount = Object.keys(data).length;
   console.log(`    >>> Loading: ${rowCount} <${archetype.typeName}> entries.`);
   
-  let entryCatalog = new EntryCatalog<EntryType>();
+  let table = new EntryTable<EntryType>();
 
   let entryCount = 0;
   for (let [key,row] of Object.entries(data)){
@@ -64,16 +46,16 @@ function loadType<EntryType extends BaseEntryType>( data, archetype: EntryType, 
       let entry: EntryType = null;
       if( 'super' in <any>row ){
         let superKey: string = row['super'];
-        if(entryCatalog.contains(superKey)){
-          let superEntry = entryCatalog.by(superKey);
-          entry = superEntry.copy(entryCount, row, masterCatalog);
+        if(table.contains(superKey)){
+          let superEntry = table.by(superKey);
+          entry = superEntry.copy(entryCount, row, catalog);
           entryCount++;
         }else{
           console.log(`     !!!! Referenced non-existent super class while loading type: <${archetype.typeName}>  superKey=${superKey}`);
           return null;
         }
       }else{
-        entry = archetype.copy(entryCount, row, masterCatalog);
+        entry = archetype.copy(entryCount, row, catalog);
         entryCount++;
       }
 
@@ -83,7 +65,7 @@ function loadType<EntryType extends BaseEntryType>( data, archetype: EntryType, 
           return null;
         }
       }else{
-        entryCatalog.add(entry);
+        table.add(entry);
       }
 
     } catch(err) {
@@ -92,12 +74,12 @@ function loadType<EntryType extends BaseEntryType>( data, archetype: EntryType, 
     }
   }
 
-  return entryCatalog;
+  return table;
 }
 
-function printEntries<EntryType extends BaseEntryType>( catalog: EntryCatalog<EntryType>, tag: string = null): void {
-  console.log(`    ## Printing entries for: <${catalog.at(0).typeName}> // ${tag}`);
-  for( const entry of catalog ){
+function printEntries<EntryType extends BaseEntryType>( table: EntryTable<EntryType>, tag: string = null): void {
+  console.log(`    ## Printing entries for: <${table.at(0).typeName}> // ${tag}`);
+  for( const entry of table ){
     if( tag===null || (entry.tags.has(tag)) ){
       console.log(entry.str());
     }
@@ -105,49 +87,48 @@ function printEntries<EntryType extends BaseEntryType>( catalog: EntryCatalog<En
 }
 
 export function loadAllTypes(): boolean {
-  console.log("==>> Stage A: Load Entries...");
+  console.log("==>> Loading Entries...");
   //    :: Load Order Dependencies:\n");
   //       resource(1) => process(2) => modules(3) => platform(4) => unit(5)");
   //       technology(6)");
 
-  // master catalog
-  let catalog = {'module': null,
-                 'platform': null,
-                 'process': null,
-                 'resource': null,
-                 'tags': new TagSet(),
-                 'technology': null,
-                 'unit': null};
+  let catalog = new Catalog();
 
-  console.log("  >> A:1: Load Resources...");
+  console.log("  >> 1: Load Resources...");
   catalog.resource = loadType<ResourceType>( resourceData, new ResourceType(), catalog );
   const loadResourcesSuccess = (null !== catalog.resource);
   if( earlyExit && ! loadResourcesSuccess ){
     return false; }
 
-  console.log("  >> A:2: Load Processes...");
+  console.log("  >> 2: Load Processes...");
   catalog.process = loadType<ProcessType>( processData, new ProcessType(), catalog );
   const loadProcessesSuccess = (null !== catalog.process);
   if( earlyExit && ! loadProcessesSuccess ){
     return false;}
 
-  console.log("  >> A:3: Load Modules...");
+  console.log("  >> 3: Load Modules...");
   catalog.module = loadType<ModuleType>( moduleData, new ModuleType(), catalog );
   const loadModulesSuccess = (null !== catalog.module);
   if( earlyExit && ! loadModulesSuccess ){
     return false; }
 
-  console.log("  >> A:4: Load Platforms...");
+  console.log("  >> 4: Load Platforms...");
   catalog.platform = loadType<PlatformType>(platformData, new PlatformType(), catalog );
   const loadPlatformsSuccess = (null !== catalog.platform);
+  if( earlyExit && ! loadPlatformsSuccess ){
+    return false; }
 
-  console.log("  >> A:5: Loading Units...");
+  console.log("  >> 5: Loading Units...");
   catalog.unit = loadType<UnitType>(unitData, new UnitType(), catalog );
   const loadUnitsSuccess = (null !== catalog.unit);
+  if( earlyExit && ! loadPlatformsSuccess ){
+    return false; }
 
-  console.log("  >> A:6: Loading Technologies...");
+  console.log("  >> 6: Loading Technologies...");
   catalog.technology = loadType<TechnologyType>(technologyData, new TechnologyType(), catalog );
   const loadTechnologiesSuccess = (null !== catalog.technology);
+  if( earlyExit && ! loadPlatformsSuccess ){
+    return false; }
 
   // console.log("  >> 1:A: Loading Buildings...");
   // const buildingArchetype = new BuildingType();
@@ -158,8 +139,6 @@ export function loadAllTypes(): boolean {
   // const weaponArchetype = new WeaponType();
   // catalog.weapon = loadType<WeaponType>(weaponData, weaponArchetype );
   // const loadWeaponsSuccess = (0 < catalog.weapon.size);
-
-  collectAllTags( catalog );
 
   // debug
   if( true ){
