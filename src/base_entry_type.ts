@@ -9,9 +9,11 @@ interface BaseEntryType {
   readonly key: Lowercase<string>;
   readonly tags?: TagSet;
 
-  copy( i:number, doc:any ): any;
-  link( other:any ): boolean;
+  copy( i:number, doc:any, catalog:any ): any;
+
   str(): string;
+
+  valid(): boolean;
 
 }
 

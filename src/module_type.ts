@@ -29,16 +29,18 @@ class ModuleType implements BaseEntryType {
   readonly superKey?: string;
   readonly tags?: TagSet = new TagSet()
 
-  copy( entryIndex:number, doc: any ) : ModuleType {
-    return new ModuleType( entryIndex, this, doc );
+  private valid_: boolean = true;
+  
+  copy( entryIndex:number, doc: any, catalog ) : ModuleType {
+    return new ModuleType( entryIndex, this, doc, catalog );
   }
 
-  constructor( entryIndex: number = -1, archetype: ModuleType = null, doc: any = null ){
+  constructor( entryIndex: number = -1, archetype: ModuleType = null, doc: any = null, masterCatalog = null ){
     this.index = entryIndex;
-    if( (archetype === null) || (doc === null) ){
+    if( (archetype === null) || (doc === null) || (masterCatalog==null) ){
       return;
     }
-
+    
     // override defaults with pattern values
     this.description = archetype.description;
     this.mass = archetype.mass;
@@ -84,29 +86,31 @@ class ModuleType implements BaseEntryType {
         return;
       }
     }
-  }
 
-  link( masterCatalog ): boolean {
+    // verify links:
     const processCatalog = masterCatalog.process;
     const resourceCatalog = masterCatalog.resource;
 
+    // .1. module => process
     this.process.forEach( key => {
       const found = processCatalog.contains(key);
       if( ! found){
         console.log(`    !!!! @<${this.typeName}>: ${this.key.padEnd(32)}  ... could not find process: ${key}`)
-        return false;
+        this.valid_ = false;
+        return;
       }
     });
 
+    // .1. module => resource
     this.store.forEach( (qty,key) => {
       const found = resourceCatalog.contains(key);
       if( ! found){
         console.log(`    !!!! <${this.typeName}> @[${this.key.padEnd(32)}].storage: ${key}`)
-        return false;
+        this.valid_ = false;
       }
     });
-    
-    return true;
+
+
   }
 
   str() : string {
@@ -136,6 +140,10 @@ class ModuleType implements BaseEntryType {
     }
 
     return str;
+  }
+
+  valid(): boolean {
+    return this.valid_
   }
 
 }

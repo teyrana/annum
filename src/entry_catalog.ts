@@ -31,16 +31,6 @@ export class EntryCatalog<EntryType extends BaseEntryType> implements Iterable<E
     return this.catalog.has(lookup);
   }
 
-  link( masterCatalog: Object ): boolean {
-    for( let i = 0; i < this.index.length; i++ ){
-      const entry = this.index[i];
-      if( ! entry.link(masterCatalog)){
-        break;
-      }
-    }
-    return true;
-  }
-
   get size(): number {
     return this.index.length;
   }

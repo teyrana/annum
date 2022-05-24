@@ -22,17 +22,20 @@ class PlatformType implements BaseEntryType {
   readonly mobility: MobilityType = MobilityType.STATIC;
 
   readonly hitpoints: number = 1000;
-  readonly mass: number = 1000;
+
+  readonly mass: number = 1000; // mass of platform itself
+  readonly volume: number = 0;  // available volume for internal modules
+  readonly mounts: string[] = []; // available external module mounts
   readonly modules = new Set<string>();
 
   readonly superKey?: string;
   readonly tags?: TagSet = new TagSet();
 
-  copy( entryIndex: number, doc:any=null) : PlatformType {
-    return new PlatformType(entryIndex, this, doc );
+  copy( entryIndex: number, doc:any=null, catalog) : PlatformType {
+    return new PlatformType(entryIndex, this, doc, catalog );
   }
 
-  constructor( entryIndex: number = -1, archetype: PlatformType = null, doc = null ){
+  constructor( entryIndex: number = -1, archetype: PlatformType = null, doc = null, catalog=null ){
     this.index = entryIndex;
 
     if( (archetype === null) || (doc === null) ){
@@ -45,6 +48,7 @@ class PlatformType implements BaseEntryType {
     this.hitpoints = archetype.hitpoints;
     this.mass = archetype.mass;
     this.mobility = archetype.mobility;
+    this.volume = archetype.volume;
     this.tags.update(archetype.tags);
 
     for( const [key,value] of Object.entries(doc)){
@@ -70,15 +74,15 @@ class PlatformType implements BaseEntryType {
       }else if( ('move'===key) || ('mobility'.startsWith(key)) ){
         this.mobility = MobilityType.parse(<string>value);
       }else if('modules'.startsWith(key)){
-        for( const key of Object.entries(value) ){
-          this.modules.add( <any>key );
-        };
+        (<any>value).forEach( m => { this.modules.add(m); } );
       }else if('size' === key ){
         this.dimensions.length = value[0];
         this.dimensions.width = value[1];
         this.dimensions.height = value[2];
       }else if(key.startsWith('tag')){
         this.tags.update(value);
+      }else if(key === 'volume'){
+        this.volume = <number>value;
       }else if(key === 'width'){
         this.dimensions.width = <number>value;
 
@@ -88,12 +92,14 @@ class PlatformType implements BaseEntryType {
     }
   }
 
-  link( other:any ): boolean {
+  link( masterCatalog: any ): boolean {
+    const moduleCatalog = masterCatalog.module;
+
     //console.log(`    @ [${this.key}] <${this.typeName}>  ==>>  ${other.at(0).typeName}`);
 
     // this could probably be converted to a map-reduce, or something
-    this.modules.forEach( (qty,key) => {
-      if( ! other.contains(key) ){
+    this.modules.forEach( key => {
+      if( ! moduleCatalog.contains(key) ){
         console.log(`    !! could not find module: ${key} in building: ${this.key}`);
         return false;
       }
@@ -106,11 +112,14 @@ class PlatformType implements BaseEntryType {
     let str = '';
     str += `          - [${this.index.toString().padStart(3)}][${this.key}]: "${this.name}"\n`;
 
-
     if( 0 < this.tags.size){
       str += `              :: Tags: [${this.tags}]\n`;
     }
     return str;
+  }
+
+  valid(): boolean {
+    return (null !== this.modules);
   }
 }
 

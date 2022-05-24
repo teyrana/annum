@@ -6,6 +6,10 @@
         "name":"Liquid Storage", "mass":10000, "volume":1000,
         "storage":{"liquid":1000}},
 
+    "gas_storage":{
+        "name":"Gas Storage", "mass":10000, "volume":1000,
+        "storage":{"gas":1000}},
+
     "ice_furnace":{
         "name":"Volatiles Furnace", "vol":2000, "tags":["raw_materials"],
         "descr":"Furnace to convert frozen ices into useful liquids and gasses",
@@ -71,12 +75,15 @@
                                 "forge_chassis_heavy_road_truck"]},
     "precision_frame_press":{"name":"Precision Frame Press", "vol":2000},
 
+    "cement_furnace":{
+        "name":"Cemente Furnance Kiln", "vol":2000, "desc":"Composites Manufacture", "tag":["industrial","construction"]},
+
     "ceramic_kiln":{
         "name":"Ceramics Kiln", "vol":2000, "desc":"Composites Manufacture", "tag":["composites"],
         "process":["smelt_glass","smelt_ceramics",
                    //"cure_composites"]},
-                   "smelt_silicon_wafers","smelt_germanium_wafers"]},
-
+                   "smelt_silicon_wafers","smelt_germanium_wafers",
+                   "press_construction_blocks", "bake_bricks"]},
     "graduation_hall":{
         "name":"Graduation Hall", "vol":2000, "desc":"Assembly point for trained infantry", "tags":["industrial"],
         "process":["assemble_infantry"]},

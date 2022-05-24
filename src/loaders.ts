@@ -19,13 +19,15 @@ import PlatformType from './platform_type'
 import * as platformData from '../data/platforms.json';
 
 // .5. unit
-// import ProcessType from './process_type'
-// import * as processData from '../data/processes.json';
+import UnitType from './unit_type'
+import * as unitData from '../data/units.json';
 
 // .6. technology
 import TechnologyType from './technology_type'
 import * as technologyData from '../data/technologies.json';
 
+
+const earlyExit : boolean = true;
 
 function collectAllTags( masterCatalog ){
   collectTags( masterCatalog.module, masterCatalog.tags );
@@ -46,13 +48,13 @@ function collectTags( catalog: EntryCatalog<BaseEntryType>, allTags: TagSet ){
   return allTags;
 }
 
-function loadType<EntryType extends BaseEntryType>( data, archetype: EntryType )
+function loadType<EntryType extends BaseEntryType>( data, archetype: EntryType, masterCatalog )
   : EntryCatalog<EntryType>
 {
   let rowCount = Object.keys(data).length;
   console.log(`    >>> Loading: ${rowCount} <${archetype.typeName}> entries.`);
   
-  let catalog = new EntryCatalog<EntryType>();
+  let entryCatalog = new EntryCatalog<EntryType>();
 
   let entryCount = 0;
   for (let [key,row] of Object.entries(data)){
@@ -62,20 +64,27 @@ function loadType<EntryType extends BaseEntryType>( data, archetype: EntryType )
       let entry: EntryType = null;
       if( 'super' in <any>row ){
         let superKey: string = row['super'];
-        if(catalog.contains(superKey)){
-          let superEntry = catalog.by(superKey);
-          entry = superEntry.copy(entryCount, row);
+        if(entryCatalog.contains(superKey)){
+          let superEntry = entryCatalog.by(superKey);
+          entry = superEntry.copy(entryCount, row, masterCatalog);
           entryCount++;
         }else{
           console.log(`     !!!! Referenced non-existent super class while loading type: <${archetype.typeName}>  superKey=${superKey}`);
-          return catalog;
+          return null;
         }
       }else{
-        entry = archetype.copy(entryCount, row);
+        entry = archetype.copy(entryCount, row, masterCatalog);
         entryCount++;
       }
 
-      catalog.add(entry);
+      if( ! entry.valid() ){
+        console.log(`  <<!! Invalid entry!! <${archetype.typeName}>:[${entry.key}]`);
+        if(earlyExit){
+          return null;
+        }
+      }else{
+        entryCatalog.add(entry);
+      }
 
     } catch(err) {
       console.error(`??? @key=${key}, Error: " + err`);
@@ -83,7 +92,7 @@ function loadType<EntryType extends BaseEntryType>( data, archetype: EntryType )
     }
   }
 
-  return catalog;
+  return entryCatalog;
 }
 
 function printEntries<EntryType extends BaseEntryType>( catalog: EntryCatalog<EntryType>, tag: string = null): void {
@@ -111,42 +120,39 @@ export function loadAllTypes(): boolean {
                  'unit': null};
 
   console.log("  >> A:1: Load Resources...");
-  catalog.resource = loadType<ResourceType>( resourceData, new ResourceType() );
-  const loadResourcesSuccess = (0 < catalog.resource.size);
+  catalog.resource = loadType<ResourceType>( resourceData, new ResourceType(), catalog );
+  const loadResourcesSuccess = (null !== catalog.resource);
+  if( earlyExit && ! loadResourcesSuccess ){
+    return false; }
 
   console.log("  >> A:2: Load Processes...");
-  catalog.process = loadType<ProcessType>( processData, new ProcessType() );
-  const loadProcessesSuccess = (0 < catalog.process.size);
-  // temp // devel
-  catalog.process.link( catalog );
+  catalog.process = loadType<ProcessType>( processData, new ProcessType(), catalog );
+  const loadProcessesSuccess = (null !== catalog.process);
+  if( earlyExit && ! loadProcessesSuccess ){
+    return false;}
 
   console.log("  >> A:3: Load Modules...");
-  catalog.module = loadType<ModuleType>( moduleData, new ModuleType() );
-  const loadModulesSuccess = (0 < catalog.module.size);
-  // temp // devel
-  catalog.module.link( catalog );
+  catalog.module = loadType<ModuleType>( moduleData, new ModuleType(), catalog );
+  const loadModulesSuccess = (null !== catalog.module);
+  if( earlyExit && ! loadModulesSuccess ){
+    return false; }
 
   console.log("  >> A:4: Load Platforms...");
-  catalog.platform = loadType<PlatformType>(platformData, new PlatformType() );
-  const loadPlatformsSuccess = (0 < catalog.platform.size);
-  // temp // devel
-  catalog.platform.link( catalog );
+  catalog.platform = loadType<PlatformType>(platformData, new PlatformType(), catalog );
+  const loadPlatformsSuccess = (null !== catalog.platform);
 
   console.log("  >> A:5: Loading Units...");
-  // catalog.unit = loadType<FnitType>(unitData, new unitType() );
-  // const loadFnitsSuccess = (0 < catalog.unit.size);
-  // collectTags( catalog.unit, allTags );
-  const loadUnitsSuccess = true;
+  catalog.unit = loadType<UnitType>(unitData, new UnitType(), catalog );
+  const loadUnitsSuccess = (null !== catalog.unit);
 
   console.log("  >> A:6: Loading Technologies...");
-  catalog.technology = loadType<TechnologyType>(technologyData, new TechnologyType() );
-  const loadTechnologiesSuccess = (0 < catalog.technology.size);
+  catalog.technology = loadType<TechnologyType>(technologyData, new TechnologyType(), catalog );
+  const loadTechnologiesSuccess = (null !== catalog.technology);
 
   // console.log("  >> 1:A: Loading Buildings...");
   // const buildingArchetype = new BuildingType();
   // catalog.building = loadType<BuildingType>(buildingData, buildingArchetype );
   // const loadBuildingsSuccess = (0 < catalog.building.size);
-
 
   // console.log("  >> 1:H: Loading Weapons...");
   // const weaponArchetype = new WeaponType();

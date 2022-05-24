@@ -14,7 +14,8 @@ class TechnologyType implements BaseEntryType {
 
   readonly tags? = new TagSet();
 
-  copy( entryIndex: number, doc:any=null) : TechnologyType {
+  copy( entryIndex: number, doc:any=null, catalog) : TechnologyType {
+    // <void> catalog
     return new TechnologyType( entryIndex, this, doc );
   }
 
@@ -74,6 +75,9 @@ class TechnologyType implements BaseEntryType {
     return str;
   }
 
+  valid(): boolean {
+    return true;
+  }
 }
 
 export default TechnologyType;

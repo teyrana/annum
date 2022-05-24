@@ -19,11 +19,11 @@ class ResourceType implements BaseEntryType {
   readonly superKey?: string;
   readonly tags?: TagSet = new TagSet()
 
-  copy( entryIndex:number, doc: any ) : ResourceType {
-    return new ResourceType( entryIndex, this, doc );
+  copy( entryIndex:number, doc: any, catalog ) : ResourceType {
+    return new ResourceType( entryIndex, this, doc, catalog );
   }
 
-  constructor( entryIndex: number = -1, archetype: ResourceType = null, doc: any = null ){
+  constructor( entryIndex: number = -1, archetype: ResourceType = null, doc: any = null, catalog = null ){
     this.index = entryIndex;
 
     if( (archetype === null) || (doc === null) ){
@@ -77,10 +77,8 @@ class ResourceType implements BaseEntryType {
         return;
       }
     }
-  }
 
-  link(other:any): boolean {
-    return true;
+    // no linking needed
   }
 
   str() : string {
@@ -93,6 +91,10 @@ class ResourceType implements BaseEntryType {
     }
 
     return str;
+  }
+
+  valid(): boolean {
+    return true;
   }
 
 }

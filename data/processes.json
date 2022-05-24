@@ -24,6 +24,9 @@
     "generate_steam":{"name":"Generate Steam", "io":{"heat":-1,"water":-5,"steam":5}},
     "generate_power_from_steam":{"name":"Generate Steam Power", "tag":["electricity"], "io":{"steam":-1,"power":50}},
 
+    "press_construction_blocks":{"name": "Press Construction Blocks", "tag":["industrial","infrastructer"]},
+    "bake_bricks":{"name":"Bake Bricks", "tag":["industrial","infrastructer"]},
+
     "sell_tiberium":{"name": "Sell Tiberium", "tag":["tiberium"], "io":{"tiberium": -1.0, "credits": 70.0}},
     "refine_blue_tiberium":{"name": "Refine Blue Tiberium", "tag":["tiberium"], "io":{"blue_tiberium": -1.0,  "co_ore":0.4, "cr_ore":0.2, "mg_ore":0.1, "mn_ore":0.1, "mo_ore":0.1, "li_ore":0.9}},
     "refine_green_tiberium":{"name": "Refine Green Tiberium", "tag":["tiberium"], "io":{"green_tiberium": -1.0, "cu_ore":0.7, "fe_ore":0.4, "mg_ore":0.1, "mn_ore":0.1}},
@@ -210,7 +213,7 @@
     "assemble_ships":{   "name":"Placeholder Process for assembling specific naval units"},
     "assemble_aircraft":{"name":"Placeholder Process for assembling specific air units"},
 
-    "spare_parts":{"name": "Spare Parts", "tag":["maintenance"]},
+    "make_spare_parts":{"name": "Spare Parts", "tag":["maintenance"]},
 
     "grow_algae":{"name":"Grow Edible Algae", "desc":"Horrid, bland, and tasteless... but nutritious", "tag":["food"],
                   "io": {"water": -0.1, "light": -0.5, "edible_algae_paste": 1.0, "time": -30.0}},

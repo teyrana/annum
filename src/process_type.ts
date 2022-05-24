@@ -17,11 +17,11 @@ class ProcessType implements BaseEntryType {
   readonly superKey?: string;
   readonly tags?: TagSet = new TagSet();
 
-  copy( entryIndex: number, doc:any=null) : ProcessType {
-    return new ProcessType(entryIndex, this, doc );
+  copy( entryIndex: number, doc:any, catalog ) : ProcessType {
+    return new ProcessType(entryIndex, this, doc, catalog );
   }
 
-  constructor( entryIndex: number = -1, archetype: ProcessType = null, doc = null ){
+  constructor( entryIndex: number = -1, archetype: ProcessType = null, doc = null, catalog = null ){
     this.index = entryIndex;
 
     if( (archetype === null) || (doc === null) ){
@@ -56,22 +56,20 @@ class ProcessType implements BaseEntryType {
         console.error(`!!!! Could not load JSON key: ${key} into class ${this.constructor.name}`);
       }
     }
-  }
 
-  link( masterCatalog ): boolean {
-    const resourceCatalog = masterCatalog.resource;
-
+    //verify links:
     //console.log(`    @ [${this.key}] <${this.typeName}>`);
+    const resourceCatalog = catalog.resource;
 
+    // .1. process => resource
     this.io.forEach( (qty,key) => {
       const found = resourceCatalog.contains(key);
       if( ! found){
         console.log(`    !! could not find resource: ${key} for process: ${this.key}`);
-        return false;
+        return;
       }
     });
 
-    return true;
   }
 
   str() : string {
@@ -90,6 +88,13 @@ class ProcessType implements BaseEntryType {
       str += `              :: Tags: [${this.tags}]\n`;
     }
     return str;
+  }
+
+  valid(): boolean {
+    if(null === this.io){
+      return false;
+    }
+    return true;
   }
 
 }

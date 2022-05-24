@@ -22,8 +22,9 @@
     "test": "mocha --opts tests/mocha.opts",
     "test-watch": "mocha --opts tests/mocha.opts --watch",
     "tsc": "tsc",
-    "validate": "tsc-watch --onSuccess 'node dist/src/validate.js'",
-    "watch": "tsc --watch"
+    "validate": "tsc && node dist/src/validate.js",
+    "watch": "tsc --watch",
+    "watch-validate": "tsc-watch --onSuccess 'node dist/src/validate.js'"
   },
   "devDependencies": {
     "@types/chai": "^4.0.5",
