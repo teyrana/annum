@@ -3,24 +3,24 @@
     "civilian":{"name":"Civilian", "plat":"human", "desc":"A Harmless Civilian"},
     "farmhand":{"name":"Farmhand", "plat":"human"},
     "partisan":{"name":"Partisan", "plat":"human", "desc":"A Harmful Civilian", "mod":{"assault_rifle_6mm":1}},
-    "guerilla":{"name":"Guerrilla", "plat":"human", "desc":"A Harmful Civilian", "mod":{"c4_charge":1}},
+    "guerilla":{"name":"Guerrilla", "plat":"human", "desc":"A Harmful Civilian", "mod":{"demolition_charges":1}},
     
     // basic infantry
     "conscript":{"name":"Conscript Soldier", "plat":"human"},
     "scout":{    "name":"Scout", "plat":"human"},
-    "rifleman":{ "name":"Rifleman", "plat":"human", "mod":{"assault_rifle_5_56mm":1}},
-    "officer":{  "name":"Platoon Commander", "plat":"human", "mod":{"assault_rifle_5_56mm":1}},
+    "rifleman":{ "name":"Rifleman", "plat":"human", "mod":{"assault_rifle_6mm":1}},
+    "officer":{  "name":"Platoon Commander", "plat":"human", "mod":{"assault_rifle_6mm":1}},
     
     "combat_mechanic":{"name":"Mechanic", "plat":"human"},
     "combat_engineer":{"name":"Engineer", "plat":"human"},
     "combat_medic":{   "name":"Medic", "plat":"human"},
     
     // specialized infantry
-    "personnel-sniper":{    "name":"Sniper", "plat":"human", "mod":{"long-range-rifle-7.62mm":1}},
-    "support-sniper":{      "name":"Sniper", "plat":"human", "mod":{"long-range-rifle-12.7mm":1}},
-    "machine_gunner":{      "name":"Machine Gunner", "plat":"human", "mod":{"light-machine-gun-5.56mm":1}},
-    "anti-armor_missileer":{"name":"AT Missiler", "plat":"human", "mod":{"squad-anti-armor-missile":1}},
-    "anti-air_missileer":{  "name":"AA Missileer", "plat":"human", "mod":{"squad-anti-air-missile":1}},
+    "personnel-sniper":{    "name":"Sniper", "plat":"human", "mod":{"sniper_rifle_8mm":1}},
+    "support-sniper":{      "name":"Sniper", "plat":"human", "mod":{"sniper_rifle_12mm":1}},
+    "machine_gunner":{      "name":"Machine Gunner", "plat":"human", "mod":{"squad_machine_gun_6mm":1}},
+    "anti-armor_missileer":{"name":"AT Missiler", "plat":"human", "mod":{"atm_120mm_javelin":1}},
+    "anti-air_missileer":{  "name":"AA Missileer", "plat":"human", "mod":{"sam_120mm_stinger":1}},
     
     // road vehicles
     "light_road_auto":{"name":"Simple Sedan Truck", "platform":"commercial_auto", "desc":"Generic Small Car.  Can hold 4 people / 250kg"},
@@ -36,33 +36,33 @@
     "scout_humvee":{"name":"Scout Humvee", "platform":"light_truck"},
     "scout_mech":{"name":"Grasshopper Scout Mech", "platform":"light_mech"},
     
-    "technical_truck":{"name":"Technical", "platform":"commercial_light_truck", "mod":{"browning_50cal":1}},
-    "skirmish_humvee":{"name":"Skirmish Humvee", "platform":"light_truck", "mod":{"browning_50cal":1,"ir_scope":1,"ew_rx":1}},
-    "strike_humvee":{  "name":"Strike Humvee", "platform":"light_truck", "mod":{"4x AT-missile":1,"ir_scope":1}},
+    "technical_truck":{"name":"Technical", "platform":"commercial_light_truck", "mod":{"machine_gun_12mm":1}},
+    "skirmish_humvee":{"name":"Skirmish Humvee", "platform":"light_truck", "mod":{"machine_gun_12mm":1,"eo_scope":1,"ir_scope":1,"ew_rx":1}},
+    "strike_humvee":{  "name":"Strike Humvee", "platform":"light_truck", "mod":{"atm_120mm_javelin":1,"ir_scope":1}},
     
-    "stryker":{"name":"Stryker", "platform":"medium_infantry_transport", "mod":{"autocannon_25mm":1}, "desc":"mass:5000"},
-    "bradley":{"name":"Bradley", "platform":"heavy_infantry_transport", "mod":{"autocannon_25mm":1}, "desc":"mass:8000"},
-    "medium_tank_mk1":{"name":"Skirmish Tank", "platform":"medium_tank", "mod":{"autocannon_25mm":1}, "desc":"mass:12000"},
-    "battle_tank_mk1":{"name":"Salvaged Tank", "platform":"main_tank", "mod":{"120mm Cannon":1}},
+    "stryker":{"name":"Stryker", "platform":"medium_infantry_transport", "mod":{"autocannon_35mm":1}, "desc":"mass:5000"},
+    "bradley":{"name":"Bradley", "platform":"heavy_infantry_transport", "mod":{"autocannon_35mm":1}, "desc":"mass:8000"},
+    "medium_tank_mk1":{"name":"Skirmish Tank", "platform":"medium_tank", "mod":{"autocannon_35mm":1}, "desc":"mass:12000"},
+    "battle_tank_mk1":{"name":"Salvaged Tank", "platform":"main_tank", "mod":{"cannon_120mm":1}},
     "battle_tank_mk2":{"name":"Main Battle Tank", "platform":"main_battle_tank", "mod":{"cannon_120mm":1,"autoloader":1}},
     "battle_tank_mk3":{"name":"Battle Tank Mk3", "platform":"main_battle_tank", "mod":{"cannon_120mm":1,"autoloader":1,"ir_scope":1}},
-    "sniper_tank":{"name":"Sniper Tank", "platform":"main_battle_tank", "mod":{"gauss_cannon_80mm":1,"autoloader":1,"ir_scope":1}},
+    "sniper_tank":{"name":"Sniper Tank", "platform":"main_battle_tank", "mod":{"railgun_50mm":1,"autoloader":1,"ir_scope":1}},
     
-    "radar_station":{"name":"Radar Truck", "platform":"medium_truck", "mod":["radar_set_1kw"]},
-    "aa_battery":{"name":"Missile Truck", "platform":"medium_truck", "desc":"2x AA Radar-Guided missilles", "mod":{"aa_misile_palette":4}},
+    "radar_station":{"name":"Radar Truck", "platform":"medium_truck", "mod":{"radar_array_5kw":1}},
+    "aa_battery":{"name":"Missile Truck", "platform":"medium_truck", "desc":"2x AA Radar-Guided missilles", "mod":{"sam_120mm_stinger":4}},
     
     "artillery":{"name":"Self-propelled artillery", "platform":"light_tank", "mod":{"howitzer_155mm":1}, "desc":"155m ballistic howitzer"},
-    "barrage_artillery":{"name":"Missile Truck", "platform":"medium_truck", "mod":{"missile_katyusha":12}, "desc":"24x HE Rockets"},
+    "barrage_artillery":{"name":"Missile Truck", "platform":"medium_truck", "mod":{"ssm_80mm_launcher":12}, "desc":"24x HE Rockets"},
     
     // trains
     "locomotive_5400kW":{"name":"Heavy Freight Locomotive", "platform":"rail_locomotive_24m", "mod":{"electric_motor_900kw":6}},
     "locomotive_4800kw":{"name":"Long Range Freight Locomotive", "platform":"rail_locomotive_24m", "mod":{"diesel_motor_2400kw":2,"electric_motor_900kw":6}},
     "locomotive_2400kw":{"name":"Local Diesel Locomotive","platform":"rail_car_16m", "mod":{"diesel_motor_2400kw":1,"electric_motor_900kw":4}},
     "locomotive_1800kw":{"name":"Switcher Locomotive","platform":"rail_car_16m", "mod":{"electric_motor_900kw":2}},
-    "flatbed_carriage":{ "name":"Flatbed Car", "platform":"rail_car_16m", "mod":{"open_storage_150kL":1}},
-    "personnel_carriage":{"name":"Passenger Car", "platform":"rail_car_20m", "mod":{"passenger_seats":48}},
-    "liquid_carriage":{"name":"Tank Car", "platform":"rail_car_16m", "mod":{"liquid_storage_120kL":1}},
-    "bulk_carriage":{"name":"Bulk Car", "platform":"rail_car_16m", "mod":{"bulk_storage_120kL":1}},
-    "box_carriage":{"name":"Box Car", "platform":"rail_car_16m", "mod":{"closed_storage_150kL":1}},
+    "flatbed_carriage":{ "name":"Flatbed Car", "platform":"rail_car_16m", "mod":{"open_storage":100}},
+    "personnel_carriage":{"name":"Passenger Car", "platform":"rail_car_20m", "mod":{"passenger_storage":48}},
+    "liquid_carriage":{"name":"Tank Car", "platform":"rail_car_16m", "mod":{"liquid_storage":120}},
+    "bulk_carriage":{"name":"Bulk Car", "platform":"rail_car_16m", "mod":{"bulk_storage":120}},
+    "box_carriage":{"name":"Box Car", "platform":"rail_car_16m", "mod":{"open_storage":100}},
 
 }

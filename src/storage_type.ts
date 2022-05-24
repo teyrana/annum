@@ -17,8 +17,9 @@ export class StorageType {
   static readonly DISCRETE = new StorageType('DISCRETE', 'd');  // for resources in discrete sizes: i.e. a sheep, a missile
   static readonly GAS =      new StorageType('GAS',      'g');
   static readonly LIQUID =   new StorageType('LIQUID',   'l');
-  static readonly NONE =     new StorageType('None',     'n');  // cannot be stored:
-  static readonly POWER =    new StorageType('POWER',    'p');  // for storage of electricity:
+  static readonly NONE =     new StorageType('NONE',     'n');  // cannot be stored:
+  static readonly PERSONNEL =new StorageType('PERSONNEL','p');  // people (i.e. seats)
+  static readonly POWER =    new StorageType('POWER',    'e');  // for storage of electricity:
 
   get code(): string {
     return String.fromCharCode(this._code);

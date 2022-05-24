@@ -17,6 +17,7 @@
     "bulk":{"name":"Base Bulk Resource", "units":"kg", "store":"bulk"},
     "gas":{"name":"Base Gas Resource", "units":"kg", "density":1, "tag":[], "store":"gas"},
     "liquid":{"name":"Base Liquid Resource", "units":"L", "density":1, "tag":["air"], "store":"gas"},
+    "personnel":{"name":"Seating for Personnel in-transport", "units":"Seats", "store":"personnel"},
 
     "oxygen":{"name": "Oxygen", "super":"gas", "tag":["air"]},
     "co2":{"name": "CO2", "super":"gas", "tag":["air"]},
@@ -43,7 +44,6 @@
 
     "deuterium":{"name":"Deuterium (H2)", "density":0.005, "tag":["fusion","fuel"], "store":"gas"},
 
-    "explosives_demolition":{"name":"High Explosives", "tag":["weapons"], "store":"b"},
     "explosives_gunpowder":{"name":"Gunpowder", "tag":["weapons"], "store":"b"},
     "propellant_solid_rocket":{"name":"Solid Rocket Propellant", "desc":"Consisting of mostly: Ammonium Perchlorate (APCP)", "tag":["weapons"], "store":"b"},
 
@@ -87,11 +87,13 @@
     "weapon_crew_serve_armament":{"name":"Mounted Gun", "desc":"Example: crew-served, but dismounted weapon"},
     "weapon_auto_turret_armament":{"name":"Samson Remote Weapon Turret"},
 
+    "ammo_explosive_charge":{"name":"High Explosive Demolition Charge", "tag":["weapons"], "store":"b"},
+
     "ammo_bullet_6mm":{"name":"Bullets, 5.76mm"},
     "ammo_bullet_8mm":{"name":"Bullets, 7.62mm"},
     "ammo_bullet_12mm":{"name":"Bullets, 12.7mm", "desc":"(aka .50 Cal)"},
     "ammo_shell_18mm":{"name":"Shotgun shells, 12gau==18.53mm", "desc":"(aka .50 Cal)"},
-    "ammo_shell_25mm":{"name":"Shells, 25mm"},
+    "ammo_shell_35mm":{"name":"Shells, 35mm"},
     "ammo_shell_60mm":{"name":"Shells, 60mm"},
     "ammo_shell_90mm":{"name":"Shells, 90mm"},
     "ammo_shell_120mm":{"name":"Shells, 120mm"},

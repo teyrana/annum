@@ -5,10 +5,16 @@
     "liquid_storage":{
         "name":"Liquid Storage", "mass":10000, "volume":1000,
         "storage":{"liquid":1000}},
-
+    "open_storage":{
+        "name":"Open Storage", "mass":10000, "volume":1000,
+        "storage":{"discrete":1000}},
     "gas_storage":{
         "name":"Gas Storage", "mass":10000, "volume":1000,
         "storage":{"gas":1000}},
+
+    "passenger_storage":{
+        "name":"Passenger Seats", "mass":5000, "volume":10000,
+        "storage":{"personnel":1000}},
 
     "ice_furnace":{
         "name":"Volatiles Furnace", "vol":2000, "tags":["raw_materials"],
@@ -75,15 +81,16 @@
                                 "forge_chassis_heavy_road_truck"]},
     "precision_frame_press":{"name":"Precision Frame Press", "vol":2000},
 
-    "cement_furnace":{
-        "name":"Cemente Furnance Kiln", "vol":2000, "desc":"Composites Manufacture", "tag":["industrial","construction"]},
-
+    "construction_block_press":{
+        "name":"Construction Block Press", "vol":2000, "desc":"", "tag":["industrial","construction"],
+        "process":["press_construction_blocks"]},
     "ceramic_kiln":{
         "name":"Ceramics Kiln", "vol":2000, "desc":"Composites Manufacture", "tag":["composites"],
         "process":["smelt_glass","smelt_ceramics",
                    //"cure_composites"]},
                    "smelt_silicon_wafers","smelt_germanium_wafers",
-                   "press_construction_blocks", "bake_bricks"]},
+                   "bake_bricks"]},
+    
     "graduation_hall":{
         "name":"Graduation Hall", "vol":2000, "desc":"Assembly point for trained infantry", "tags":["industrial"],
         "process":["assemble_infantry"]},
@@ -135,34 +142,40 @@
     "athletic_facility":{"name":"Athletic Facility", "vol":2000, "desc":"" },
     "recr_drug_clinic":{"name":"Recreational Drug Clinic", "vol":2000, "desc":"" },
 
+    "algae_growth_monitor":{"name":"Algae Growth Controller", "vol":100},
+    "algae_tank":{"name":"Algae Tank", "vol":400},
     "basic_farm_house":{"name":"Simple Farm", "vol":2000, "desc":"" },
     "basic_farm_field":{"name":"Simple Farm", "vol":2000, "desc":"" },
     "hydroponic_farm_center":{"name":"Hydroponic Farm", "vol":2000, "desc":""},
     "hydroponic_farm_field":{"name":"Hydroponic Farm", "vol":2000, "desc":""},
-    "hydro_farm_center":{"name":"Aquatic Farm", "vol":2000, "desc":""},
-    "hydro_farm_tray":{"name":"Aquatic Farm", "vol":2000, "desc":""},
+    "aqua_farm_center":{"name":"Aquatic Farm", "vol":2000, "desc":""},
+    "aqua_farm_tray":{"name":"Aquatic Farm", "vol":2000, "desc":""},
     "ensemble_farm_center":{"name":"Ensemble Farm", "vol":2000, "desc":""},
     "ensemble_farm_field":{"name":"Ensemble Farm", "vol":2000, "desc":""},
     
-    "hydrocarbon_turbine":{"name":"Feul Combustion Turbine", "vol":2000,
+    "hydrocarbon_furnace":{"name":"Feul Combustion Turbine", "vol":2000,
 	                   "process":["burn_biomass_1mw",
                                       "burn_timber_1mw",
                                       "burn_coal_1mw",
-                                      "burn_oil_1mw"]},
+                                      "burn_oil_1mw",
+                                      "boil_steam"]},
+    "steam_turbine_1mw":{
+        "name":"Solar Power Segment", "vol":500,
+        "process":["generate_power_from_steam"]},
+
     "fission_power_plant_1gw":{
         "name":"Thorium Power Plant", "vol":80000,
 	"process":["react_fission_1gw"]},
     "fusion_power_plant_1gw":{
         "name":"Fusion Power Plant", "vol":80000,
 	"process":["react_fusion_1gw"]},
-
-    "solar_power_1MW":{
+    "solar_power_1mw":{
         "name":"Solar Power Segment", "vol":2000,
         "process":["generate_power_from_solar_1mw"]},
-    "wind_turbine_1MW":{
+    "wind_turbine_1mw":{
         "name":"Wind Turbine", "vol":2000, "desc":"",
         "process":["generate_power_from_wind_1mw"]},
-    "water_turbine_small":{
+    "water_turbine_1mw":{
         "name":"Water Turbine", "vol":2000,
 	"process":["generate_power_from_water_1mw"]},
 
@@ -189,11 +202,14 @@
     "laser_comm_relay":{
         "name":"Laser Communications Relay", "vol":2000},
 
-    "radar_array_1mw":{"name":"Tactical Radar", "vol":2000},
-    "radar_array_25mw":{"name":"Strategic Radar", "vol":2000},
-    "optical_tracker":{"name":"Optical Tracking Sensor", "vol":2000},
+    "radar_array_5kw":{"name":"Targeting Radar", "vol":2000},
+    "radar_array_25kw":{"name":"Theater Radar", "vol":2000},
+    "radar_array_5mw":{"name":"Strategic Radar", "vol":2000},
+
+    "ew_rx":{"name":"Electronic Warfare Receiver", "vol":20},
+    "ir_scope":{"name":"Optical Tracking Sensor", "vol":20},
                        //"process":["optical_sense":1,"infrared_sense":1}},
-    "optical_tracker":{"name":"Optical Tracking Sensor", "vol":2000},
+    "eo_scope":{"name":"Optical Tracking Sensor", "vol":20},
                        //"process":["optical_sense":50}},
 
     "freight_loader":{"name":"Freight Loader", "vol":2000},
@@ -279,12 +295,12 @@
     "explosives_manufacture":{
         "name":"Explosives mixing shop", "vol":2000, "desc":"produces (solid) explosives",
 	"tags":["ammo","industrial"],
-	"process":["make_rocket_propellant", "make_explosives", "make_gunpowder"]},
+	"process":["make_rocket_propellant", "make_explosive_charges", "make_gunpowder"]},
     "projectile_manufacture":{
         "name":"Projectile Casting Shopping", "vol":2000, "desc":"produces projectile ammunition",
 	"tags":["ammo","industrial"],
 	"process":["make_bullet_6mm", "make_bullet_8mm", "make_bullet_12mm",
-                   "make_shell_18mm", "make_shell_25mm", "make_shell_60mm", "make_shell_90mm", "make_shell_120mm"]},
+                   "make_shell_18mm", "make_shell_35mm", "make_shell_60mm", "make_shell_90mm", "make_shell_120mm"]},
     "weapons_assembly":{
         "name":"Weapons Assembly Line", "vol":2000, "desc":"produces weapons",
 	"tags":["ammo","industrial"],
@@ -307,6 +323,12 @@
         "tags":["clothing","industrial"],
 	"process":["make_clothes"]},
 
+    "piston_engine_5kw":{"name":"Piston Engine (5kW)"},
+    "generator_5kw":{"name":"Electrical Generator (5kW)"},
+    "diesel_motor_2400kw":{"name":"Diesel Engine (2.4MW)"},
+    "electric_motor_5kw":{"name":"Electric Motor (5kW)"},
+    "electric_motor_900kw":{"name":"Electric Motor (900kW)"},
+
     "railgun_50mm":{"name":"Medium Railguns"},
     "railgun_120mm":{"name":"Heavy Railguns"},
     "railgun_100mm":{"name":"Howitzer Railguns"},
@@ -315,13 +337,17 @@
     "ssm_80mm_katyusha":{"name":"Katyusha Rocket", "desc":"High-Explosive, Anti-Personnel, Artillery Rocket"},
     "atm_120mm_javelin":{"name":"Javelin"},
     "sam_120mm_stinger":{"name":"Stinger"},
-    "aam_120_sidewinder":{"name":"Sidewinder"},
+    "aam_120mm_sidewinder":{"name":"Sidewinder"},
 
-    "assult_rifle_6mm":{
+    "demolition_charges":{
+        "name":"Demolition Charges", "desc":"Explosive charges, used destroy structures (ex: C4 Charges)", "mass":20,
+        "process":["plant_demolition_charge_5kg"]},
+
+    "assault_rifle_6mm":{
         "name":"Assault Rifle", "desc":"standard infantry rifle (ex:M27 IAR)(cartridge: 5.56x45mm)", "mass":12,
         "process":["fire_gun_6mm_1r","fire_gun_6mm_3r"]},
-    "machine_gun_6mm":{
-        "name":"Dismounted Machine Gun", "desc":"???? (eg: H&K MG4)(cartridge: 5.56x45mm)","mass":65,
+    "squad_machine_gun_6mm":{
+        "name":"Squad Machine Gun", "desc":"???? (eg: H&K MG4)(cartridge: 5.56x45mm)","mass":65,
         "process":["fire_gun_6mm_8r"]},
     "pistol_8mm":{
         "name":"Pistol Sidearm", "desc":"Generic pistol sidearm (ex Walther PPK)(cartridge: 7.62mmx17mm)", "mass":3},
@@ -336,8 +362,8 @@
     "assault_shotgun_18mm":{
         "name":"Assault Shotgun", "desc":"standard shotgun", "desc":"12-gauge shotgun, with 18.53mm diameter barrel", "mass":20},
 
-    "autocannon_25mm":{
-        "name":"Autocannon", "desc":"rapid fire large-caliber cannon.  cross between artillery and a machine gun (eg M242 Bushmaster). Usable for ant-ground or anti-air", "mass":150},
+    "autocannon_35mm":{
+        "name":"Autocannon", "desc":"rapid fire large-caliber cannon.  cross between artillery and a machine gun (eg: Bushmaster III). Usable for ant-ground or anti-air (cartridge: 35x228mm)", "mass":150},
     "cannon_90mm":{
         "name":"90mm Cannon","desc":"light utility gun: 90 rifled cannon"},
     "recoilles_rifle_106mm":{
@@ -347,8 +373,6 @@
         "name":"120mm Cannon", "desc":"standard tank gun; 120mm smoothbore cannon"},
     "howitzer_155mm":{
         "name":"Howitzer", "desc":"common artillery cannon"},
-
-
 
 
 

@@ -70,25 +70,25 @@
     },
     "block_plant_t1":{
         "name": "Construction Block Factory",
-        "module":["build_construction_blocks"],
+        "module":["construction_block_press"],
         "size":[ 2, 2],
     },
+    "furnace_housing":{
+        "name": "Furnance Housing",
+        "module":["hydrocarbon_furnace"]},
     "turbine_housing":{
         "name": "Turbine Housing",
-        "module":["thermal_turbine"],
-    },
+        "module":["steam_turbine_1mw"]},
     "solar_panel_tile":{
         "name": "Solar Power Generator",
-        "module":["solar_panel"],
-    },
+        "module":["solar_power_1mw"]},
     "wind_turbine":{
         "name": "Wind Turbine",
-        "module":["wind_turbine"]
-    },
+        "module":["wind_turbine_1mw"]},
     "water_turbine":{
         "name": "Hydro Generator",
-        "module":["hydro_turbine"]
-    },
+        "module":["water_turbine_1mw"]},
+
     "bulk_storage_2x2":{
         "name":"Storage Building (2x2)",
         "volume": 2000,
@@ -97,19 +97,16 @@
     },
     "farm_4x4":{
         "name":"Small Farm Field",
-        "module":["dirt_field_tile"],
+        "module":["basic_farm_house","basic_farm_field"],
         "volume": 16000,
-        "size":[ 4,4],
-    },
+        "size":[ 4,4]},
     "farm_t1_8x8":{
         "name": "Large Farm Field",
         "volume": 64000,
-        "module":["dirt_field_tile"],
-    },
+        "module":["basic_farm_house","basic_farm_field"]},
     "apt_block":{
         "name":"Apartment Block",
-        "module":["simple_apartment"]
-    },
+        "module":["habitation_comfortable_apartment","habitation_tenement_dorm"]},
     "concentrated_solar_plant":{},
     "sea_water_evaparotation_ponds":{"name":"Sea Water Evaporation Ponds"},
     "processing_pond":{"name":"Processing Pond"},
@@ -117,9 +114,7 @@
 
     "algae_farm":{
         "name": "Algae Module",
-        "module":["algae_tank"]
-    },
-
+        "module":["algae_growth_monitor","algae_tank"]},
     "dome_2x2":{
         "name": "dome_small_2x2",
         "volume": 4000,

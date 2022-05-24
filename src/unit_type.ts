@@ -1,4 +1,5 @@
 import BaseEntryType from './base_entry_type'
+import ModuleType from './module_type'
 import StorageType from './storage_type'
 import SensorType from './sensor_type'
 import TagSet from './tag_set'
@@ -15,7 +16,7 @@ class UnitType implements BaseEntryType {
 
   readonly platform: string = '<missing>';
   // map of module names => quantity
-  readonly modules = new Map<string,number>();
+  readonly modules: Map<ModuleType,number> = null;
 
   // all of these are synthetic values, calculated from the child platform & modules
   // readonly ammo = []
@@ -45,6 +46,7 @@ class UnitType implements BaseEntryType {
     this.volume = archetype.volume;
     this.tags.update(archetype.tags);
 
+    const moduleKeyCache = new Map<string,number>();
     for( const [key,value] of Object.entries(doc)){
       if('key' === key){
         this.key = doc.key;
@@ -55,7 +57,7 @@ class UnitType implements BaseEntryType {
         return;
       }else if('modules'.startsWith(key)){
         for( const [key,qty] of Object.entries(value) ){
-          this.modules.set(key,<number>qty);
+          moduleKeyCache.set(key,<number>qty);
         };
       }else if('name' === key){
         this.name = doc.name;
@@ -72,21 +74,16 @@ class UnitType implements BaseEntryType {
         return;
       }
     }
-  }
 
-  link( masterCatalog: any): boolean {
-    const processCatalog = masterCatalog.processCatalog;
-
-    this.modules.forEach( key => {
-      const found = processCatalog.contains(key);
-      if( ! found){
-        console.log(`    !!!! @<${this.typeName}>: ${this.key.padEnd(32)}  ... could not find process: ${key}`)
-        return false;
+    const loadModules = new Map<ModuleType,number>();
+    moduleKeyCache.forEach( (qty,key) => {
+      if( catalog.module.contains(key) ){
+        loadModules.set( catalog.module.get(key), qty );
+      }else{
+        console.log(`    !!!! @<${this.typeName}>: ${this.key.padEnd(32)}  ... could not find module: ${key}`)
       }
     });
-
-
-    return true;
+    this.modules = loadModules;
   }
 
   str() : string {
@@ -97,9 +94,9 @@ class UnitType implements BaseEntryType {
 
     if( 0 < this.modules.size ){
       str += '              :: Modules: ';
-      this.modules.forEach( (qty,key) => {
+      this.modules.forEach( (qty,mod) => {
         const pad = 20;
-        str += `                  - ${key.padEnd(pad,'.')}`
+        str += `                  - ${mod.key.padEnd(pad,'.')}`
              + ` ${(0<qty)?' ':''} ${qty}\n`;
       });
     }

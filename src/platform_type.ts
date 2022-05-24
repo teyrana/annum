@@ -2,6 +2,7 @@ import BaseEntryType from './base_entry_type'
 import Cost from './cost'
 import TagSet from './tag_set'
 import MobilityType from './mobility_type'
+import ModuleType from './module_type'
 import SensorType from './sensor_type'
 
 class PlatformType implements BaseEntryType {
@@ -26,7 +27,7 @@ class PlatformType implements BaseEntryType {
   readonly mass: number = 1000; // mass of platform itself
   readonly volume: number = 0;  // available volume for internal modules
   readonly mounts: string[] = []; // available external module mounts
-  readonly modules = new Set<string>();
+  readonly modules: Set<ModuleType>;
 
   readonly superKey?: string;
   readonly tags?: TagSet = new TagSet();
@@ -51,6 +52,7 @@ class PlatformType implements BaseEntryType {
     this.volume = archetype.volume;
     this.tags.update(archetype.tags);
 
+    let moduleKeyCache = new Set<string>();
     for( const [key,value] of Object.entries(doc)){
       if('armor' === key){
         this.armor = <number>value;
@@ -74,7 +76,7 @@ class PlatformType implements BaseEntryType {
       }else if( ('move'===key) || ('mobility'.startsWith(key)) ){
         this.mobility = MobilityType.parse(<string>value);
       }else if('modules'.startsWith(key)){
-        (<any>value).forEach( m => { this.modules.add(m); } );
+        (<any>value).forEach( m => { moduleKeyCache.add(m); } );
       }else if('size' === key ){
         this.dimensions.length = value[0];
         this.dimensions.width = value[1];
@@ -90,27 +92,29 @@ class PlatformType implements BaseEntryType {
         console.error(`!!!! Could not load into: ${this.constructor.name} // at entry: ${doc.key}    // json key: ${key}`);
       }
     }
-  }
-
-  link( masterCatalog: any ): boolean {
-    const moduleCatalog = masterCatalog.module;
 
     //console.log(`    @ [${this.key}] <${this.typeName}>  ==>>  ${other.at(0).typeName}`);
 
-    // this could probably be converted to a map-reduce, or something
-    this.modules.forEach( key => {
-      if( ! moduleCatalog.contains(key) ){
-        console.log(`    !! could not find module: ${key} in building: ${this.key}`);
-        return false;
+
+    const loadModuleSet = new Set<ModuleType>();
+    moduleKeyCache.forEach( key => {
+      if( catalog.module.contains(key) ){
+        loadModuleSet.add( catalog.module.get(key) );
+      }else{
+        console.log(`    !! could not find module: ${key} in platform: ${this.key}`);
       }
     });
-
-    return true;
+    this.modules = loadModuleSet;
   }
 
   str() : string {
     let str = '';
-    str += `          - [${this.index.toString().padStart(3)}][${this.key}]: "${this.name}"\n`;
+    str += `          - [${this.index.toString().padStart(3)}][${this.key}]: "${this.name}"`;
+
+    if( 0 < this.modules.size ){
+      str += '\n              :mods: '
+        + Array.from(this.modules).map( m => m.key ).join(', ');
+    }
 
     if( 0 < this.tags.size){
       str += `              :: Tags: [${this.tags}]\n`;

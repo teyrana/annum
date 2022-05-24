@@ -11,8 +11,7 @@ class ProcessType implements BaseEntryType {
   readonly index: number = 0;
   readonly key: Lowercase<string> = 'default_key';
   
-  // readonly io = new Map<ResourceType,number>();
-  readonly io = new Map<string,number>();
+  readonly io: Map<ResourceType, number> = null;
 
   readonly superKey?: string;
   readonly tags?: TagSet = new TagSet();
@@ -36,6 +35,8 @@ class ProcessType implements BaseEntryType {
       doc['desc'] = this.description;
     }
 
+    // temporary cache -- just for the keys
+    let inputOutputKeys = new Map<string,number>();
     for( const [key,value] of Object.entries(doc)){
       if('key' === key){
         this.key = doc.key;
@@ -46,7 +47,7 @@ class ProcessType implements BaseEntryType {
         this.name = doc.name;
       }else if('io' === key){
         for( const [key,qty] of Object.entries(doc.io) ){
-          this.io.set(key,<number>qty);
+          inputOutputKeys.set(key,<number>qty);
         };
       }else if('description'.startsWith(key)){
         this.description = doc.desc;
@@ -57,19 +58,18 @@ class ProcessType implements BaseEntryType {
       }
     }
 
-    //verify links:
-    //console.log(`    @ [${this.key}] <${this.typeName}>`);
-    const resourceCatalog = catalog.resource;
-
-    // .1. process => resource
-    this.io.forEach( (qty,key) => {
-      const found = resourceCatalog.contains(key);
-      if( ! found){
-        console.log(`    !! could not find resource: ${key} for process: ${this.key}`);
+    // Load Dependent classes:
+    // (A) I/O: find resources by key => load iff found
+    const loadInputOutput = new Map<ResourceType,number>();
+    inputOutputKeys.forEach( (quantity, resourceKey) => {
+      if( catalog.resource.contains(resourceKey) ){
+        loadInputOutput.set( catalog.resource.get(resourceKey), quantity );
+      }else{
+        console.log(`    !! could not find resource: ${resourceKey} for process: ${this.key}`);
         return;
       }
     });
-
+    this.io = loadInputOutput;
   }
 
   str() : string {
@@ -78,9 +78,9 @@ class ProcessType implements BaseEntryType {
 
     if( 0 < this.io.size){
       str += `              :: Inputs / Outputs:\n`;
-      this.io.forEach( (qty,key) => {
+      this.io.forEach( (qty, rsc) => {
         const pad = 20;
-        str += `                  - ${key.padEnd(pad,'.')}`
+        str += `                  - ${rsc.key.padEnd(pad,'.')}`
              + ` ${(0<qty)?' ':''} ${qty}\n`;
       });
     }

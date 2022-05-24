@@ -21,7 +21,7 @@
     "generate_power_from_biopower_1mw":{"name":"Generate BioPower", "tag":["electricity"], "io":{"oxygen": -1,"light": -1, "co2":1, "power":1000.0}},
     "generate_power_from_solar_1mw":{"name":"Generate (Solar) Power", "tag":["electricity"], "io":{"power": 1000.0, "light": -1.0}},
 
-    "generate_steam":{"name":"Generate Steam", "io":{"heat":-1,"water":-5,"steam":5}},
+    "boil_steam":{"name":"Generate Steam", "io":{"heat":-1,"water":-5,"steam":5}},
     "generate_power_from_steam":{"name":"Generate Steam Power", "tag":["electricity"], "io":{"steam":-1,"power":50}},
 
     "press_construction_blocks":{"name": "Press Construction Blocks", "tag":["industrial","infrastructer"]},
@@ -76,12 +76,12 @@
     "make_automated_tools":{"name":"Build Automated Tools", "tag":["tools"], "io":{"carbon_steel_ingot":-1, "tool_steel_ingot":-1, "si_chip":-0.2, "automated_tools":4}},
     "make_robotic_tools":{"name":"Build Robotic Tools", "tag":["tools"], "io":{"carbon_steel_ingot":-1, "tool_steel_ingot":-1, "si_chip":-0.2, "robotic_tools":4}},
 
-    "make_explosives":{
+    "make_explosive_charges":{
         "name":"Manufacture Explosive", "tag":["industrial","weapons"], 
         "io":{"biomass":-1,
               "time":-20,
               "power":-30,
-              "explosives_demolition":5}},
+              "ammo_explosive_charge":5}},
     "make_gunpowder":{
         "name":"Manufacture Gunpowder", "tag":["industrial","weapons"], 
         "io":{"biomass":-1,
@@ -133,13 +133,13 @@
               "time":-20,
               "power":-30,
               "ammo_shell_18mm":4600}},
-    "make_shell_25mm":{
+    "make_shell_35mm":{
         "name":"Manufacture Medium-Caliber Shell-Ammunition", "tag":["industrial","weapons"], 
         "io":{"brass_ingot":-1,
               "explosives_gunpowder":-5,
               "time":-20,
               "power":-30,
-              "ammo_shell_25mm":2800}},
+              "ammo_shell_35mm":2800}},
     "make_shell_60mm":{
         "name":"Manufacture Medium-Caliber Shell Ammunition", "tag":["industrial","weapons"], 
         "io":{"brass_ingot":-1,
@@ -162,6 +162,9 @@
               "power":-30,
               "ammo_shell_120mm":800}},
 
+    "plant_demolition_charge_5kg":{
+        "name":"Plant Demolition Charge (5kg)", "tag":["weapons","combat"],
+        "io":{"ammo_explosive_charge":-5, "time":-5.0}},
     "fire_gun_6mm_1r":{
         "name":"Fire 6mm bullet", "tag":["weapons","combat"], 
         "io":{"ammo_bullet_6mm":-1, "time":-1.2}},

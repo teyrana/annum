@@ -3,6 +3,7 @@ import Cost from './cost'
 import StorageType from './storage_type'
 import TagSet from './tag_set'
 import ProcessType from './process_type'
+import ResourceType from './resource_type'
 
 class ModuleType implements BaseEntryType {
   readonly typeName: string = 'ModuleType';
@@ -17,27 +18,24 @@ class ModuleType implements BaseEntryType {
   readonly mass: number = 1000.0;  // units = kilograms
   readonly volume: number = 1000.0;  // units == L (liters, litres)
 
-  // really process -> quantity
-  readonly process = new Set<string>();
+  readonly process: Set<ProcessType> = null;
 
   readonly mount: string = 'internal';
 
   // really resource -> quantity
   // quantity / mass / resource of the _contained_ resource
-  readonly store = new Map<string,number>();
+  readonly store: Map<ResourceType, number> = null;
 
   readonly superKey?: string;
   readonly tags?: TagSet = new TagSet()
 
-  private valid_: boolean = true;
-  
   copy( entryIndex:number, doc: any, catalog ) : ModuleType {
     return new ModuleType( entryIndex, this, doc, catalog );
   }
 
-  constructor( entryIndex: number = -1, archetype: ModuleType = null, doc: any = null, masterCatalog = null ){
+  constructor( entryIndex: number = -1, archetype: ModuleType = null, doc: any = null, catalog = null ){
     this.index = entryIndex;
-    if( (archetype === null) || (doc === null) || (masterCatalog==null) ){
+    if( (archetype === null) || (doc === null) ){
       return;
     }
     
@@ -49,6 +47,8 @@ class ModuleType implements BaseEntryType {
     this.store = archetype.store;
     this.tags.update(archetype.tags);
 
+    let storageKeyCache = new Map<string,number>();
+    let processKeyCache = new Set<string>();
     for( const [key,value] of Object.entries(doc)){
       //console.log(`      ${key} : ${value}`);
       if('description'.startsWith(key)){
@@ -62,13 +62,13 @@ class ModuleType implements BaseEntryType {
         this.name = <string>value;;
 
       }else if('processes'.startsWith(key)){
-        (<any>value).forEach( ea => { this.process.add(ea); } );
+        (<any>value).forEach( ea => { processKeyCache.add(ea); } );
 
       }else if(('store' === key) || ('storage' === key)){
         // this is a Map< resource, quantity >
         // - storage type is a property of a resource, and merely inherited by storage
         for( const [key,qty] of Object.entries(value) ){
-          this.store.set( key, <number>qty );
+          storageKeyCache.set( key, <number>qty );
         }
       }else if('super' === key){
         this.superKey = doc['super'];
@@ -88,29 +88,28 @@ class ModuleType implements BaseEntryType {
     }
 
     // verify links:
-    const processCatalog = masterCatalog.process;
-    const resourceCatalog = masterCatalog.resource;
-
     // .1. module => process
-    this.process.forEach( key => {
-      const found = processCatalog.contains(key);
-      if( ! found){
+    const loadProcessSet = new Set<ProcessType>();
+    processKeyCache.forEach( key => {
+      if( catalog.process.contains(key) ){
+        loadProcessSet.add( catalog.process.get(key) );
+      }else{
         console.log(`    !!!! @<${this.typeName}>: ${this.key.padEnd(32)}  ... could not find process: ${key}`)
-        this.valid_ = false;
         return;
       }
     });
+    this.process = loadProcessSet;
 
     // .1. module => resource
-    this.store.forEach( (qty,key) => {
-      const found = resourceCatalog.contains(key);
-      if( ! found){
+    const loadStorageMap = new Map<ResourceType, number>();
+    storageKeyCache.forEach( (qty,key) => {
+      if( catalog.resource.contains(key) ){
+        loadStorageMap.set( catalog.resource.get(key), qty );
+      }else{
         console.log(`    !!!! <${this.typeName}> @[${this.key.padEnd(32)}].storage: ${key}`)
-        this.valid_ = false;
       }
     });
-
-
+    this.store = loadStorageMap;
   }
 
   str() : string {
@@ -128,11 +127,11 @@ class ModuleType implements BaseEntryType {
 
     if( 0 < this.process.size ){
       str += '\n              :proc: '
-          + Array.from(this.process).join(', ');
+        + Array.from(this.process).map( p => p.key ).join(', ');
     }
     if( 0 < this.store.size ){
       str += '\n              :store: '
-          + Array.from(this.store, ([rsc,qty]) => `${rsc}:${qty}`).join(', ');
+          + Array.from(this.store, ([rsc,qty]) => `${rsc.key}:${qty}`).join(', ');
     }
     
     if( 0 < this.tags.size ){
@@ -143,7 +142,7 @@ class ModuleType implements BaseEntryType {
   }
 
   valid(): boolean {
-    return this.valid_
+    return ( (null !== this.process) && (null !== this.store) );
   }
 
 }

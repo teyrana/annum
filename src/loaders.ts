@@ -47,7 +47,7 @@ function loadType<EntryType extends BaseEntryType>( data, archetype: EntryType, 
       if( 'super' in <any>row ){
         let superKey: string = row['super'];
         if(table.contains(superKey)){
-          let superEntry = table.by(superKey);
+          let superEntry = table.get(superKey);
           entry = superEntry.copy(entryCount, row, catalog);
           entryCount++;
         }else{
@@ -147,10 +147,8 @@ export function loadAllTypes(): boolean {
     //printEntries( resources, 'tiberium' );
     // printEntries( processes, 'tiberium');
     //printEntries( technologies, 'tiberium');
-    //printEntries( weapons);
-    //console.log(`<<== Loaded ${allTags.size} tags.`);
-    //console.log(`    ${Array.from(allTags).join(',')}`);
-    //printEntries( modules );
+    //printEntries( catalog.module );
+    //printEntries( catalog.platform );
   }
   // debug
 

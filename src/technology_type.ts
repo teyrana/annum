@@ -56,10 +56,6 @@ class TechnologyType implements BaseEntryType {
     }
   }
 
-  link(other:any): boolean {
-    return true;
-  }
-
   str() : string {
     let str = '';
     str += `          - [${this.index.toString().padStart(3)}][${this.key}]: "${this.name}"\n`;

@@ -23,7 +23,7 @@ export class EntryTable<EntryType extends BaseEntryType> implements Iterable<Ent
     return this.index[lookup];
   }
 
-  by( lookup: string ): EntryType {
+  get( lookup: string ): EntryType {
     return this.map.get(lookup);
   }
 
